@@ -6,7 +6,7 @@ namespace YASLMAT
     {
         static void Main(string[] args)
         {
-            //start coding :D
+            Console.WriteLine("Hello World");
         }
     }
 }
