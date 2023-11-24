@@ -65,18 +65,20 @@
 
 ## Funktionen
 
-- Erstellen einer Liste (erstellen Datei, dann ins Bearbeiten Menü)
-  - (automatisch) Generation ID der Liste (Check, dass nicht doppelt)
-  - (manuell) Eingabe Name der Liste
-  - (optional) Eingabe Laden der Liste
-  - (automatisch) Erstellung der Datei
-  - Optionen
-    - Abbrechen (alles Verwerfen, Datei nicht erstellen, zurück zum Main menü)
-- Anzeigen aller vorhandenen Listen
-  - Optionen
-    - Bearbeiten der Liste
-    - Löschen der Liste
-    - zurück zur Anzeige aller Listen
-- Auswählen und Anzeigen einer Liste
-- Auswählen und Bearbeiten einer Liste
-- Auswählen und Löschen einer Liste
+- Main menü
+  - Auswahl
+    - Erstellen einer Liste (erstellen Datei, dann ins Bearbeiten Menü)
+      - (automatisch) Generation ID der Liste (Check, dass nicht doppelt)
+      - (manuell) Eingabe Name der Liste
+      - (optional) Eingabe Laden der Liste
+      - (automatisch) Erstellung der Datei
+      - Optionen
+        - Abbrechen (alles Verwerfen, Datei nicht erstellen, zurück zum Main menü)
+    - Anzeigen aller vorhandenen Listen
+      - Optionen
+        - Bearbeiten der Liste
+        - Löschen der Liste
+        - zurück zur Anzeige aller Listen
+    - Auswählen und Anzeigen einer Liste
+    - Auswählen und Bearbeiten einer Liste
+    - Auswählen und Löschen einer Liste
