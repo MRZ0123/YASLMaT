@@ -75,6 +75,7 @@
         - Liste Erstellen
           - (automatisch) Erstellung der Datei
           - (automatisch) schreiben Informationen in index.json
+          - (automatisch) Verschiebe den Nutzer ins Bearbeiten Menü
         - Abbrechen
           - (automatisch) alles verwerfen
           - (automatisch) datei nicht erstellen
@@ -82,8 +83,12 @@
       - (dauerhaft unten anzeigen) Optionen 
         - Abbrechen (alles Verwerfen, Datei nicht erstellen, zurück zum Main menü)
     - Anzeigen aller vorhandenen Listen
+      - (automatisch) index.json auslesen
+      - (automatisch) für jede Liste Namen und Laden anzeigen
+      - (automatisch) id im Hinterkopf halten
       - Optionen
         - Bearbeiten der Liste
+          - -> Bearbeiten Menü
         - Löschen der Liste
         - zurück zur Anzeige aller Listen
     - Auswählen und Anzeigen einer Liste
