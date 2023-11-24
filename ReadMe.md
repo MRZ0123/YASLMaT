@@ -70,6 +70,8 @@
   - Eingabe Name der Liste
   - (optional) Eingabe Laden der Liste
   - (automatisch) Erstellung der Datei
+  - Optionen
+    - Abbrechen (alles Verwerfen, Datei nicht erstellen, zurück zum Main menü)
 - Anzeigen aller vorhandenen Listen
   - Optionen
     - Bearbeiten der Liste
