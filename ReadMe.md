@@ -76,9 +76,9 @@
           - (automatisch) Erstellung der Datei
           - (automatisch) schreiben Informationen in index.json
         - Abbrechen
-          - alles verwerfen
-          - datei nicht erstellen
-          - zurück zum main Menü
+          - (automatisch) alles verwerfen
+          - (automatisch) datei nicht erstellen
+          - (automatisch) zurück zum main Menü
       - (dauerhaft unten anzeigen) Optionen 
         - Abbrechen (alles Verwerfen, Datei nicht erstellen, zurück zum Main menü)
     - Anzeigen aller vorhandenen Listen
