@@ -67,7 +67,10 @@
 
 - Erstellen einer Liste (erstellen Datei, dann ins Bearbeiten Menü)
 - Anzeigen aller vorhandenen Listen
-  - Optionen: Bearbeiten der Liste, Löschen der Liste, zurück zur Anzeige aller Listen
+  - Optionen
+    - Bearbeiten der Liste
+    - Löschen der Liste
+    - zurück zur Anzeige aller Listen
 - Auswählen und Anzeigen einer Liste
 - Auswählen und Bearbeiten einer Liste
 - Auswählen und Löschen einer Liste
