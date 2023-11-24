@@ -90,8 +90,8 @@
         - Liste Auswählen (Zeilennummer eingeben)
           - Bearbeiten der Liste (B/Bearbeiten eingeben)
             - -> Bearbeiten Menü
-        - Löschen der Liste
-        - zurück zur Anzeige aller Listen
+          - Löschen der Liste (L/Löschen eingeben)
+          - zurück zur Anzeige aller Listen (Z/Zurück eingeben)
     - Auswählen und Anzeigen einer Liste
     - Auswählen und Bearbeiten einer Liste
     - Auswählen und Löschen einer Liste
