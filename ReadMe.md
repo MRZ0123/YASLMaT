@@ -71,8 +71,15 @@
       - (automatisch) Generation ID der Liste (Check, dass nicht doppelt)
       - (manuell) Eingabe Name der Liste
       - (optional) Eingabe Laden der Liste
-      - (automatisch) Erstellung der Datei
-      - Optionen
+      - (manuell) Abfrage
+        - Liste Erstellen
+          - (automatisch) Erstellung der Datei
+          - (automatisch) schreiben Informationen in index.json
+        - Abbrechen
+          - alles verwerfen
+          - datei nicht erstellen
+          - zurück zum main Menü
+      - (dauerhaft unten anzeigen) Optionen 
         - Abbrechen (alles Verwerfen, Datei nicht erstellen, zurück zum Main menü)
     - Anzeigen aller vorhandenen Listen
       - Optionen
