@@ -67,7 +67,7 @@
 
 - Erstellen einer Liste (erstellen Datei, dann ins Bearbeiten Menü)
   - (automatisch) Generation ID der Liste (Check, dass nicht doppelt)
-  - Eingabe Name der Liste
+  - (manuell) Eingabe Name der Liste
   - (optional) Eingabe Laden der Liste
   - (automatisch) Erstellung der Datei
   - Optionen
