@@ -91,6 +91,8 @@
           - Bearbeiten der Liste (B/Bearbeiten eingeben)
             - -> Bearbeiten Menü
           - Löschen der Liste (L/Löschen eingeben)
+            - (automatisch) Datei löschen
+            - (automatisch) aus der index.json austragen
           - zurück zur Anzeige aller Listen (Z/Zurück eingeben)
     - Auswählen und Anzeigen einer Liste
     - Auswählen und Bearbeiten einer Liste
