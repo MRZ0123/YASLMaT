@@ -84,11 +84,12 @@
         - Abbrechen (alles Verwerfen, Datei nicht erstellen, zurück zum Main menü)
     - Anzeigen aller vorhandenen Listen
       - (automatisch) index.json auslesen
-      - (automatisch) für jede Liste Namen und Laden anzeigen
+      - (automatisch) für jede Liste Zeile, Namen und Laden anzeigen
       - (automatisch) id im Hinterkopf halten
       - Optionen
-        - Bearbeiten der Liste
-          - -> Bearbeiten Menü
+        - Liste Auswählen (Zeilennummer eingeben)
+          - Bearbeiten der Liste (B/Bearbeiten eingeben)
+            - -> Bearbeiten Menü
         - Löschen der Liste
         - zurück zur Anzeige aller Listen
     - Auswählen und Anzeigen einer Liste
