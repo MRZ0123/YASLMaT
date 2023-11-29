@@ -54,8 +54,16 @@ namespace YASLMAT
             {
                 this.itemCount = itemCount;
                 this.itemName = itemName;
-                this.itemPriceForOne = itemPriceForOne.ToString();
+                this.itemPriceForOne = itemPriceForOne.ToString() + "€";
                 this.itemPriceForCount = (itemCount * itemPriceForOne).ToString();
+            }
+
+            // constructor if item doesn't have a price
+            public Item(long itemCount, string itemName) {
+                this.itemCount=itemCount;
+                this.itemName=itemName;
+                this.itemPriceForOne=",-€";
+                this.itemPriceForCount=",-€";
             }
         }
         static void Main(string[] args)
