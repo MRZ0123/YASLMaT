@@ -71,6 +71,11 @@ namespace YASLMAT
                 this.itemPriceForCount = itemCount * itemPriceForOne;
 
             }
+
+            public void RemovePrice() {
+                this.itemPriceForOne = null;
+                this.itemPriceForCount = null;
+            }
         }
         static void Main(string[] args)
         {
