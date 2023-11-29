@@ -49,6 +49,7 @@ namespace YASLMAT
             private string itemPriceForOne { get; set; }
             private string itemPriceForCount { get; set; }
 
+            // default constructor if item has a price
             public Item(long itemCount, string itemName, float itemPriceForOne)
             {
                 this.itemCount = itemCount;
