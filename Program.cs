@@ -9,6 +9,7 @@ namespace YASLMAT
         * 
         * struct used to describe each list inside the index.json
         * also present at the start of each list
+        * 
         */
         struct MetadataList
         {
@@ -17,9 +18,7 @@ namespace YASLMAT
             private string shop { get; set; }
             private long fullItemCount { get; set; }
 
-            /*
-            * default constructor if a shop has been named
-            */
+            //default constructor if a shop has been named
             public MetadataList(string id, string name, string shop)
             {
                 this.id = id;
@@ -27,9 +26,7 @@ namespace YASLMAT
                 this.shop = shop;
             }
 
-            /*
-            * constructor if no shop has been named
-            */
+            // constructor if no shop has been named
             public MetadataList(string id, string name)
             {
                 this.id = id;
@@ -37,6 +34,16 @@ namespace YASLMAT
                 this.shop = "";
             }
 
+        }
+
+        /*
+        * Added by: Manuel
+        * 
+        * struct used to describe one item inside a shopping list
+        * 
+        */
+        struct Item {
+            
         }
         static void Main(string[] args)
         {
