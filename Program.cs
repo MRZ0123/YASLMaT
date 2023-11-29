@@ -42,7 +42,12 @@ namespace YASLMAT
         * struct used to describe one item inside a shopping list
         * 
         */
-        struct Item {
+        struct Item
+        {
+            private long itemCount { get; set; }
+            private string itemName { get; set; }
+            private string itemPriceForOne { get; set; }
+            private string itemPriceForCount { get; set; }
 
         }
         static void Main(string[] args)
