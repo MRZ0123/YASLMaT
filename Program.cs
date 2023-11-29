@@ -11,7 +11,7 @@ namespace YASLMAT
         * also present at the start of each list
         * 
         */
-        struct MetadataList
+        struct Metadata
         {
             private string id { get; }
             private string name { get; set; }
@@ -19,7 +19,7 @@ namespace YASLMAT
             private long fullItemCount { get; set; }
 
             //default constructor if a shop has been named
-            public MetadataList(string id, string name, string shop)
+            public Metadata(string id, string name, string shop)
             {
                 this.id = id;
                 this.name = name;
@@ -27,7 +27,7 @@ namespace YASLMAT
             }
 
             // constructor if no shop has been named
-            public MetadataList(string id, string name)
+            public Metadata(string id, string name)
             {
                 this.id = id;
                 this.name = name;
@@ -43,7 +43,7 @@ namespace YASLMAT
         * 
         */
         struct Item {
-            
+
         }
         static void Main(string[] args)
         {
