@@ -24,13 +24,13 @@
             "id" : ,                    // automatic (random, but unique)
             "name" : ,                  // mandatory (after file creation)
             "shop" : ,                  // optional
-            "full-item-count" : ,       // automatic
+            "fullItemCount" : ,         // automatic
         },
         {   // this is the second shopping list
             "id" : ,                    // automatic (random, but unique)
             "name" : ,                  // mandatory (after file creation)
             "shop" : ,                  // optional
-            "full-item-count" : ,       // automatic
+            "fullItemCount" : ,         // automatic
         },
     ],
 }
@@ -44,20 +44,20 @@
         "id" : ,                        // automatic (random, but unique)
         "name" : ,                      // mandatory (after file creation)
         "shop" : ,                      // optional
-        "full-item-count" : ,           // automatic
+        "fullItemCount" : ,             // automatic
     },
     "content" : [
         {   // this is the first item
-            "item-count" : ,            // mandatory
-            "item-name" : ,             // mandatory
-            "item-price-for-one" : ,    // optional
-            "item-price-for-count" : ,  // automatic
+            "itemCount" : ,             // mandatory
+            "itemName" : ,              // mandatory
+            "itemPriceForOne" : ,       // optional
+            "itemPriceForCount" : ,     // automatic
         },
         {   // this is the second item
-            "item-count" : ,            // mandatory
-            "item-name" : ,             // mandatory
-            "item-price-for-one" : ,    // optional
-            "item-price-for-count" : ,  // automatic
+            "itemCount" : ,             // mandatory
+            "itemName" : ,              // mandatory
+            "itemPriceForOne" : ,       // optional
+            "itemPriceForCount" : ,     // automatic
         },
     ],
 }
