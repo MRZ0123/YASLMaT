@@ -49,6 +49,13 @@ namespace YASLMAT
             private string itemPriceForOne { get; set; }
             private string itemPriceForCount { get; set; }
 
+            public Item(long itemCount, string itemName, float itemPriceForOne)
+            {
+                this.itemCount = itemCount;
+                this.itemName = itemName;
+                this.itemPriceForOne = itemPriceForOne.ToString();
+                this.itemPriceForCount = (itemCount * itemPriceForOne).ToString();
+            }
         }
         static void Main(string[] args)
         {
