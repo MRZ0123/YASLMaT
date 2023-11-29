@@ -13,10 +13,10 @@ namespace YASLMAT
         */
         struct Metadata
         {
-            private string id { get; }
-            private string name { get; set; }
-            private string shop { get; set; }
-            private long fullItemCount { get; set; }
+            public string id { get; }
+            public string name { get; set; }
+            public string shop { get; set; }
+            public long fullItemCount { get; set; }
 
             //default constructor if a shop has been named
             public Metadata(string id, string name, string shop)
@@ -44,9 +44,9 @@ namespace YASLMAT
         */
         struct Item
         {
-            private long itemCount { get; set; }
-            private string itemName { get; set; }
-            private string itemPriceForOne { get; set; }
+            public long itemCount { get; set; }
+            public string itemName { get; set; }
+            public string itemPriceForOne { get; }
             private string itemPriceForCount { get; set; }
 
             // default constructor if item has a price
