@@ -46,24 +46,30 @@ namespace YASLMAT
         {
             public long itemCount { get; set; }
             public string itemName { get; set; }
-            public string itemPriceForOne { get; }
-            private string itemPriceForCount { get; set; }
+            private float? itemPriceForOne { get; set; }
+            private float? itemPriceForCount { get; set; }
 
             // default constructor if item has a price
             public Item(long itemCount, string itemName, float itemPriceForOne)
             {
                 this.itemCount = itemCount;
                 this.itemName = itemName;
-                this.itemPriceForOne = itemPriceForOne.ToString() + "€";
-                this.itemPriceForCount = (itemCount * itemPriceForOne).ToString();
+                this.itemPriceForOne = itemPriceForOne;
+                this.itemPriceForCount = itemCount * itemPriceForOne;
             }
 
             // constructor if item doesn't have a price
-            public Item(long itemCount, string itemName) {
-                this.itemCount=itemCount;
-                this.itemName=itemName;
-                this.itemPriceForOne=",-€";
-                this.itemPriceForCount=",-€";
+            public Item(long itemCount, string itemName)
+            {
+                this.itemCount = itemCount;
+                this.itemName = itemName;
+            }
+
+            public void SetItemPriceForOne(float itemPriceForOne)
+            {
+                this.itemPriceForOne = itemPriceForOne;
+                this.itemPriceForCount = itemCount * itemPriceForOne;
+
             }
         }
         static void Main(string[] args)
