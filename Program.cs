@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace YASLMAT
 {
@@ -77,10 +78,13 @@ namespace YASLMAT
                 this.itemPriceForCount = null;
             }
         }
+
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World");
             System.Console.WriteLine("Bye World");
+            
         }
     }
 }
