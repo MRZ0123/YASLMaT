@@ -78,6 +78,10 @@ namespace YASLMAT
         }
     }
 
+    class ShoppingList {
+        
+    }
+
     class Program
     {
 
