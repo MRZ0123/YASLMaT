@@ -7,6 +7,24 @@ namespace YASLMAT
     /**
      * Added by: Manuel
      * 
+     * struct used to represent the config content
+     * 
+     */
+    struct ConfigContent
+    {
+        public string indexFileLocation { get; }
+        public string shoppingListDirectory { get; }
+
+        public ConfigContent(string indexFileLocation, string shoppingListDirectory)
+        {
+            this.indexFileLocation = indexFileLocation;
+            this.shoppingListDirectory = shoppingListDirectory;
+        }
+    }
+    
+    /**
+     * Added by: Manuel
+     * 
      * struct used to describe each list inside the index.json
      * also present at the start of each list
      * 
