@@ -128,6 +128,7 @@ namespace YASLMAT
          * 
          * function used to check if there's a config present
          * ! Needs to be ran every time the program starts
+         * 
          */
         static void checkConfig()
         {
