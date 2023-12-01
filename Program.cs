@@ -135,9 +135,13 @@ namespace YASLMAT
             string configFilePath = @"./config.json";
             if (!File.Exists(configFilePath))
             {
+                string defaultConfigContent = @"{
+""indexFileLocation"" : ""./index.json"";
+""shoppingListDirectory"" : ""./data/"";
+}";
                 using (StreamWriter streamWriter = File.CreateText(configFilePath))
                 {
-                    
+                    streamWriter.Write(defaultConfigContent);
                 }
             }
         }
