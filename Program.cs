@@ -173,6 +173,16 @@ namespace YASLMAT
         /**
          * Added by: Manuel
          * 
+         * function to get config content into config object
+         * 
+         */
+        static ConfigContent readConfig(string configFilePath)
+        {
+            return new ConfigContent();
+        }
+        /**
+         * Added by: Manuel
+         * 
          * function used to remove a shopping list based on a shopping list object
          * 
          */
