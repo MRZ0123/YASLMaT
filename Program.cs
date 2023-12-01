@@ -132,7 +132,14 @@ namespace YASLMAT
          */
         static void checkConfig()
         {
-
+            string configFilePath = @"./config.xml";
+            if (!File.Exists(configFilePath))
+            {
+                using (StreamWriter streamWriter = File.CreateText(configFilePath))
+                {
+                    
+                }
+            }
         }
 
         /**
