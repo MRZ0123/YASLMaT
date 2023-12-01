@@ -130,7 +130,7 @@ namespace YASLMAT
          * ! Needs to be run every time the program starts
          * 
          */
-        static void checkConfig()
+        static bool checkConfig()
         {
             string configFilePath = @"./config.json";
             if (!File.Exists(configFilePath))
@@ -143,6 +143,11 @@ namespace YASLMAT
                 {
                     streamWriter.Write(defaultConfigContent);
                 }
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 
