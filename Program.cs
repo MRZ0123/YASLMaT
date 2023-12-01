@@ -116,6 +116,10 @@ namespace YASLMAT
     class Program
     {
 
+        /**
+         * TODO: checkConfig
+         * TODO: readConfig -> beide dinger in variablen rein
+         */
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World");
@@ -130,9 +134,8 @@ namespace YASLMAT
          * ! Needs to be run every time the program starts
          * 
          */
-        static bool checkConfig()
+        static void checkConfig(string configFilePath)
         {
-            string configFilePath = @"./config.json";
             if (!File.Exists(configFilePath))
             {
                 string defaultConfigContent = @"{
@@ -143,11 +146,6 @@ namespace YASLMAT
                 {
                     streamWriter.Write(defaultConfigContent);
                 }
-                return false;
-            }
-            else
-            {
-                return true;
             }
         }
 
