@@ -21,7 +21,7 @@ namespace YASLMAT
             this.shoppingListDirectory = shoppingListDirectory;
         }
     }
-    
+
     /**
      * Added by: Manuel
      * 
@@ -136,7 +136,7 @@ namespace YASLMAT
 
         /**
          * TODO: checkConfig
-         * TODO: readConfig -> beide dinger in variablen rein
+         * TODO: readConfig -> beide dinger in ConfigContent variable rein.
          */
         static void Main(string[] args)
         {
