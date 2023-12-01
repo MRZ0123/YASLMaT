@@ -79,7 +79,8 @@ namespace YASLMAT
     }
 
     class ShoppingList {
-        
+        public Metadata metadata;
+        public List<Item> items;
     }
 
     class Program
