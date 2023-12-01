@@ -180,7 +180,7 @@ namespace YASLMAT
             string configString = "";
             using (StreamReader streamReader = new StreamReader(configFilePath))
             {
-                string currentLine;
+                string? currentLine;
                 while ((currentLine = streamReader.ReadLine()) != null)
                 {
                     configString += (currentLine + "\n");
