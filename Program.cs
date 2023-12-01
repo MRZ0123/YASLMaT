@@ -95,6 +95,11 @@ namespace YASLMAT
             this.metadata = metadata;
             this.items = new List<Item>();
         }
+
+        public void addItem(Item item)
+        {
+            this.items.Add(item);
+        }
     }
 
     class Program
