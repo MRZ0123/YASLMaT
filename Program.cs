@@ -130,8 +130,8 @@ namespace YASLMAT
          */
         /** 
          * TODO: check id
-         * TODO: delete file
          * TODO: delete index entry
+         * TODO: delete file
          * 
          */
         static void removeShoppingList(ShoppingList shoppingList)
