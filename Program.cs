@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Text.Json.Serialization;
+using System.IO;
+using System.Text.Json;
 
 namespace YASLMAT
 {
@@ -119,6 +120,17 @@ namespace YASLMAT
         {
             Console.WriteLine("Hello World");
             System.Console.WriteLine("Bye World");
+
+        }
+
+        /**
+         * Added by: Manuel
+         * 
+         * function used to check if there's a config present
+         * ! Needs to be ran every time the program starts
+         */
+        static void checkConfig()
+        {
 
         }
 
