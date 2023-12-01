@@ -86,8 +86,8 @@ namespace YASLMAT
     */
     class ShoppingList
     {
-        public Metadata metadata;
-        public List<Item> items;
+        public Metadata metadata { get; set; }
+        public List<Item> items { get; set; }
 
         // constructor for all cases
         public ShoppingList(Metadata metadata)
