@@ -13,11 +13,11 @@
 │   └─index.json
 └─path
   └─to
-    ├─data directory
-    ├─{id}_shopping list name 1.json
-    ├─{id}_shopping list name 2.json
-    ├─{id}_shopping list name 3.json
-    └─{id}_shopping list name 4.json
+    └─data directory
+      ├─{id}_shopping list name 1.json
+      ├─{id}_shopping list name 2.json
+      ├─{id}_shopping list name 3.json
+      └─{id}_shopping list name 4.json
 ```
 
 ### Aufbau Dateien
