@@ -119,5 +119,16 @@ namespace YASLMAT
             System.Console.WriteLine("Bye World");
 
         }
+
+        /*
+         * Added by: Manuel
+         * 
+         * function used to remove a shopping list based on a shopping list object
+         * 
+         */
+        // TODO: code
+        static void removeShoppingList(ShoppingList shoppingList) {
+            string shoppingListId = shoppingList.metadata.id;
+        }
     }
 }
