@@ -101,11 +101,13 @@ namespace YASLMAT
             this.items.Add(item);
         }
 
-        public void removeItem(Item item) {
+        public void removeItem(Item item)
+        {
             this.items.Remove(item);
         }
 
-        public void removeItemIndex(int index) {
+        public void removeItemIndex(int index)
+        {
             this.items.RemoveAt(index);
         }
     }
@@ -127,7 +129,8 @@ namespace YASLMAT
          * 
          */
         // TODO: code
-        static void removeShoppingList(ShoppingList shoppingList) {
+        static void removeShoppingList(ShoppingList shoppingList)
+        {
             string shoppingListId = shoppingList.metadata.id;
         }
     }
