@@ -160,8 +160,8 @@ namespace YASLMAT
             if (!File.Exists(configFilePath))
             {
                 string defaultConfigContent = @"{
-""indexFileLocation"" : ""./index.json"";
-""shoppingListDirectory"" : ""./data/"";
+    ""indexFileLocation"" : ""./index.json"";
+    ""shoppingListDirectory"" : ""./data/"";
 }";
                 using (StreamWriter streamWriter = File.CreateText(configFilePath))
                 {
