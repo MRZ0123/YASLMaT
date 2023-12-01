@@ -100,6 +100,10 @@ namespace YASLMAT
         {
             this.items.Add(item);
         }
+
+        public void removeItem(Item item) {
+            this.items.Remove(item);
+        }
     }
 
     class Program
