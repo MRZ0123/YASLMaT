@@ -159,13 +159,12 @@ namespace YASLMAT
         {
             if (!File.Exists(configFilePath))
             {
-                string defaultConfigContent = @"{
-    ""indexFileLocation"" : ""./index.json"";
-    ""shoppingListDirectory"" : ""./data/"";
-}";
+                ConfigContent defaultConfigContent = new ConfigContent("./index.json", "./data/");
+                JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { WriteIndented = true };
+                string writableJson = JsonSerializer.Serialize<ConfigContent>(defaultConfigContent, jsonOptions);
                 using (StreamWriter streamWriter = File.CreateText(configFilePath))
                 {
-                    streamWriter.Write(defaultConfigContent);
+                    streamWriter.Write(writableJson);
                 }
             }
         }
@@ -178,6 +177,16 @@ namespace YASLMAT
          */
         static ConfigContent readConfig(string configFilePath)
         {
+            string configString = "";
+            using (StreamReader streamReader = new StreamReader(configFilePath))
+            {
+                string currentLine;
+                while ((currentLine = streamReader.ReadLine()) != null)
+                {
+                    configString += (currentLine + "\n");
+                }
+            }
+            ConfigContent config = JsonSerializer.Deserialize<ConfigContent>(configString);
             return new ConfigContent();
         }
         /**
