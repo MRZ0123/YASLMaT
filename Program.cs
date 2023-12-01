@@ -78,9 +78,23 @@ namespace YASLMAT
         }
     }
 
-    class ShoppingList {
+    /*
+    * Added by: Manuel
+    * 
+    * class used to describe an entire shopping list
+    * 
+    */
+    class ShoppingList
+    {
         public Metadata metadata;
         public List<Item> items;
+
+        // constructor for all cases
+        public ShoppingList(Metadata metadata)
+        {
+            this.metadata = metadata;
+            this.items = new List<Item>();
+        }
     }
 
     class Program
