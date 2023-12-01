@@ -104,6 +104,10 @@ namespace YASLMAT
         public void removeItem(Item item) {
             this.items.Remove(item);
         }
+
+        public void removeItemIndex(int index) {
+            this.items.RemoveAt(index);
+        }
     }
 
     class Program
