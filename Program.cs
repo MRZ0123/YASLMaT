@@ -1,15 +1,34 @@
 ﻿using System;
-using System.Text.Json.Serialization;
+using System.IO;
+using System.Text.Json;
 
 namespace YASLMAT
 {
-    /*
-    * Added by: Manuel
-    * 
-    * struct used to describe each list inside the index.json
-    * also present at the start of each list
-    * 
-    */
+    /**
+     * Added by: Manuel
+     * 
+     * struct used to represent the config content
+     * 
+     */
+    struct ConfigContent
+    {
+        public string indexFileLocation { get; }
+        public string shoppingListDirectory { get; }
+
+        public ConfigContent(string indexFileLocation, string shoppingListDirectory)
+        {
+            this.indexFileLocation = indexFileLocation;
+            this.shoppingListDirectory = shoppingListDirectory;
+        }
+    }
+
+    /**
+     * Added by: Manuel
+     * 
+     * struct used to describe each list inside the index.json
+     * also present at the start of each list
+     * 
+     */
     struct Metadata
     {
         public string id { get; }
@@ -35,12 +54,12 @@ namespace YASLMAT
 
     }
 
-    /*
-    * Added by: Manuel
-    * 
-    * struct used to describe one item inside a shopping list
-    * 
-    */
+    /**
+     * Added by: Manuel
+     * 
+     * struct used to describe one item inside a shopping list
+     * 
+     */
     struct Item
     {
         public long itemCount { get; set; }
@@ -78,12 +97,12 @@ namespace YASLMAT
         }
     }
 
-    /*
-    * Added by: Manuel
-    * 
-    * class used to describe an entire shopping list
-    * 
-    */
+    /**
+     * Added by: Manuel
+     * 
+     * class used to describe an entire shopping list
+     * 
+     */
     class ShoppingList
     {
         public Metadata metadata { get; set; }
@@ -95,16 +114,77 @@ namespace YASLMAT
             this.metadata = metadata;
             this.items = new List<Item>();
         }
+
+        public void addItem(Item item)
+        {
+            this.items.Add(item);
+        }
+
+        public void removeItem(Item item)
+        {
+            this.items.Remove(item);
+        }
+
+        public void removeItemIndex(int index)
+        {
+            this.items.RemoveAt(index);
+        }
     }
 
     class Program
     {
 
+        /**
+         * TODO: checkConfig
+         * TODO: readConfig -> beide dinger in ConfigContent variable rein.
+         */
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World");
             System.Console.WriteLine("Bye World");
 
+        }
+
+        /**
+         * Added by: Manuel
+         * 
+         * function used to check if there's a config present
+         * ! Needs to be run every time the program starts
+         * 
+         * Call with :
+         * string configFilePath = @"./config.json";
+         * checkConfig(configFilePath);
+         */
+        static void checkConfig(string configFilePath)
+        {
+            if (!File.Exists(configFilePath))
+            {
+                string defaultConfigContent = @"{
+""indexFileLocation"" : ""./index.json"";
+""shoppingListDirectory"" : ""./data/"";
+}";
+                using (StreamWriter streamWriter = File.CreateText(configFilePath))
+                {
+                    streamWriter.Write(defaultConfigContent);
+                }
+            }
+        }
+
+        /**
+         * Added by: Manuel
+         * 
+         * function used to remove a shopping list based on a shopping list object
+         * 
+         */
+        /** 
+         * TODO: check id
+         * TODO: delete index entry
+         * TODO: delete file
+         * 
+         */
+        static void removeShoppingList(ShoppingList shoppingList)
+        {
+            string shoppingListId = shoppingList.metadata.id;
         }
     }
 }
