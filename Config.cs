@@ -1,7 +1,10 @@
+using System.Text.Json;
+
 namespace Manuel
 {
     class Config
     {
+
         /** Added by: Manuel
          * 
          * struct used to represent the config content
@@ -16,6 +19,30 @@ namespace Manuel
             {
                 this.indexFileLocation = indexFileLocation;
                 this.shoppingListDirectory = shoppingListDirectory;
+            }
+        }
+
+
+        /** Added by: Manuel
+         * 
+         * function used to check if there's a config present
+         * ! Needs to be run every time the program starts
+         * 
+         * Call with :
+         * string configFilePath = @"./config.json";
+         * checkConfig(configFilePath);
+         */
+        void checkConfig(string configFilePath)
+        {
+            if (!File.Exists(configFilePath))
+            {
+                ConfigContent defaultConfigContent = new ConfigContent("./index.json", "./data/");
+                JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { WriteIndented = true };
+                string writableJson = JsonSerializer.Serialize<ConfigContent>(defaultConfigContent, jsonOptions);
+                using (StreamWriter streamWriter = File.CreateText(configFilePath))
+                {
+                    streamWriter.Write(writableJson);
+                }
             }
         }
 
