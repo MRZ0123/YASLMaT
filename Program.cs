@@ -130,29 +130,6 @@ namespace YASLMAT
 
         }
 
-        /**
-         * Added by: Manuel
-         * 
-         * function used to check if there's a config present
-         * ! Needs to be run every time the program starts
-         * 
-         * Call with :
-         * string configFilePath = @"./config.json";
-         * checkConfig(configFilePath);
-         */
-        static void checkConfig(string configFilePath)
-        {
-            if (!File.Exists(configFilePath))
-            {
-                Config.ConfigContent defaultConfigContent = new Config.ConfigContent("./index.json", "./data/");
-                JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { WriteIndented = true };
-                string writableJson = JsonSerializer.Serialize<Config.ConfigContent>(defaultConfigContent, jsonOptions);
-                using (StreamWriter streamWriter = File.CreateText(configFilePath))
-                {
-                    streamWriter.Write(writableJson);
-                }
-            }
-        }
 
         /**
          * Added by: Manuel
