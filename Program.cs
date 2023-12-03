@@ -1,26 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Text.Json;
+using Manuel;
 
 namespace YASLMAT
 {
-    /**
-     * Added by: Manuel
-     * 
-     * struct used to represent the config content
-     * 
-     */
-    struct ConfigContent
-    {
-        public string indexFileLocation { get; }
-        public string shoppingListDirectory { get; }
 
-        public ConfigContent(string indexFileLocation, string shoppingListDirectory)
-        {
-            this.indexFileLocation = indexFileLocation;
-            this.shoppingListDirectory = shoppingListDirectory;
-        }
-    }
 
     /**
      * Added by: Manuel
@@ -136,7 +121,7 @@ namespace YASLMAT
 
         /**
          * TODO: checkConfig
-         * TODO: readConfig -> beide dinger in ConfigContent variable rein.
+         * TODO: readConfig -> beide dinger in Config.ConfigContent variable rein.
          */
         static void Main(string[] args)
         {
@@ -159,9 +144,9 @@ namespace YASLMAT
         {
             if (!File.Exists(configFilePath))
             {
-                ConfigContent defaultConfigContent = new ConfigContent("./index.json", "./data/");
+                Config.ConfigContent defaultConfigContent = new Config.ConfigContent("./index.json", "./data/");
                 JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { WriteIndented = true };
-                string writableJson = JsonSerializer.Serialize<ConfigContent>(defaultConfigContent, jsonOptions);
+                string writableJson = JsonSerializer.Serialize<Config.ConfigContent>(defaultConfigContent, jsonOptions);
                 using (StreamWriter streamWriter = File.CreateText(configFilePath))
                 {
                     streamWriter.Write(writableJson);
@@ -175,7 +160,7 @@ namespace YASLMAT
          * function to get config content into config object
          * 
          */
-        static ConfigContent readConfig(string configFilePath)
+        static Config.ConfigContent readConfig(string configFilePath)
         {
             string configString = "";
             using (StreamReader streamReader = new StreamReader(configFilePath))
@@ -186,8 +171,8 @@ namespace YASLMAT
                     configString += (currentLine + "\n");
                 }
             }
-            ConfigContent config = JsonSerializer.Deserialize<ConfigContent>(configString);
-            return new ConfigContent();
+            Config.ConfigContent config = JsonSerializer.Deserialize<Config.ConfigContent>(configString);
+            return new Config.ConfigContent();
         }
         /**
          * Added by: Manuel
