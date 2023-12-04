@@ -20,22 +20,5 @@ namespace YASLMAT
 
         }
 
-
-        /**
-         * Added by: Manuel
-         * 
-         * function used to remove a shopping list based on a shopping list object
-         * 
-         */
-        /** 
-         * TODO: check id
-         * TODO: delete index entry
-         * TODO: delete file
-         * 
-         */
-        static void removeShoppingList(ShoppingList shoppingList)
-        {
-            string shoppingListId = shoppingList.metadata.id;
-        }
     }
 }
