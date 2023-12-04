@@ -12,22 +12,22 @@ namespace Manuel
          */
         public struct Content
         {
-            public List<ShoppingList.Metadata> Metadata { get; set; }
+            public List<ShoppingList.Metadata> MetadataIndex { get; set; }
 
             // default constructor
             public Content()
             {
-                this.Metadata = new List<ShoppingList.Metadata>();
+                this.MetadataIndex = new List<ShoppingList.Metadata>();
             }
 
             public void AddMetadata(ShoppingList.Metadata metadata)
             {
-                this.Metadata.Add(metadata);
+                this.MetadataIndex.Add(metadata);
             }
 
             public void RemoveMetadata(ShoppingList.Metadata metadata)
             {
-                this.Metadata.Remove(metadata);
+                this.MetadataIndex.Remove(metadata);
             }
         }
 
