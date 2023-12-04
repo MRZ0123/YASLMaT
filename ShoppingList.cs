@@ -125,9 +125,9 @@ namespace Manuel
          * TODO: delete file
          * 
          */
-        public static void Remove(string id)
+        public static void Remove(Config.Content currentConfig, string id)
         {
-            GetFiles();
+            string[] files = Directory.GetFiles(currentConfig.shoppingListDirectory, id + "*.json");
         }
     }
 }
