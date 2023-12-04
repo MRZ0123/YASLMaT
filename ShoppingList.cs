@@ -119,7 +119,7 @@ namespace Manuel
          * function used to remove a shopping list based on a shopping list object
          * 
          */
-        /** 
+        /** TODO:
          * TODO: check id
          * TODO: delete index entry
          * TODO: delete file
@@ -127,7 +127,7 @@ namespace Manuel
          */
         public static void Remove(Config.Content currentConfig, string id)
         {
-            string[] files = Directory.GetFiles(currentConfig.shoppingListDirectory, id + "*.json");
+            string[] files = Directory.GetFiles(currentConfig.shoppingListDirectory, id + "_*.json");
         }
     }
 }
