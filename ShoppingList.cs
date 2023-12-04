@@ -9,7 +9,7 @@ namespace Manuel
          * also present at the start of each list
          * 
          */
-        struct Metadata
+        public struct Metadata
         {
             public string id { get; }
             public string name { get; set; }
@@ -40,7 +40,7 @@ namespace Manuel
          * struct used to describe one item inside a shopping list
          * 
          */
-        struct Item
+        public struct Item
         {
             public long itemCount { get; set; }
             public string itemName { get; set; }
@@ -83,7 +83,7 @@ namespace Manuel
          * class used to describe an entire shopping list
          * 
          */
-        struct Content
+        public struct Content
         {
             public Metadata metadata { get; set; }
             public List<Item> items { get; set; }
@@ -110,5 +110,7 @@ namespace Manuel
                 this.items.RemoveAt(index);
             }
         }
+
+        
     }
 }
