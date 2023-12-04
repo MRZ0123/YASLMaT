@@ -51,7 +51,7 @@ namespace Manuel
 
         /** Added by: Manuel
          * 
-         * function used to put metadata into file
+         * function used to write content into index file
          * 
          */
         public void Write(Config.Content currentConfig, Content metadata)
