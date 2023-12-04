@@ -134,26 +134,6 @@ namespace YASLMAT
         /**
          * Added by: Manuel
          * 
-         * function to get config content into config object
-         * 
-         */
-        static Config.ConfigContent readConfig(string configFilePath)
-        {
-            string configString = "";
-            using (StreamReader streamReader = new StreamReader(configFilePath))
-            {
-                string? currentLine;
-                while ((currentLine = streamReader.ReadLine()) != null)
-                {
-                    configString += (currentLine + "\n");
-                }
-            }
-            Config.ConfigContent config = JsonSerializer.Deserialize<Config.ConfigContent>(configString);
-            return new Config.ConfigContent();
-        }
-        /**
-         * Added by: Manuel
-         * 
          * function used to remove a shopping list based on a shopping list object
          * 
          */
