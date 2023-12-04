@@ -39,20 +39,21 @@ namespace Manuel
          * string configFilePath = @"./config.json";
          * checkConfig(configFilePath);
          */
-        public static void Check(string configFilePath)
+        public static bool Check(string configFilePath)
         {
-            if (!File.Exists(configFilePath))
-            {
-                Content defaultConfigContent = new Content("./index.json", "./data/");
-                JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { WriteIndented = true };
-                string writableJson = JsonSerializer.Serialize<Content>(defaultConfigContent, jsonOptions);
-                using (StreamWriter streamWriter = File.CreateText(configFilePath))
-                {
-                    streamWriter.Write(writableJson);
-                }
-            }
+            return File.Exists(configFilePath);
         }
 
+        public static void Create(string configFilePath)
+        {
+            Content defaultConfigContent = new Content("./index.json", "./data/");
+            JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { WriteIndented = true };
+            string writableJson = JsonSerializer.Serialize<Content>(defaultConfigContent, jsonOptions);
+            using (StreamWriter streamWriter = File.CreateText(configFilePath))
+            {
+                streamWriter.Write(writableJson);
+            }
+        }
         /** Added by: Manuel
          * 
          * function to get config content into config object
