@@ -1,29 +1,35 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace Manuel
 {
     class Index
     {
-
         /** Added by: Manuel
          * 
-         * function used to get the position of a metadafield by the id of a shopping list
+         * struct used to define the content of the index file
          * 
          */
-        public void AddMetadataField(ShoppingList.Metadata metadata)
+
+        public struct Content
         {
+            public List<ShoppingList.Metadata> Metadata { get; set; }
 
-        }
+            // default constructor
+            public Content()
+            {
+                this.Metadata = new List<ShoppingList.Metadata>();
+            }
 
+            public void AddMetadata(ShoppingList.Metadata metadata)
+            {
+                this.Metadata.Add(metadata);
+            }
 
-        /** Added by: Manuel
-         * 
-         * function used to get the position of a metadafield by the id of a shopping list
-         * 
-         */
-        public int findListById(Config.Content currentConfig, string id) // TODO:
-        {
-            return 0;
+            public void RemoveMetadata(ShoppingList.Metadata metadata)
+            {
+                this.Metadata.Remove(metadata);
+            }
         }
     }
 }
