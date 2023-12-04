@@ -10,7 +10,6 @@ namespace Manuel
          * struct used to define the content of the index file
          * 
          */
-
         public struct Content
         {
             public List<ShoppingList.Metadata> Metadata { get; set; }
@@ -30,6 +29,11 @@ namespace Manuel
             {
                 this.Metadata.Remove(metadata);
             }
+        }
+
+        public void CreateIndexFile(Config.Content currentConfig)
+        {
+
         }
     }
 }
