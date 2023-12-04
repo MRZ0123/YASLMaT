@@ -34,6 +34,18 @@ namespace Manuel
 
         /** Added by: Manuel
          * 
+         * function used to check if an index file already exists
+         * 
+         */
+        public static bool Check(Config.Content currentConfig)
+        {
+            string indexFileLocation = currentConfig.IndexFileLocation;
+            return File.Exists(indexFileLocation);
+        }
+
+
+        /** Added by: Manuel
+         * 
          * function used to create an index file
          * 
          */
