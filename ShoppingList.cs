@@ -114,6 +114,7 @@ namespace Manuel
             }
         }
 
+
         /** Added by: Manuel
          * 
          * function used to remove a shopping list based on a shopping list object
