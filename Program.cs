@@ -21,6 +21,7 @@ namespace YASLMAT
                 Config.Create(configFileLocation);
             }
             Config.Content currentConfig = Config.Read(configFileLocation);
+
             Console.WriteLine(currentConfig.ToString());
             ShoppingList.Remove(currentConfig, "12345");
         }
