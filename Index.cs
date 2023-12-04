@@ -31,6 +31,12 @@ namespace Manuel
             }
         }
 
+
+        /** Added by: Manuel
+         * 
+         * function used to create an index file
+         * 
+         */
         public void CreateIndexFile(Config.Content currentConfig)
         {
 
