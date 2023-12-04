@@ -32,7 +32,7 @@ namespace Manuel
          * string configFilePath = @"./config.json";
          * checkConfig(configFilePath);
          */
-        void checkConfig(string configFilePath)
+        static void checkConfig(string configFilePath)
         {
             if (!File.Exists(configFilePath))
             {
