@@ -12,8 +12,8 @@ namespace Manuel
          */
         public struct Content
         {
-            public string indexFileLocation { get; } // TODO: test if privatable
-            public string shoppingListDirectory { get; } // TODO: test if privatable
+            public string indexFileLocation { get; set; }
+            public string shoppingListDirectory { get; set; }
 
             public Content(string indexFileLocation, string shoppingListDirectory)
             {
