@@ -14,18 +14,31 @@ namespace Manuel
          */
         public struct Content
         {
+            public string Language { get; set; }
             public string IndexFileLocation { get; set; }
             public string ShoppingListDirectory { get; set; }
 
-            public Content(string indexFileLocation, string shoppingListDirectory)
+            public Content(string language, string indexFileLocation, string shoppingListDirectory)
             {
+                switch (language.ToUpper())
+                {
+                    case "DE":
+                        this.Language=language.ToUpper();
+                        break;
+                    case "EN":
+                        this.Language=language.ToUpper();
+                        break;
+                    default:
+                        System.Console.WriteLine("Default reached in language switch.");
+                        throw new ArgumentException($"---------- German ----------\n{language} ist keine der unterstützten Sprachen: Deutsch | Englisch\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\n{language} is not one of the valid languages: German | English\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
+                }
                 this.IndexFileLocation = indexFileLocation;
                 this.ShoppingListDirectory = shoppingListDirectory;
             }
 
             public override string ToString()
             {
-                return $"{{\n\t\"indexFileLocation\": \"{this.IndexFileLocation}\",\n\t\"shoppingListDirectory\": \"{this.ShoppingListDirectory}\"\n}}";
+                return $"{{\n\t\"Language\": \"{this.Language}\"\n\t\"IndexFileLocation\": \"{this.IndexFileLocation}\",\n\t\"ShoppingListDirectory\": \"{this.ShoppingListDirectory}\"\n}}";
             }
         }
 
@@ -46,7 +59,7 @@ namespace Manuel
 
         public static void Create(string configFileLocation)
         {
-            Content defaultConfigContent = new Content("./index.json", "./data/");
+            Content defaultConfigContent = new Content("DE", "./index.json", "./data/");
             JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { WriteIndented = true };
             string writableJson = JsonSerializer.Serialize<Content>(defaultConfigContent, jsonOptions);
             using (StreamWriter streamWriter = File.CreateText(configFileLocation))
