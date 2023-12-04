@@ -37,7 +37,7 @@ namespace Manuel
          * function used to create an index file
          * 
          */
-        public void CreateIndexFile(Config.Content currentConfig)
+        public void Create(Config.Content currentConfig)
         {
             string indexFileLocation = currentConfig.IndexFileLocation;
             Content indexContent = new Content();
@@ -46,6 +46,23 @@ namespace Manuel
             {
                 streamWriter.Write(writableJson);
             }
+        }
+
+
+        /** Added by: Manuel
+         * 
+         * function used to put metadata into file
+         * 
+         */
+        public void Write(Config.Content currentConfig, Content metadata)
+        {
+            string indexFileLocation = currentConfig.IndexFileLocation;
+            string writableJson = JsonSerializer.Serialize<Content>(metadata);
+            using (StreamWriter streamWriter = File.CreateText(indexFileLocation))
+            {
+                streamWriter.Write(writableJson);
+            }
+
         }
     }
 }
