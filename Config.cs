@@ -10,12 +10,12 @@ namespace Manuel
          * struct used to represent the config content
          * 
          */
-        public struct ConfigContent
+        public struct Content
         {
             public string indexFileLocation { get; } // TODO: test if privatable
             public string shoppingListDirectory { get; } // TODO: test if privatable
 
-            public ConfigContent(string indexFileLocation, string shoppingListDirectory)
+            public Content(string indexFileLocation, string shoppingListDirectory)
             {
                 this.indexFileLocation = indexFileLocation;
                 this.shoppingListDirectory = shoppingListDirectory;
@@ -37,13 +37,13 @@ namespace Manuel
          * string configFilePath = @"./config.json";
          * checkConfig(configFilePath);
          */
-        public static void checkConfig(string configFilePath)
+        public static void check(string configFilePath)
         {
             if (!File.Exists(configFilePath))
             {
-                ConfigContent defaultConfigContent = new ConfigContent("./index.json", "./data/");
+                Content defaultConfigContent = new Content("./index.json", "./data/");
                 JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { WriteIndented = true };
-                string writableJson = JsonSerializer.Serialize<ConfigContent>(defaultConfigContent, jsonOptions);
+                string writableJson = JsonSerializer.Serialize<Content>(defaultConfigContent, jsonOptions);
                 using (StreamWriter streamWriter = File.CreateText(configFilePath))
                 {
                     streamWriter.Write(writableJson);
@@ -56,7 +56,7 @@ namespace Manuel
          * function to get config content into config object
          * 
          */
-        public static ConfigContent readConfig(string configFilePath)
+        public static Content read(string configFilePath)
         {
             string configString = "";
             using (StreamReader streamReader = new StreamReader(configFilePath))
@@ -67,7 +67,7 @@ namespace Manuel
                     configString += (currentLine + "\n");
                 }
             }
-            ConfigContent config = JsonSerializer.Deserialize<ConfigContent>(configString);
+            Content config = JsonSerializer.Deserialize<Content>(configString);
             return config;
         }
     }
