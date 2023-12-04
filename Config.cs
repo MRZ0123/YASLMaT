@@ -36,20 +36,20 @@ namespace Manuel
          * ! Needs to be run every time the program starts
          * 
          * Call with :
-         * string configFilePath = @"./config.json";
-         * checkConfig(configFilePath);
+         * string configFileLocation = @"./config.json";
+         * checkConfig(configFileLocation);
          */
-        public static bool Check(string configFilePath)
+        public static bool Check(string configFileLocation)
         {
-            return File.Exists(configFilePath);
+            return File.Exists(configFileLocation);
         }
 
-        public static void Create(string configFilePath)
+        public static void Create(string configFileLocation)
         {
             Content defaultConfigContent = new Content("./index.json", "./data/");
             JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { WriteIndented = true };
             string writableJson = JsonSerializer.Serialize<Content>(defaultConfigContent, jsonOptions);
-            using (StreamWriter streamWriter = File.CreateText(configFilePath))
+            using (StreamWriter streamWriter = File.CreateText(configFileLocation))
             {
                 streamWriter.Write(writableJson);
             }
@@ -59,10 +59,10 @@ namespace Manuel
          * function to get config content into config object
          * 
          */
-        public static Content Read(string configFilePath)
+        public static Content Read(string configFileLocation)
         {
             string configString = "";
-            using (StreamReader streamReader = new StreamReader(configFilePath))
+            using (StreamReader streamReader = new StreamReader(configFileLocation))
             {
                 string? currentLine;
                 while ((currentLine = streamReader.ReadLine()) != null)
