@@ -1,3 +1,6 @@
+using System;
+using System.IO;
+
 namespace Manuel
 {
     class ShoppingList
@@ -122,9 +125,9 @@ namespace Manuel
          * TODO: delete file
          * 
          */
-        public static void Remove(Content shoppingList)
+        public static void Remove(string id)
         {
-            string shoppingListId = shoppingList.metadata.id;
+            GetFiles();
         }
     }
 }
