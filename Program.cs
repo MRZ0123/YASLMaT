@@ -10,8 +10,8 @@ namespace YASLMAT
     {
 
         /**
-         * TODO: checkConfig
-         * TODO: readConfig -> beide dinger in Config.ConfigContent variable rein.
+         * TODO: Check -> if not -> Create
+         * TODO: Read -> beide dinger in Config.Content variable rein.
          */
         static void Main(string[] args)
         {
@@ -21,7 +21,7 @@ namespace YASLMAT
                 Config.Create(configFileLocation);
             }
             Config.Content currentConfig = Config.Read(configFileLocation);
-            System.Console.WriteLine(currentConfig.ToString());
+            Console.WriteLine(currentConfig.ToString());
             ShoppingList.Remove(currentConfig, "12345");
         }
 
