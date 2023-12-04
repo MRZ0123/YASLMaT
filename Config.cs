@@ -14,18 +14,18 @@ namespace Manuel
          */
         public struct Content
         {
-            public string indexFileLocation { get; set; }
-            public string shoppingListDirectory { get; set; }
+            public string IndexFileLocation { get; set; }
+            public string ShoppingListDirectory { get; set; }
 
             public Content(string indexFileLocation, string shoppingListDirectory)
             {
-                this.indexFileLocation = indexFileLocation;
-                this.shoppingListDirectory = shoppingListDirectory;
+                this.IndexFileLocation = indexFileLocation;
+                this.ShoppingListDirectory = shoppingListDirectory;
             }
 
             public override string ToString()
             {
-                return $"{{\n\t\"indexFileLocation\": \"{this.indexFileLocation}\",\n\t\"shoppingListDirectory\": \"{this.shoppingListDirectory}\"\n}}";
+                return $"{{\n\t\"indexFileLocation\": \"{this.IndexFileLocation}\",\n\t\"shoppingListDirectory\": \"{this.ShoppingListDirectory}\"\n}}";
             }
         }
 
@@ -36,32 +36,33 @@ namespace Manuel
          * ! Needs to be run every time the program starts
          * 
          * Call with :
-         * string configFilePath = @"./config.json";
-         * checkConfig(configFilePath);
+         * string configFileLocation = @"./config.json";
+         * checkConfig(configFileLocation);
          */
-        public static void Check(string configFilePath)
+        public static bool Check(string configFileLocation)
         {
-            if (!File.Exists(configFilePath))
-            {
-                Content defaultConfigContent = new Content("./index.json", "./data/");
-                JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { WriteIndented = true };
-                string writableJson = JsonSerializer.Serialize<Content>(defaultConfigContent, jsonOptions);
-                using (StreamWriter streamWriter = File.CreateText(configFilePath))
-                {
-                    streamWriter.Write(writableJson);
-                }
-            }
+            return File.Exists(configFileLocation);
         }
 
+        public static void Create(string configFileLocation)
+        {
+            Content defaultConfigContent = new Content("./index.json", "./data/");
+            JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { WriteIndented = true };
+            string writableJson = JsonSerializer.Serialize<Content>(defaultConfigContent, jsonOptions);
+            using (StreamWriter streamWriter = File.CreateText(configFileLocation))
+            {
+                streamWriter.Write(writableJson);
+            }
+        }
         /** Added by: Manuel
          * 
          * function to get config content into config object
          * 
          */
-        public static Content Read(string configFilePath)
+        public static Content Read(string configFileLocation)
         {
             string configString = "";
-            using (StreamReader streamReader = new StreamReader(configFilePath))
+            using (StreamReader streamReader = new StreamReader(configFileLocation))
             {
                 string? currentLine;
                 while ((currentLine = streamReader.ReadLine()) != null)

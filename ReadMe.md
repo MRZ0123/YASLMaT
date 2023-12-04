@@ -26,18 +26,18 @@
 
 ```json
 {
-    "content" : [
+    "MetadataIndex" : [
         {   // this is the first shopping list
-            "id" : ,                    // automatic (random, but unique)
-            "name" : ,                  // mandatory (after file creation)
-            "shop" : ,                  // optional
-            "fullItemCount" : ,         // automatic
+            "Id" : ,                    // automatic (random, but unique)
+            "Name" : ,                  // mandatory (after file creation)
+            "Shop" : ,                  // optional
+            "FullItemCount" : ,         // automatic
         },
         {   // this is the second shopping list
-            "id" : ,                    // automatic (random, but unique)
-            "name" : ,                  // mandatory (after file creation)
-            "shop" : ,                  // optional
-            "fullItemCount" : ,         // automatic
+            "Id" : ,                    // automatic (random, but unique)
+            "Name" : ,                  // mandatory (after file creation)
+            "Shop" : ,                  // optional
+            "FullItemCount" : ,         // automatic
         },
     ],
 }
@@ -47,24 +47,24 @@
 
 ```json
 {
-    "metadata" : {
-        "id" : ,                        // automatic (random, but unique)
-        "name" : ,                      // mandatory (after file creation)
-        "shop" : ,                      // optional
-        "fullItemCount" : ,             // automatic
+    "Metadata" : {
+        "Id" : ,                        // automatic (random, but unique)
+        "Name" : ,                      // mandatory (after file creation)
+        "Shop" : ,                      // optional
+        "FullItemCount" : ,             // automatic
     },
-    "content" : [
+    "Content" : [
         {   // this is the first item
-            "itemCount" : ,             // mandatory
-            "itemName" : ,              // mandatory
-            "itemPriceForOne" : ,       // optional
-            "itemPriceForCount" : ,     // automatic
+            "ItemCount" : ,             // mandatory
+            "ItemName" : ,              // mandatory
+            "ItemPriceForOne" : ,       // optional
+            "ItemPriceForCount" : ,     // automatic
         },
         {   // this is the second item
-            "itemCount" : ,             // mandatory
-            "itemName" : ,              // mandatory
-            "itemPriceForOne" : ,       // optional
-            "itemPriceForCount" : ,     // automatic
+            "ItemCount" : ,             // mandatory
+            "ItemName" : ,              // mandatory
+            "ItemPriceForOne" : ,       // optional
+            "ItemPriceForCount" : ,     // automatic
         },
     ],
 }
