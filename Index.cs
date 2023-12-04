@@ -49,7 +49,7 @@ namespace Manuel
          * function used to create an index file
          * 
          */
-        public void Create(Config.Content currentConfig)
+        public static void Create(Config.Content currentConfig)
         {
             string indexFileLocation = currentConfig.IndexFileLocation;
             Content indexContent = new Content();
@@ -66,7 +66,7 @@ namespace Manuel
          * function used to write content into index file
          * 
          */
-        public void Write(Config.Content currentConfig, Content metadata)
+        public static void Write(Config.Content currentConfig, Content metadata)
         {
             string indexFileLocation = currentConfig.IndexFileLocation;
             string writableJson = JsonSerializer.Serialize<Content>(metadata);
