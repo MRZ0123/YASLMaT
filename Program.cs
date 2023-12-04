@@ -15,9 +15,12 @@ namespace YASLMAT
          */
         static void Main(string[] args)
         {
-            string configFilePath = "./conf.ig";
-            Config.Check(configFilePath);
-            Config.Content currentConfig = Config.Read(configFilePath);
+            string configFileLocation = "./conf.ig";
+            if(! Config.Check(configFileLocation) )
+            {
+                Config.Create(configFileLocation);
+            }
+            Config.Content currentConfig = Config.Read(configFileLocation);
             System.Console.WriteLine(currentConfig.ToString());
             ShoppingList.Remove(currentConfig, "12345");
         }
