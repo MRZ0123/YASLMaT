@@ -13,7 +13,7 @@ namespace Manuel
         public struct ConfigContent
         {
             public string indexFileLocation { get; } // TODO: test if privatable
-            private string shoppingListDirectory { get; } // TODO: test if privatable
+            public string shoppingListDirectory { get; } // TODO: test if privatable
 
             public ConfigContent(string indexFileLocation, string shoppingListDirectory)
             {
