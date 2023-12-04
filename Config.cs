@@ -14,18 +14,18 @@ namespace Manuel
          */
         public struct Content
         {
-            public string indexFileLocation { get; set; }
-            public string shoppingListDirectory { get; set; }
+            public string IndexFileLocation { get; set; }
+            public string ShoppingListDirectory { get; set; }
 
             public Content(string indexFileLocation, string shoppingListDirectory)
             {
-                this.indexFileLocation = indexFileLocation;
-                this.shoppingListDirectory = shoppingListDirectory;
+                this.IndexFileLocation = indexFileLocation;
+                this.ShoppingListDirectory = shoppingListDirectory;
             }
 
             public override string ToString()
             {
-                return $"{{\n\t\"indexFileLocation\": \"{this.indexFileLocation}\",\n\t\"shoppingListDirectory\": \"{this.shoppingListDirectory}\"\n}}";
+                return $"{{\n\t\"indexFileLocation\": \"{this.IndexFileLocation}\",\n\t\"shoppingListDirectory\": \"{this.ShoppingListDirectory}\"\n}}";
             }
         }
 
