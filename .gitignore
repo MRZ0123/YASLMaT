@@ -263,4 +263,6 @@ FakesAssemblies/
 *.opt
 
 # Custom shit
-privtest.cs
+conf.ig
+config.*
+data/
