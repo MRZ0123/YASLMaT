@@ -32,7 +32,7 @@ namespace Manuel
          * string configFilePath = @"./config.json";
          * checkConfig(configFilePath);
          */
-        static void checkConfig(string configFilePath)
+        public static void checkConfig(string configFilePath)
         {
             if (!File.Exists(configFilePath))
             {
@@ -51,7 +51,7 @@ namespace Manuel
          * function to get config content into config object
          * 
          */
-        static ConfigContent readConfig(string configFilePath)
+        public static ConfigContent readConfig(string configFilePath)
         {
             string configString = "";
             using (StreamReader streamReader = new StreamReader(configFilePath))
