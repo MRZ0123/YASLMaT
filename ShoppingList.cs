@@ -129,8 +129,8 @@ namespace Manuel
         public static void Remove(Config.Content currentConfig, string id)
         {
             string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "_*.json");
-            System.Console.WriteLine(files.Length);
-            System.Console.WriteLine("[ " + string.Join(',', files) + " ]");
+            Console.WriteLine(files.Length);
+            Console.WriteLine("[ " + string.Join(',', files) + " ]");
         }
     }
 }
