@@ -20,6 +20,11 @@ namespace Manuel
                 this.indexFileLocation = indexFileLocation;
                 this.shoppingListDirectory = shoppingListDirectory;
             }
+
+            public override string ToString()
+            {
+                return $"{{\n\t\"indexFileLocation\": \"{this.indexFileLocation}\",\n\t\"shoppingListDirectory\": \"{this.shoppingListDirectory}\"\n}}";
+            }
         }
 
 
