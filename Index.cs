@@ -1,5 +1,5 @@
 using System;
-using System.Runtime.CompilerServices;
+using System.Text.Json;
 
 namespace Manuel
 {
@@ -39,7 +39,13 @@ namespace Manuel
          */
         public void CreateIndexFile(Config.Content currentConfig)
         {
-
+            string indexFileLocation = currentConfig.IndexFileLocation;
+            Content indexContent = new Content();
+            string writableJson = JsonSerializer.Serialize<Content>(indexContent);
+            using (StreamWriter streamWriter = File.CreateText(indexFileLocation))
+            {
+                streamWriter.Write(writableJson);
+            }
         }
     }
 }
