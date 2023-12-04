@@ -103,7 +103,7 @@ namespace Manuel
                 this.Items.Add(item);
             }
 
-            public void ReadConfigemoveItem(Item item)
+            public void RemoveItemItem(Item item)
             {
                 this.Items.Remove(item);
             }
