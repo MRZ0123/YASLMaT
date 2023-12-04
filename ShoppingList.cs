@@ -111,6 +111,20 @@ namespace Manuel
             }
         }
 
-        
+        /** Added by: Manuel
+         * 
+         * function used to remove a shopping list based on a shopping list object
+         * 
+         */
+        /** 
+         * TODO: check id
+         * TODO: delete index entry
+         * TODO: delete file
+         * 
+         */
+        public static void Remove(Content shoppingList)
+        {
+            string shoppingListId = shoppingList.metadata.id;
+        }
     }
 }
