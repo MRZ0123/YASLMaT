@@ -46,5 +46,24 @@ namespace Manuel
             }
         }
 
+        /** Added by: Manuel
+         * 
+         * function to get config content into config object
+         * 
+         */
+        static ConfigContent readConfig(string configFilePath)
+        {
+            string configString = "";
+            using (StreamReader streamReader = new StreamReader(configFilePath))
+            {
+                string? currentLine;
+                while ((currentLine = streamReader.ReadLine()) != null)
+                {
+                    configString += (currentLine + "\n");
+                }
+            }
+            ConfigContent config = JsonSerializer.Deserialize<ConfigContent>(configString);
+            return config;
+        }
     }
 }
