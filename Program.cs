@@ -24,6 +24,8 @@ namespace YASLMAT
 
             Console.WriteLine(currentConfig.ToString());
             ShoppingList.Remove(currentConfig, "12345");
+            if(! Manuel.Index.Check(currentConfig))
+            Console.WriteLine(currentConfig.Language=="DE" ? "":"");
         }
 
     }
