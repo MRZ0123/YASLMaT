@@ -10,7 +10,7 @@
 ├─config.json
 ├─path
 │ └─to
-│   └─index.json
+│   └─shlindex.json
 └─path
   └─to
     └─data directory
@@ -22,7 +22,7 @@
 
 ### Aufbau Dateien
 
-#### index.json
+#### shlindex.json
 
 ```json
 {
