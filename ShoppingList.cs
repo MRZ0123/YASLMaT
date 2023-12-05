@@ -8,7 +8,7 @@ namespace Manuel
 
         /** Added by: Manuel
          * 
-         * struct used to describe each list inside the index.json
+         * struct used to describe each list inside the shlindex.json
          * also present at the start of each list
          * 
          */
@@ -122,7 +122,7 @@ namespace Manuel
          */
         /** TODO:
          * TODO: check id
-         * TODO: delete index entry
+         * TODO: delete shlindex entry
          * TODO: delete file
          * 
          */
