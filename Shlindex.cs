@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace Manuel
 {
-    class Index
+    class Shlindex
     {
         /** Added by: Manuel
          * 
