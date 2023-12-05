@@ -7,54 +7,54 @@ namespace Manuel
     {
         /** Added by: Manuel
          * 
-         * struct used to define the content of the index file
+         * struct used to define the content of the shlindex file
          * 
          */
         public struct Content
         {
-            public List<ShoppingList.Metadata> MetadataIndex { get; set; }
+            public List<ShoppingList.Metadata> MetadataShlindex { get; set; }
 
             // default constructor
             public Content()
             {
-                this.MetadataIndex = new List<ShoppingList.Metadata>();
+                this.MetadataShlindex = new List<ShoppingList.Metadata>();
             }
 
             public void AddMetadata(ShoppingList.Metadata metadata)
             {
-                this.MetadataIndex.Add(metadata);
+                this.MetadataShlindex.Add(metadata);
             }
 
             public void RemoveMetadata(ShoppingList.Metadata metadata)
             {
-                this.MetadataIndex.Remove(metadata);
+                this.MetadataShlindex.Remove(metadata);
             }
         }
 
 
         /** Added by: Manuel
          * 
-         * function used to check if an index file already exists
+         * function used to check if an shlindex file already exists
          * 
          */
         public static bool Check(Config.Content currentConfig)
         {
-            string indexFileLocation = currentConfig.IndexFileLocation;
-            return File.Exists(indexFileLocation);
+            string shlindexFileLocation = currentConfig.ShlindexFileLocation;
+            return File.Exists(shlindexFileLocation);
         }
 
 
         /** Added by: Manuel
          * 
-         * function used to create an index file
+         * function used to create a new shlindex file
          * 
          */
         public static void Create(Config.Content currentConfig)
         {
-            string indexFileLocation = currentConfig.IndexFileLocation;
-            Content indexContent = new Content();
-            string writableJson = JsonSerializer.Serialize<Content>(indexContent);
-            using (StreamWriter streamWriter = File.CreateText(indexFileLocation))
+            string shlindexFileLocation = currentConfig.ShlindexFileLocation;
+            Content shlindexContent = new Content();
+            string writableJson = JsonSerializer.Serialize<Content>(shlindexContent);
+            using (StreamWriter streamWriter = File.CreateText(shlindexFileLocation))
             {
                 streamWriter.Write(writableJson);
             }
@@ -63,14 +63,14 @@ namespace Manuel
 
         /** Added by: Manuel
          * 
-         * function used to write content into index file
+         * function used to write content into shlindex file
          * 
          */
         public static void Write(Config.Content currentConfig, Content metadata)
         {
-            string indexFileLocation = currentConfig.IndexFileLocation;
+            string shlindexFileLocation = currentConfig.ShlindexFileLocation;
             string writableJson = JsonSerializer.Serialize<Content>(metadata);
-            using (StreamWriter streamWriter = File.CreateText(indexFileLocation))
+            using (StreamWriter streamWriter = File.CreateText(shlindexFileLocation))
             {
                 streamWriter.Write(writableJson);
             }
