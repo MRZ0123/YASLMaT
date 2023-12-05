@@ -57,10 +57,10 @@ namespace YASLMAT
             {
                 
                 // ***** DEBUG MSG *****
-                if (DEBUG) {Console.WriteLine($"No Shlindexfile found at\"{currentConfig.IndexFileLocation}\""); }
+                if (DEBUG) {Console.WriteLine($"No Shlindexfile found at\"{currentConfig.ShlindexFileLocation}\""); }
                 // **   -**#####**-   **
                 
-                Console.WriteLine(currentConfig.Language == "DE" ? "" : "");
+                Console.WriteLine(currentConfig.Language == "DE" ? "Es scheint, als wäre es das erste Mal, dass Sie dieses Programm gestartet haben.\nViel Spaß beim Benutzen dieses Programmes!" : "This seems to be the first time you have started this application.\nHave fun using this application!");
             }
             ShoppingList.Remove(currentConfig, "12345");
         }
