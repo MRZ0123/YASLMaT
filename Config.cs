@@ -59,7 +59,7 @@ namespace Manuel
 
         public static void Create(string configFileLocation)
         {
-            Content defaultConfigContent = new Content("DE", "./index.json", "./data/");
+            Content defaultConfigContent = new Content("DE", "./shlindex.json", "./data/");
             JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { WriteIndented = true };
             string writableJson = JsonSerializer.Serialize<Content>(defaultConfigContent, jsonOptions);
             using (StreamWriter streamWriter = File.CreateText(configFileLocation))
