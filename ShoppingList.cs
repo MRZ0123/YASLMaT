@@ -66,7 +66,7 @@ namespace Manuel
                 this.ItemName = itemName;
             }
 
-            public void RetItemPriceForOne(float itemPriceForOne)
+            public void SetItemPriceForOne(float itemPriceForOne)
             {
                 this.ItemPriceForOne = itemPriceForOne;
                 this.ItemPriceForCount = ItemCount * itemPriceForOne;
