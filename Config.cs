@@ -14,7 +14,29 @@ namespace Manuel
          */
         public struct Content
         {
-            public string Language { get; set; }
+            private string _Language;
+            public string Language
+            {
+                get
+                {
+                    return _Language;
+                }
+                set
+                {
+                    switch (value.ToUpper())
+                    {
+                        case "DE":
+                            _Language = value.ToUpper();
+                            break;
+                        case "EN":
+                            _Language = value.ToUpper();
+                            break;
+                        default:
+                            System.Console.WriteLine("Default reached in language switch.");
+                            throw new ArgumentException($"---------- German ----------\n{value} ist keine der unterstützten Sprachen: Deutsch | Englisch\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\n{value} is not one of the valid languages: German | English\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
+                    }
+                }
+            }
             public string ShlindexFileLocation { get; set; }
             public string ShoppingListDirectory { get; set; }
 
@@ -23,10 +45,10 @@ namespace Manuel
                 switch (language.ToUpper())
                 {
                     case "DE":
-                        this.Language=language.ToUpper();
+                        this.Language = language.ToUpper();
                         break;
                     case "EN":
-                        this.Language=language.ToUpper();
+                        this.Language = language.ToUpper();
                         break;
                     default:
                         System.Console.WriteLine("Default reached in language switch.");
