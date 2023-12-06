@@ -23,10 +23,10 @@ namespace Manuel
                 switch (language.ToUpper())
                 {
                     case "DE":
-                        this.Language=language.ToUpper();
+                        this.Language = language.ToUpper();
                         break;
                     case "EN":
-                        this.Language=language.ToUpper();
+                        this.Language = language.ToUpper();
                         break;
                     default:
                         System.Console.WriteLine("Default reached in language switch.");
