@@ -32,7 +32,7 @@ namespace Manuel
                             _Language = value.ToUpper();
                             break;
                         default:
-                            Console.WriteLine($"\n\n---------- German ----------\n\"{value}\" ist keine der unterstützten Sprachen: DE | EN\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\n\"{value}\" is not one of the valid languages: DE | EN\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
+                            Console.WriteLine($"\n---------- German ----------\n\"{value}\" ist keine der unterstützten Sprachen: DE | EN\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\n\"{value}\" is not one of the valid languages: DE | EN\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
                             Environment.Exit(1);
                             break;
                     }
@@ -52,7 +52,7 @@ namespace Manuel
                         this.Language = language.ToUpper();
                         break;
                     default:
-                        Console.WriteLine($"\n\n---------- German ----------\n\"{language}\" ist keine der unterstützten Sprachen: DE | EN\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\n\"{language}\" is not one of the valid languages: DE | EN\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
+                        Console.WriteLine($"\n---------- German ----------\n\"{language}\" ist keine der unterstützten Sprachen: DE | EN\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\n\"{language}\" is not one of the valid languages: DE | EN\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
                         Environment.Exit(1);
                         break;
                 }
@@ -110,7 +110,7 @@ namespace Manuel
             Content config = JsonSerializer.Deserialize<Content>(configString);
             if (string.IsNullOrWhiteSpace(config.Language))
             {
-                Console.WriteLine($"\n\n---------- German ----------\n\"Es ist keine der unterstützten Sprachen (DE | EN) in der Konfigurationsdatei festgelegt.\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\nThere is no language (DE | EN) specified inside of the config file.\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
+                Console.WriteLine($"\n---------- German ----------\n\"Es ist keine der unterstützten Sprachen (DE | EN) in der Konfigurationsdatei festgelegt.\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\nThere is no language (DE | EN) specified inside of the config file.\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
                 Environment.Exit(1);
             }
             return config;
