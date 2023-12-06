@@ -14,7 +14,7 @@ namespace Manuel
          */
         public struct Content
         {
-            private string _Language;
+            private string? _Language;
             public string Language
             {
                 get
@@ -33,7 +33,7 @@ namespace Manuel
                             break;
                         default:
                             System.Console.WriteLine("Default reached in language switch.");
-                            throw new ArgumentException($"\n\n---------- German ----------\n{value} ist keine der unterstützten Sprachen: Deutsch | Englisch\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\n{value} is not one of the valid languages: German | English\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
+                            throw new ArgumentException($"\n\n---------- German ----------\n\"{value}\" ist keine der unterstützten Sprachen: DE | EN\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\n\"{value}\" is not one of the valid languages: DE | EN\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
                     }
                 }
             }
@@ -52,7 +52,7 @@ namespace Manuel
                         break;
                     default:
                         System.Console.WriteLine("Default reached in language switch.");
-                        throw new ArgumentException($"\n\n---------- German ----------\n{language} ist keine der unterstützten Sprachen: Deutsch | Englisch\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\n{language} is not one of the valid languages: German | English\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
+                        throw new ArgumentException($"\n\n---------- German ----------\n\"{language}\" ist keine der unterstützten Sprachen: DE | EN\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\n\"{language}\" is not one of the valid languages: DE | EN\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
                 }
                 this.ShlindexFileLocation = shlndexFileLocation;
                 this.ShoppingListDirectory = shoppingListDirectory;
@@ -106,6 +106,10 @@ namespace Manuel
                 }
             }
             Content config = JsonSerializer.Deserialize<Content>(configString);
+            if (string.IsNullOrWhiteSpace(config.Language))
+            {
+                throw new ArgumentException($"\n\n---------- German ----------\n\"Es ist keine der unterstützten Sprachen (DE | EN) in der Konfigurationsdatei festgelegt.\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\nThere is no language (DE | EN) specified inside of the config file.\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
+            }
             return config;
         }
     }
