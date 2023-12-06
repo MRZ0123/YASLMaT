@@ -75,5 +75,27 @@ namespace Manuel
                 streamWriter.Write(writableJson);
             }
         }
+
+
+        /** Added by: Manuel
+         * 
+         * function used to read all Shlindex content to Content object
+         * 
+         */
+        public static Content Read(Config.Content currentConfig)
+        {
+            string shlindexFileLocation = currentConfig.ShlindexFileLocation;
+            string shlindexString = "";
+            using (StreamReader streamReader = new StreamReader(shlindexFileLocation))
+            {
+                string? currentLine;
+                while ((currentLine = streamReader.ReadLine()) != null)
+                {
+                    shlindexString += (currentLine + "\n");
+                }
+            }
+            Content shlindex = JsonSerializer.Deserialize<Content>(shlindexString);
+            return shlindex;
+        } 
     }
 }
