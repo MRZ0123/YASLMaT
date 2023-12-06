@@ -14,7 +14,7 @@ namespace Manuel
          */
         public struct Content
         {
-            private string _Language;
+            private string? _Language;
             public string Language
             {
                 get
@@ -106,6 +106,10 @@ namespace Manuel
                 }
             }
             Content config = JsonSerializer.Deserialize<Content>(configString);
+            if (string.IsNullOrWhiteSpace(config.Language))
+            {
+                throw new ArgumentException($"\n\n---------- German ----------\n\"Es ist keine der unterstützten Sprachen (DE | EN) in der Konfigurationsdatei festgelegt.\nBitte tragen Sie die gewollte Sprache, wie in dem internationalem Standard ISO 639-1 beschrieben, ein.\n\n---------- English ----------\nThere is no language (DE | EN) specified inside of the config file.\nPlease insert the Language you want as described in the ISO 639-1 international standard.");
+            }
             return config;
         }
     }
