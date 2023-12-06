@@ -74,7 +74,6 @@ namespace Manuel
             {
                 streamWriter.Write(writableJson);
             }
-
         }
     }
 }
