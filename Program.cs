@@ -50,7 +50,7 @@ namespace YASLMAT
 
 
             // ***** DEBUG MSG *****
-            if (DEBUG) { Console.WriteLine($"DEBUG:\tChecking if there's an Shlindex file."); }
+            if (DEBUG) { Console.WriteLine($"DEBUG:\tChecking if there's a Shlindex file."); }
             // **   -**#####**-   **
 
             if (!Shlindex.Check(currentConfig))
