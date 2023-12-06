@@ -66,10 +66,10 @@ namespace Manuel
          * function used to write content into shlindex file
          * 
          */
-        public static void Write(Config.Content currentConfig, Content content)
+        public static void Write(Config.Content currentConfig, Content newShlindex)
         {
             string shlindexFileLocation = currentConfig.ShlindexFileLocation;
-            string writableJson = JsonSerializer.Serialize<Content>(content);
+            string writableJson = JsonSerializer.Serialize<Content>(newShlindex);
             using (StreamWriter streamWriter = File.CreateText(shlindexFileLocation))
             {
                 streamWriter.Write(writableJson);
