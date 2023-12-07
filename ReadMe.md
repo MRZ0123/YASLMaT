@@ -10,7 +10,7 @@
 ├─config.json
 ├─path
 │ └─to
-│   └─index.json
+│   └─shlindex.json
 └─path
   └─to
     └─data directory
@@ -22,11 +22,11 @@
 
 ### Aufbau Dateien
 
-#### index.json
+#### shlindex.json
 
 ```json
 {
-    "MetadataIndex" : [
+    "MetadataShlindex" : [
         {   // this is the first shopping list
             "Id" : ,                    // automatic (random, but unique)
             "Name" : ,                  // mandatory (after file creation)
@@ -81,7 +81,7 @@
       - (manuell) Abfrage
         - Liste Erstellen
           - (automatisch) Erstellung der Datei
-          - (automatisch) schreiben Informationen in index.json
+          - (automatisch) schreiben Informationen in shlindex.json
           - (automatisch) Verschiebe den Nutzer ins Bearbeiten Menü
         - Abbrechen
           - (automatisch) alles verwerfen
@@ -90,7 +90,7 @@
       - (dauerhaft unten anzeigen) Optionen 
         - Abbrechen (alles Verwerfen, Datei nicht erstellen, zurück zum Main menü)
     - Anzeigen aller vorhandenen Listen
-      - (automatisch) index.json auslesen
+      - (automatisch) shlindex.json auslesen
       - (automatisch) für jede Liste Zeile, Namen und Laden anzeigen
       - (automatisch) id im Hinterkopf halten
       - Optionen
@@ -99,7 +99,7 @@
             - -> Bearbeiten Menü
           - Löschen der Liste (L/Löschen eingeben)
             - (automatisch) Datei löschen
-            - (automatisch) aus der index.json austragen
+            - (automatisch) aus der shlindex.json austragen
           - zurück zur Anzeige aller Listen (Z/Zurück eingeben)
     - Auswählen und Anzeigen einer Liste
     - Auswählen und Bearbeiten einer Liste

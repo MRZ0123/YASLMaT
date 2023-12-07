@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text.Json;
 
 namespace Manuel
 {
@@ -8,7 +9,7 @@ namespace Manuel
 
         /** Added by: Manuel
          * 
-         * struct used to describe each list inside the index.json
+         * struct used to describe each list inside the shlindex.json
          * also present at the start of each list
          * 
          */
@@ -66,7 +67,7 @@ namespace Manuel
                 this.ItemName = itemName;
             }
 
-            public void RetItemPriceForOne(float itemPriceForOne)
+            public void SetItemPriceForOne(float itemPriceForOne)
             {
                 this.ItemPriceForOne = itemPriceForOne;
                 this.ItemPriceForCount = ItemCount * itemPriceForOne;
@@ -117,12 +118,33 @@ namespace Manuel
 
         /** Added by: Manuel
          * 
+         * function used to write a shopping list to disk and shlindex based on a ShoppingList.Content object
+         * 
+         */
+        public static void Write(Config.Content currentConfig, Content content)
+        {
+            Shlindex.Content shlindex = Shlindex.Read(currentConfig);
+            shlindex.AddMetadata(content.Metadata);
+            Shlindex.Write(currentConfig, shlindex);
+            string shlDirectory = currentConfig.ShoppingListDirectory.TrimEnd();
+            string strippedShlDirectory = shlDirectory.EndsWith('/') ? shlDirectory.Remove(shlDirectory.Length - 1, 1) : shlDirectory;
+            string fullShlFilePath = strippedShlDirectory + "/" + content.Metadata.Id + "__" + content.Metadata.Name + ".json";
+            string writableJson = JsonSerializer.Serialize<Content>(content);
+            using (StreamWriter streamWriter = File.CreateText(fullShlFilePath))
+            {
+                streamWriter.Write(writableJson);
+            }
+        }
+
+
+        /** Added by: Manuel
+         * 
          * function used to remove a shopping list based on a shopping list object
          * 
          */
         /** TODO:
          * TODO: check id
-         * TODO: delete index entry
+         * TODO: delete shlindex entry
          * TODO: delete file
          * 
          */
