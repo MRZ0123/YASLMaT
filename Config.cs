@@ -82,6 +82,12 @@ namespace Manuel
         }
 
 
+        /** Added by: Manuel
+         * 
+         * function used to create the default config and write it to disk
+         * ? TODO: rewrite into create default config -> Write function
+         * 
+         */
         public static void Create(string configFileLocation)
         {
             Content defaultConfigContent = new Content("DE", "./shlindex.json", "./data/");
