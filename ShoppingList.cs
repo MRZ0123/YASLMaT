@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text.Json;
 
 namespace Manuel
 {
@@ -111,6 +112,27 @@ namespace Manuel
             public void RemoveItemIndex(int index)
             {
                 this.Items.RemoveAt(index);
+            }
+        }
+
+
+        /** Added by: Manuel
+         * 
+         * function used to write a shopping list to disk and shlindex based on a ShoppingList.Content object
+         * 
+         */
+        public static void Write(Config.Content currentConfig, Content content)
+        {
+            Shlindex.Content shlindex = Shlindex.Read(currentConfig);
+            shlindex.AddMetadata(content.Metadata);
+            Shlindex.Write(currentConfig, shlindex);
+            string shlDirectory = currentConfig.ShoppingListDirectory.TrimEnd();
+            string strippedShlDirectory = shlDirectory.EndsWith('/') ? shlDirectory.Remove(shlDirectory.Length - 1, 1) : shlDirectory;
+            string fullShlFilePath = strippedShlDirectory + "/" + content.Metadata.Id + "__" + content.Metadata.Name + ".json";
+            string writableJson = JsonSerializer.Serialize<Content>(content);
+            using (StreamWriter streamWriter = File.CreateText(fullShlFilePath))
+            {
+                streamWriter.Write(writableJson);
             }
         }
 
