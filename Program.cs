@@ -66,7 +66,7 @@ namespace YASLMAT
                 if (DEBUG) {Console.WriteLine($"DEBUG:\tCreating empty Shlindex file."); }
                 // **   -**#####**-   **
                 
-                Shlindex.Check(currentConfig);
+                Shlindex.Create(currentConfig);
             }
         }
 
