@@ -61,6 +61,12 @@ namespace YASLMAT
                 // **   -**#####**-   **
 
                 Console.WriteLine(currentConfig.Language == "DE" ? "Es scheint, als wäre es das erste Mal, dass Sie dieses Programm gestartet haben.\nViel Spaß beim Benutzen dieses Programmes!" : "This seems to be the first time you have started this application.\nHave fun using this application!");
+                
+                // ***** DEBUG MSG *****
+                if (DEBUG) {Console.WriteLine($"DEBUG:\tCreating empty Shlindex file."); }
+                // **   -**#####**-   **
+                
+                Shlindex.Check(currentConfig);
             }
         }
 
