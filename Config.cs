@@ -81,6 +81,7 @@ namespace Manuel
             return File.Exists(configFileLocation);
         }
 
+
         public static void Create(string configFileLocation)
         {
             Content defaultConfigContent = new Content("DE", "./shlindex.json", "./data/");
@@ -91,6 +92,8 @@ namespace Manuel
                 streamWriter.Write(writableJson);
             }
         }
+
+
         /** Added by: Manuel
          * 
          * function to get config content into config object
