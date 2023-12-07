@@ -66,15 +66,36 @@ namespace Manuel
          * function used to write content into shlindex file
          * 
          */
-        public static void Write(Config.Content currentConfig, Content metadata)
+        public static void Write(Config.Content currentConfig, Content newShlindex)
         {
             string shlindexFileLocation = currentConfig.ShlindexFileLocation;
-            string writableJson = JsonSerializer.Serialize<Content>(metadata);
+            string writableJson = JsonSerializer.Serialize<Content>(newShlindex);
             using (StreamWriter streamWriter = File.CreateText(shlindexFileLocation))
             {
                 streamWriter.Write(writableJson);
             }
-
         }
+
+
+        /** Added by: Manuel
+         * 
+         * function used to read all Shlindex content to Content object
+         * 
+         */
+        public static Content Read(Config.Content currentConfig)
+        {
+            string shlindexFileLocation = currentConfig.ShlindexFileLocation;
+            string shlindexString = "";
+            using (StreamReader streamReader = new StreamReader(shlindexFileLocation))
+            {
+                string? currentLine;
+                while ((currentLine = streamReader.ReadLine()) != null)
+                {
+                    shlindexString += (currentLine + "\n");
+                }
+            }
+            Content shlindex = JsonSerializer.Deserialize<Content>(shlindexString);
+            return shlindex;
+        } 
     }
 }

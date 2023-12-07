@@ -62,7 +62,7 @@ namespace Manuel
 
             public override string ToString()
             {
-                return $"{{\n\t\"Language\": \"{this.Language}\"\n\t\"ShlindexFileLocation\": \"{this.ShlindexFileLocation}\",\n\t\"ShoppingListDirectory\": \"{this.ShoppingListDirectory}\"\n}}";
+                return $"{{\n\t\"Language\": \"{this.Language}\",\n\t\"ShlindexFileLocation\": \"{this.ShlindexFileLocation}\",\n\t\"ShoppingListDirectory\": \"{this.ShoppingListDirectory}\"\n}}";
             }
         }
 
@@ -81,6 +81,13 @@ namespace Manuel
             return File.Exists(configFileLocation);
         }
 
+
+        /** Added by: Manuel
+         * 
+         * function used to create the default config and write it to disk
+         * ? TODO: rewrite into create default config -> Write function
+         * 
+         */
         public static void Create(string configFileLocation)
         {
             Content defaultConfigContent = new Content("DE", "./shlindex.json", "./data/");
@@ -91,6 +98,8 @@ namespace Manuel
                 streamWriter.Write(writableJson);
             }
         }
+
+
         /** Added by: Manuel
          * 
          * function to get config content into config object
