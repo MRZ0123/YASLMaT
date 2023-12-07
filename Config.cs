@@ -62,7 +62,7 @@ namespace Manuel
 
             public override string ToString()
             {
-                return $"{{\n\t\"Language\": \"{this.Language}\"\n\t\"ShlindexFileLocation\": \"{this.ShlindexFileLocation}\",\n\t\"ShoppingListDirectory\": \"{this.ShoppingListDirectory}\"\n}}";
+                return $"{{\n\t\"Language\": \"{this.Language}\",\n\t\"ShlindexFileLocation\": \"{this.ShlindexFileLocation}\",\n\t\"ShoppingListDirectory\": \"{this.ShoppingListDirectory}\"\n}}";
             }
         }
 
