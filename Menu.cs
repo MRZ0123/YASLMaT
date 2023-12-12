@@ -1,4 +1,6 @@
 using System;
+using System.Data.Common;
+using System.Runtime.CompilerServices;
 
 namespace Team
 {
@@ -9,9 +11,18 @@ namespace Team
      * function used to display the commandline menu
      * 
      */
+     
+
     public static void Display()
     {
-      // your code here
+      Console.WriteLine("Hauptmenü");
+      Console.WriteLine("1. Liste erstellen");
+      Console.WriteLine("2. Bearbeiten");
+      Console.WriteLine("3. Beenden");
     }
+
+    
+
+  
   }
 }
