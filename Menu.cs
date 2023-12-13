@@ -1,4 +1,5 @@
 using System;
+using System.Reflection.Metadata.Ecma335;
 using Manuel;
 using YASLMAT;
 
@@ -30,4 +31,15 @@ namespace Team
       return Console.ReadKey(false);
     }
   }
+    /** Added by: Jugi
+     * 
+     * Function DisplayListCreation
+     * 
+     */
+     public static void DisplayListCreation(Config.Content currentConfig)
+     {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie den gewünschten Namen Ihrer Liste ein" : "Please enter the name of your list");
+      Console.ReadLine();
+
+     }
 }
