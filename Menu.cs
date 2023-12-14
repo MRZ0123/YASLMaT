@@ -35,6 +35,17 @@ namespace Team
 
     /** Added by: Jugi
      * 
+     * Function to display null error
+     * 
+     */
+    public static void DisplayNullError(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Dieses Feld muss ausgefüllt sein!" : "This column must be filled out!");
+    }
+
+    
+    /** Added by: Jugi
+     * 
      * Function DisplayListCreation
      * 
      */
