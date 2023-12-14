@@ -1,0 +1,126 @@
+using System;
+using System.Reflection.Metadata.Ecma335;
+using Manuel;
+using YASLMAT;
+using static Manuel.ShoppingList;
+
+namespace Team
+{
+  class Menu
+  {
+    /** Added by: Jugi
+     * 
+     * function used to display the commandline menu
+     * 
+     */
+    public static void Display(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Hauptmenü" : "Main menu");
+      Console.WriteLine(currentConfig.Language == "DE" ? "1. Liste erstellen" : "1. Create list");
+      Console.WriteLine(currentConfig.Language == "DE" ? "2. Alle vorhandenen Listen anzeigen" : "2. Show existing lists");
+      Console.WriteLine(currentConfig.Language == "DE" ? "3. Beenden" : "3. Quit");
+    }
+
+
+    /** Added by: Jugi
+     * 
+     * Function to capture user input
+     * 
+     */
+    public static ConsoleKeyInfo GetUserKeyInput()
+    {
+      return Console.ReadKey(false);
+    }
+
+
+    /** Added by: Jugi
+     * 
+     * Function to display null error
+     * 
+     */
+    public static void DisplayNullError(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Dieses Feld muss ausgefüllt sein!" : "This column must be filled out!");
+    }
+
+
+    /** Added by: Jugi
+     * 
+     * Function DisplayListCreation
+     * 
+     */
+    public static void DisplayListNameQuestion(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie den gewünschten Namen Ihrer Liste ein" : "Please enter the name of your list");
+    }
+
+
+    /** Added by: Jugi
+     * 
+     * Function to ask for shop name
+     * 
+     */
+    public static void DisplayShopQuestion(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Shop Namen ein oder drücken Sie enter:" : "Please enter the name of the shop or press enter:");
+    }
+
+
+    /** Added by: Jugi
+     * 
+     * Function to get user input as string
+     * 
+     */
+    public static string? GetUserInput()
+    {
+      return Console.ReadLine();
+    }
+
+    /** Added by: Jugi
+     * 
+     * Function to get list name from user input
+     * 
+     */
+    public static string GetListName(Config.Content currentConfig)
+    {
+      DisplayListNameQuestion(currentConfig);
+      string? name = GetUserInput();
+      while (name == null)
+      {
+        DisplayNullError(currentConfig);
+        DisplayListNameQuestion(currentConfig);
+        name = GetUserInput();
+      }
+      return name;
+    }
+
+
+    /** Added by: Jugi
+     * 
+     * Function to get shop name from user input
+     * 
+     */
+    public static string GetShopName(Config.Content currentConfig)
+    {
+      DisplayShopQuestion(currentConfig);
+      string? name = GetUserInput();
+      while (name == null)
+      {
+        DisplayShopQuestion(currentConfig);
+        name = GetUserInput();
+      }
+      return name;
+    }
+    // Input für die Menü-Auswahl --> Nur Display
+
+    /** Added by: Jugi
+     * 
+     * Function to request a choice from the display
+     * 
+     */
+    public static void RequestChoice(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die gewünschte Option (1-3) ein:" : "Please choose a needed option (1-3):");
+    }
+  }
+}
