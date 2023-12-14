@@ -114,12 +114,12 @@ namespace Team
 
     /** Added by: Jugi
      * 
-     * Function to request a choice from the display
+     * function to display a request for a choice from the user
      * 
      */
-    public static void RequestChoice(Config.Content currentConfig)
+    public static void DisplayChoiceRequest(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die gewünschte Option (1-3) ein:" : "Please choose a needed option (1-3):");
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Option (1-3):" : "Please choose an option (1-3):");
     }
   }
 }
