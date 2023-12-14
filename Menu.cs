@@ -2,6 +2,7 @@ using System;
 using System.Reflection.Metadata.Ecma335;
 using Manuel;
 using YASLMAT;
+using static Manuel.ShoppingList;
 
 namespace Team
 {
@@ -26,20 +27,9 @@ namespace Team
      * Function to capture user input
      * 
      */
-    public static ConsoleKeyInfo GetUserInput()
+    public static ConsoleKeyInfo GetUserKeyInput()
     {
       return Console.ReadKey(false);
     }
   }
-    /** Added by: Jugi
-     * 
-     * Function DisplayListCreation
-     * 
-     */
-     public static void DisplayListCreation(Config.Content currentConfig)
-     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie den gewünschten Namen Ihrer Liste ein" : "Please enter the name of your list");
-      Console.ReadLine();
-
-     }
 }
