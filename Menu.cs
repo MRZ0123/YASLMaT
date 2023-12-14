@@ -49,7 +49,7 @@ namespace Team
      */
     public static void DisplayListNameQuestion(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Namen für die Einkaufsliste ein" : "Please enter a name for the shopping list");
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Namen für die Einkaufsliste ein:" : "Please enter a name for the shopping list:");
     }
 
 
@@ -60,7 +60,7 @@ namespace Team
      */
     public static void DisplayShopQuestion(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Shop Namen ein oder drücken Sie enter:" : "Please enter the name of the shop or press enter:");
+      Console.WriteLine(currentConfig.Language == "DE" ? "(Optional) Bitte geben Sie den Laden:" : "(optional) Please enter the name of the shop:");
     }
 
 
