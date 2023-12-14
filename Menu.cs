@@ -1,7 +1,6 @@
 using System;
 using Manuel;
 using YASLMAT;
-using static Manuel.ShoppingList;
 
 namespace Team
 {
