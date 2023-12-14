@@ -93,5 +93,23 @@ namespace Team
       }
       return name;
     }
+
+
+    /** Added by: Jugi
+     * 
+     * Function to get shop name from user input
+     * 
+     */
+     public static string GetListShop(Config.Content currentConfig)
+    {
+      DisplayShopQuestion(currentConfig);
+      string? name = GetUserInput();
+      while (name == null)
+      {
+        DisplayShopQuestion(currentConfig);
+        name = GetUserInput();
+      }
+      return name;
+    }
   }
 }
