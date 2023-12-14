@@ -98,18 +98,12 @@ namespace Team
      * Function to get shop name from user input
      * 
      */
-    public static string GetShopName(Config.Content currentConfig)
+    public static string? GetShopName(Config.Content currentConfig)
     {
       DisplayShopQuestion(currentConfig);
-      string? name = GetUserInput();
-      while (name == null)
-      {
-        DisplayShopQuestion(currentConfig);
-        name = GetUserInput();
-      }
-      return name;
+      return GetUserInput();
     }
-    // Input für die Menü-Auswahl --> Nur Display
+
 
     /** Added by: Jugi
      * 
