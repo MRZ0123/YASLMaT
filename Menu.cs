@@ -53,17 +53,34 @@ namespace Team
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Shop Namen ein oder drücken Sie enter:" : "Please enter the name of the shop or press enter:");
     }
-    
+
 
     /** Added by: Jugi
      * 
      * Function to get user input as string
      * 
      */
-     public static string? GetUserInput()
-     {
+    public static string? GetUserInput()
+    {
       return Console.ReadLine();
-      
-     }
+    }
+
+    /** Added by: Jugi
+     * 
+     * Function to get list name from user input
+     * 
+     */
+    public static string GetListName(Config.Content currentConfig)
+    {
+      DisplayListNameQuestion(currentConfig);
+      string name = GetUserInput();
+      while (name == null)
+      {
+        DisplayNullError(currentConfig);
+        DisplayListNameQuestion(currentConfig);
+        name = GetUserInput();
+      }
+      return name;
+    }
   }
 }
