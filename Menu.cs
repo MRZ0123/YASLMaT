@@ -49,7 +49,7 @@ namespace Team
      */
     public static void DisplayListNameQuestion(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie den gewünschten Namen Ihrer Liste ein" : "Please enter the name of your list");
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Namen für die Einkaufsliste ein" : "Please enter a name for the shopping list");
     }
 
 
