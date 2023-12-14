@@ -100,7 +100,7 @@ namespace Team
      * Function to get shop name from user input
      * 
      */
-     public static string GetListShop(Config.Content currentConfig)
+     public static string GetShopName(Config.Content currentConfig)
     {
       DisplayShopQuestion(currentConfig);
       string? name = GetUserInput();
