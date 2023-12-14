@@ -60,7 +60,7 @@ namespace Team
      */
     public static void DisplayShopQuestion(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "(Optional) Bitte geben Sie den Laden:" : "(optional) Please enter the name of the shop:");
+      Console.WriteLine(currentConfig.Language == "DE" ? "(Optional) Bitte geben Sie einen Laden ein:" : "(optional) Please enter the name of the shop:");
     }
 
 
