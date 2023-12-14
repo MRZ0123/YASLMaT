@@ -43,7 +43,7 @@ namespace Team
       Console.WriteLine(currentConfig.Language == "DE" ? "Dieses Feld muss ausgefüllt sein!" : "This column must be filled out!");
     }
 
-    
+
     /** Added by: Jugi
      * 
      * Function DisplayListCreation
@@ -84,7 +84,7 @@ namespace Team
     public static string GetListName(Config.Content currentConfig)
     {
       DisplayListNameQuestion(currentConfig);
-      string name = GetUserInput();
+      string? name = GetUserInput();
       while (name == null)
       {
         DisplayNullError(currentConfig);
