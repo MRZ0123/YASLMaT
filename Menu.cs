@@ -42,5 +42,16 @@ namespace Team
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie den gewünschten Namen Ihrer Liste ein" : "Please enter the name of your list");
     }
+
+
+    /** Added by: Jugi
+     * 
+     * Function to ask for shop name
+     * 
+     */
+    public static void DisplayShopQuestion(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Shop Namen ein oder drücken Sie enter:" : "Please enter the name of the shop or press enter:");
+    }
   }
 }
