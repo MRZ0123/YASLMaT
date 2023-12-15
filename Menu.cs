@@ -1,8 +1,5 @@
 using System;
-using System.Reflection.Metadata.Ecma335;
 using Manuel;
-using YASLMAT;
-using static Manuel.ShoppingList;
 
 namespace Team
 {
@@ -51,7 +48,7 @@ namespace Team
      */
     public static void DisplayListNameQuestion(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie den gewünschten Namen Ihrer Liste ein" : "Please enter the name of your list");
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Namen für die Einkaufsliste ein:" : "Please enter a name for the shopping list:");
     }
 
 
@@ -62,7 +59,7 @@ namespace Team
      */
     public static void DisplayShopQuestion(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Shop Namen ein oder drücken Sie enter:" : "Please enter the name of the shop or press enter:");
+      Console.WriteLine(currentConfig.Language == "DE" ? "(Optional) Bitte geben Sie einen Laden ein:" : "(optional) Please enter the name of the shop:");
     }
 
 
@@ -100,27 +97,21 @@ namespace Team
      * Function to get shop name from user input
      * 
      */
-    public static string GetShopName(Config.Content currentConfig)
+    public static string? GetShopName(Config.Content currentConfig)
     {
       DisplayShopQuestion(currentConfig);
-      string? name = GetUserInput();
-      while (name == null)
-      {
-        DisplayShopQuestion(currentConfig);
-        name = GetUserInput();
-      }
-      return name;
+      return GetUserInput();
     }
-    // Input für die Menü-Auswahl --> Nur Display
+
 
     /** Added by: Jugi
      * 
-     * Function to request a choice from the display
+     * function to display a request for a choice from the user
      * 
      */
-    public static void RequestChoice(Config.Content currentConfig)
+    public static void DisplayChoiceRequest(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die gewünschte Option (1-3) ein:" : "Please choose a needed option (1-3):");
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Option (1-3):" : "Please choose an option (1-3):");
     }
   }
 }
