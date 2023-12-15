@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text.Json;
 using Manuel;
+using Team;
 
 namespace YASLMAT
 {
@@ -76,6 +77,14 @@ namespace YASLMAT
                 // **   -**#####**-   **
 
             }
+
+            
+            // ***** DEBUG MSG *****
+            if (DEBUG) { Console.WriteLine($"DEBUG:\tDisplaying main menu."); }
+            // **   -**#####**-   **
+            
+
+            Menu.Display(currentConfig);
         }
 
     }
