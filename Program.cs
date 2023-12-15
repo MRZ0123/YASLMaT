@@ -77,17 +77,22 @@ namespace YASLMAT
                 // **   -**#####**-   **
 
             }
-            
+
             // ***** DEBUG MSG *****
             if (DEBUG) { Console.WriteLine($"DEBUG:\tReading all Shopping lists from shlindex."); }
             // **   -**#####**-   **
-            
+
             Shlindex.Content allShlistMetadata = Shlindex.Read(currentConfig);
+
+            // ***** DEBUG MSG *****
+            if (DEBUG) { Console.WriteLine($"DEBUG:\tDisplaying all Shopping lists."); }
+            // **   -**#####**-   **
+
+            Menu.DisplayShoppingLists(currentConfig, allShlistMetadata);
 
             // ***** DEBUG MSG *****
             if (DEBUG) { Console.WriteLine($"DEBUG:\tDisplaying main menu."); }
             // **   -**#####**-   **
-            
 
             Menu.Display(currentConfig);
         }
