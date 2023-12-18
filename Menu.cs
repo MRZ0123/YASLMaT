@@ -120,7 +120,7 @@ namespace Team
      * Function to display name, shops and number of items from lists
      * 
      */
-    public void DisplayShoppingLists (Config.Content currentConfig, Shlindex.Content metadata)
+    public void DisplayShoppingLists(Config.Content currentConfig, Shlindex.Content metadata)
     {
       Console.WriteLine("I'm gonna be honest, I have no idea what to do here");
     }
