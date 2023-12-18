@@ -113,5 +113,21 @@ namespace Team
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Option (1-3):" : "Please choose an option (1-3):");
     }
+
+
+    /** Added by: Sven
+     * 
+     * Function to display name, shops and number of items from lists
+     * 
+     */
+    public void DisplayShoppingLists(Config.Content currentConfig, Shlindex.Content index)
+    {
+      for (int i = 0; i < index.MetadataShlindex.Count; i++)
+      {
+        // use [i] instead of .elementAt(i) for performance reasons
+        ShoppingList.Metadata currentMetadata = index.MetadataShlindex[i];
+        Console.WriteLine($"{"(" + i + "):",3}{(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
+      }
+    }
   }
 }
