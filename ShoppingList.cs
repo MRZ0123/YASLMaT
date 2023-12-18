@@ -20,7 +20,7 @@ namespace Manuel
             public string Shop { get; set; }
             public long FullItemCount { get; set; }
 
-            //default constructor if a shop has been named
+            // default constructor if a shop has been named
             public Metadata(string id, string name, string shop)
             {
                 this.Id = id;
@@ -139,6 +139,33 @@ namespace Manuel
 
         /** Added by: Manuel
          * 
+         * function used to rename a shopping list
+         * 
+         */
+        public static void Rename(Config.Content currentConfig, string id, string newName)
+        {
+            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "_*.json");
+            // TODO: get shopping list starting with {id}
+            Shlindex.Content index = Shlindex.Read(currentConfig);
+            bool check = false;
+            foreach (Metadata metadata in index.MetadataShlindex)
+            {
+                if (metadata.Id == id)
+                {
+                    check = true;
+                }
+            }
+            if (!check)
+            {
+                Console.WriteLine($"\n---------- German ----------\nDiese Liste wurde leider nicht in der Index Datei gefunden. Ein Eintrag dafür wird angelegt.\n\n---------- English ----------\nUnfortunately this list doesn't seem to appear in the index file. An entry will be created for it.");
+                // TODO: Add Entry to index
+            }
+
+        }
+
+
+        /** Added by: Manuel
+         * 
          * function used to remove a shopping list based on a shopping list object
          * 
          */
@@ -151,6 +178,7 @@ namespace Manuel
         public static void Remove(Config.Content currentConfig, string id)
         {
             string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "_*.json");
+            // TODO: get shopping list starting with {id}
         }
     }
 }

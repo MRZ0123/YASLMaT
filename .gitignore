@@ -263,7 +263,7 @@ FakesAssemblies/
 *.opt
 
 # Custom shit
-conf.ig
-config.*
-data/
+*conf.ig
+*config.*
+*data/
 *shlindex.*
