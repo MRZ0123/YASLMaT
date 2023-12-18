@@ -120,13 +120,20 @@ namespace Team
      * Function to display name, shops and number of items from lists
      * 
      */
-    public void DisplayShoppingLists(Config.Content currentConfig, Shlindex.Content index)
+    public static void DisplayShoppingLists(Config.Content currentConfig, Shlindex.Content index)
     {
-      for (int i = 0; i < index.MetadataShlindex.Count; i++)
+      if (index.MetadataShlindex.Count == 0)
       {
-        // use [i] instead of .elementAt(i) for performance reasons
-        ShoppingList.Metadata currentMetadata = index.MetadataShlindex[i];
-        Console.WriteLine($"{"(" + i + "):",3}{(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
+        Console.WriteLine(currentConfig.Language == "DE" ? "Es wurden noch keine Einkaufslisten erstellt." : "No shopping lists have been created.");
+      }
+      else
+      {
+        for (int i = 0; i < index.MetadataShlindex.Count; i++)
+        {
+          // use [i] instead of .elementAt(i) for performance reasons
+          ShoppingList.Metadata currentMetadata = index.MetadataShlindex[i];
+          Console.WriteLine($"{"(" + i + "):",3}{(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
+        }
       }
     }
   }
