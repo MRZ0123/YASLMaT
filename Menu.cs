@@ -113,5 +113,16 @@ namespace Team
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Option (1-3):" : "Please choose an option (1-3):");
     }
+
+
+        /** Added by: Sven
+     * 
+     * Function to display name, shops and number of items from lists
+     * 
+     */
+    public void DisplayShoppingLists (Config.Content currentConfig, Shlindex.Content metadata)
+    {
+      Console.WriteLine("I'm gonna be honest, I have no idea what to do here");
+    }
   }
 }
