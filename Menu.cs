@@ -120,9 +120,14 @@ namespace Team
      * Function to display name, shops and number of items from lists
      * 
      */
-    public void DisplayShoppingLists(Config.Content currentConfig, Shlindex.Content metadata)
+    public void DisplayShoppingLists(Config.Content currentConfig, Shlindex.Content index)
     {
-      Console.WriteLine("I'm gonna be honest, I have no idea what to do here");
+      for (int i = 0; i < index.MetadataShlindex.Count; i++)
+      {
+        // use [i] instead of .elementAt(i) for performance reasons
+        ShoppingList.Metadata currentMetadata = index.MetadataShlindex[i];
+        Console.WriteLine($"{"(" + i + "):",3}{(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
+      }
     }
   }
 }
