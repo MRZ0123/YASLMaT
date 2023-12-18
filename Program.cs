@@ -17,7 +17,7 @@ namespace YASLMAT
         {
             Console.WriteLine("Hello World");
             System.Console.WriteLine("Bye World");
-            
+
         }
 
     }
