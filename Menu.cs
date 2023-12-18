@@ -115,7 +115,7 @@ namespace Team
     }
 
 
-        /** Added by: Sven
+    /** Added by: Sven
      * 
      * Function to display name, shops and number of items from lists
      * 
