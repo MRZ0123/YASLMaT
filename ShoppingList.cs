@@ -20,7 +20,7 @@ namespace Manuel
             public string Shop { get; set; }
             public long FullItemCount { get; set; }
 
-            //default constructor if a shop has been named
+            // default constructor if a shop has been named
             public Metadata(string id, string name, string shop)
             {
                 this.Id = id;
