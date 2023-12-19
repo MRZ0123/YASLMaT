@@ -179,7 +179,7 @@ namespace Team
         {
           // use [i] instead of .elementAt(i) for performance reasons
           ShoppingList.Metadata currentMetadata = index.MetadataShlindex[i];
-          Console.WriteLine($"{"(" + i + "):",3}{(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
+          Console.WriteLine($"{"(" + i + "):",6}{(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
         }
       }
     }
