@@ -19,6 +19,17 @@ namespace Team
     }
 
 
+    /** Added by: Sven
+     * 
+     * function used to display select options
+     * 
+     */
+    public static void DisplaySelect(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wähle eine Liste aus (Zahl)" : "Please select a list (number)" );
+    }
+
+
     /** Added by: Jugi
      * 
      * Function to capture user input
