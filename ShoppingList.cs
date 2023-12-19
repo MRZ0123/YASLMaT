@@ -118,6 +118,29 @@ namespace Manuel
 
         /** Added by: Manuel
          * 
+         * function from reading and returning the entire content of a shopping list from file
+         * 
+         */
+        public static Content Read(Config.Content currentConfig, string id)
+        {
+            string dataDirLocation = currentConfig.ShoppingListDirectory;
+            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "__*.json");
+            string shoppingListString = "";
+            using (StreamReader streamReader = new StreamReader(files[0]))
+            {
+                string? currentLine;
+                while ((currentLine = streamReader.ReadLine()) != null)
+                {
+                    shoppingListString += (currentLine + "\n");
+                }
+            }
+            Content shoppingList = JsonSerializer.Deserialize<Content>(shoppingListString);
+            return shoppingList;
+        }
+
+
+        /** Added by: Manuel
+         * 
          * function used to write a shopping list to disk and shlindex based on a ShoppingList.Content object
          * 
          */
