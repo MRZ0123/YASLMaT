@@ -229,5 +229,16 @@ namespace Team
       DisplayItemQuantityQuestion(currentConfig);
       return GetRealUserInput(currentConfig, DisplayItemQuantityQuestion);
     }
+
+
+    /** Added by: Jugi
+      * 
+      * Function to ask for adding new item
+      * 
+     */
+    public static void DisplayItemAddQuestion(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Neues Item hinzufügen" : "Add new Item");
+    }
   }
 }
