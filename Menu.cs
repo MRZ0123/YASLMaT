@@ -203,7 +203,7 @@ namespace Team
      */
     private static void DisplayItemQuantityQuestion(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die Anzahl des Artiekls ein:" : "Please enter a quantity of your shopping item:");
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die Anzahl des Artikels ein:" : "Please enter a quantity of your shopping item:");
     }
     
 
@@ -212,7 +212,7 @@ namespace Team
      * Function to get item name from user input
      * 
      */
-    public static string GetItemtName(Config.Content currentConfig)
+    public static string GetItemName(Config.Content currentConfig)
     {
       DisplayItemNameQuestion(currentConfig);
       return GetRealUserInput(currentConfig, DisplayItemNameQuestion);
@@ -224,7 +224,7 @@ namespace Team
      * Function to get items' quantity from user input
      * 
      */
-    public static string GetItemtQuantity(Config.Content currentConfig)
+    public static string GetItemQuantity(Config.Content currentConfig)
     {
       DisplayItemQuantityQuestion(currentConfig);
       return GetRealUserInput(currentConfig, DisplayItemQuantityQuestion);
