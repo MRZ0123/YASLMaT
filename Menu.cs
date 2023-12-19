@@ -82,7 +82,7 @@ namespace Team
     {
       DisplayListNameQuestion(currentConfig);
       string? name = GetUserInput();
-      while (name == null)
+      while (name == null || name == "")
       {
         DisplayNullError(currentConfig);
         DisplayListNameQuestion(currentConfig);
