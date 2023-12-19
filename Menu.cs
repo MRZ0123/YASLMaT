@@ -10,12 +10,23 @@ namespace Team
      * function used to display the commandline menu
      * 
      */
-    public static void Display(Config.Content currentConfig)
+    private static void Display(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Hauptmenü" : "Main menu");
       Console.WriteLine(currentConfig.Language == "DE" ? "1. Liste erstellen" : "1. Create list");
-      Console.WriteLine(currentConfig.Language == "DE" ? "2. Alle vorhandenen Listen anzeigen" : "2. Show existing lists");
+      Console.WriteLine(currentConfig.Language == "DE" ? "2. Eine vorhandene Liste auswählen" : "2. Select an existing list");
       Console.WriteLine(currentConfig.Language == "DE" ? "3. Beenden" : "3. Quit");
+    }
+
+
+    /** Added by: Sven
+     * 
+     * function used to display select options
+     * 
+     */
+    public static void DisplaySelect(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wähle eine Liste aus (Zahl)" : "Please select a list (number)" );
     }
 
 
@@ -41,12 +52,23 @@ namespace Team
     }
 
 
+    /** Added by: Manuel
+     * 
+     * function to display option error
+     * 
+     */
+    public static void DisplayOptionError(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte benutzen Sie eine der angezeigten Optionen!" : "Please use one of the displayed options!");
+    }
+
+
     /** Added by: Jugi
      * 
      * Function DisplayListCreation
      * 
      */
-    public static void DisplayListNameQuestion(Config.Content currentConfig)
+    private static void DisplayListNameQuestion(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Namen für die Einkaufsliste ein:" : "Please enter a name for the shopping list:");
     }
@@ -81,14 +103,7 @@ namespace Team
     public static string GetListName(Config.Content currentConfig)
     {
       DisplayListNameQuestion(currentConfig);
-      string? name = GetUserInput();
-      while (name == null)
-      {
-        DisplayNullError(currentConfig);
-        DisplayListNameQuestion(currentConfig);
-        name = GetUserInput();
-      }
-      return name;
+      return GetRealUserInput(currentConfig, DisplayListNameQuestion);
     }
 
 
@@ -115,8 +130,40 @@ namespace Team
     }
 
 
-    /** Added by: Sven
+    /** Added by: Jugi
      * 
+     * Function to display combo
+     * 
+     */
+    public static void DisplayCombo(Config.Content currentConfig)
+    {
+      Display(currentConfig);
+      DisplayChoiceRequest(currentConfig);
+    }
+
+    
+    /** Added by: Manuel
+     * 
+     * fuction used to get and return userinput but catch empty or null
+     * 
+     */
+    public static string GetRealUserInput(Config.Content currentConfig, Action<Config.Content> DisplayFunction)
+    {
+      int nullOrEmptyFailCount = 0;
+      string? userInput = GetUserInput();
+      while (userInput == null || userInput == "")
+      {
+        nullOrEmptyFailCount += 1;
+        DisplayNullError(currentConfig);
+        DisplayFunction(currentConfig);
+        userInput = GetUserInput();
+      }
+      return userInput;
+    }
+
+
+    /** Added by: Sven
+     *
      * Function to display name, shops and number of items from lists
      * 
      */

@@ -139,6 +139,19 @@ namespace Manuel
 
         /** Added by: Manuel
          * 
+         * function to create a new id
+         * 
+         */
+        public static string GenerateNewId(Config.Content currentConfig)
+        {
+            Random random = new Random();
+            const string aplphaNumericCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            return new string(Enumerable.Repeat(aplphaNumericCharacters, 8).Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+
+        /** Added by: Manuel
+         * 
          * function used to rename a shopping list
          * 
          */
