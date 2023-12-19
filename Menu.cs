@@ -41,6 +41,17 @@ namespace Team
     }
 
 
+    /** Added by: Manuel
+     * 
+     * function to display option error
+     * 
+     */
+    public static void DisplayOptionError(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte benutzen Sie eine der angezeigten Optionen!" : "Please use one of the displayed options!");
+    }
+
+
     /** Added by: Jugi
      * 
      * Function DisplayListCreation
