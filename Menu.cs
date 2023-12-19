@@ -119,6 +119,18 @@ namespace Team
     }
 
 
+    /** Added by: Jugi
+     * 
+     * Function to display combo
+     * 
+     */
+    public static void DisplayCombo(Config.Content currentConfig)
+    {
+      Display(currentConfig);
+      DisplayChoiceRequest(currentConfig);
+    }
+
+    
     /** Added by: Manuel
      * 
      * fuction used to get and return userinput but catch empty or null
