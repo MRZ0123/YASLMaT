@@ -81,14 +81,7 @@ namespace Team
     public static string GetListName(Config.Content currentConfig)
     {
       DisplayListNameQuestion(currentConfig);
-      string? name = GetUserInput();
-      while (name == null || name == "")
-      {
-        DisplayNullError(currentConfig);
-        DisplayListNameQuestion(currentConfig);
-        name = GetUserInput();
-      }
-      return name;
+      return GetRealUserInput(currentConfig, DisplayListNameQuestion);
     }
 
 
