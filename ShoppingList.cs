@@ -157,7 +157,7 @@ namespace Manuel
          */
         public static void Rename(Config.Content currentConfig, string id, string newName)
         {
-            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "_*.json");
+            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "__*.json");
             // TODO: get shopping list starting with {id}
             Shlindex.Content index = Shlindex.Read(currentConfig);
             bool check = false;
@@ -190,7 +190,7 @@ namespace Manuel
          */
         public static void Remove(Config.Content currentConfig, string id)
         {
-            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "_*.json");
+            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "__*.json");
             // TODO: get shopping list starting with {id}
         }
     }
