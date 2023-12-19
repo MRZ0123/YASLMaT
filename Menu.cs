@@ -82,7 +82,7 @@ namespace Team
     {
       DisplayListNameQuestion(currentConfig);
       string? name = GetUserInput();
-      while (name == null)
+      while (name == null || name == "")
       {
         DisplayNullError(currentConfig);
         DisplayListNameQuestion(currentConfig);
@@ -115,8 +115,28 @@ namespace Team
     }
 
 
-    /** Added by: Sven
+    /** Added by: Manuel
      * 
+     * fuction used to get and return userinput but catch empty or null
+     * 
+     */
+    public static string GetRealUserInput(Config.Content currentConfig, Action<Config.Content> DisplayFunction)
+    {
+      int nullOrEmptyFailCount = 0;
+      string? userInput = GetUserInput();
+      while (userInput == null || userInput == "")
+      {
+        nullOrEmptyFailCount += 1;
+        DisplayNullError(currentConfig);
+        if (nullOrEmptyFailCount % 10 == 0) { DisplayFunction(currentConfig); }
+        userInput = GetUserInput();
+      }
+      return userInput;
+    }
+
+
+    /** Added by: Sven
+     *
      * Function to display name, shops and number of items from lists
      * 
      */
