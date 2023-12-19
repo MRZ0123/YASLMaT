@@ -26,7 +26,7 @@ namespace Team
      */
     public static void DisplaySelect(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wähle eine Liste aus (Zahl)" : "Please select a list (number)" );
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wähle eine Liste aus (Zahl)" : "Please select a list (number)");
     }
 
 
@@ -135,13 +135,13 @@ namespace Team
      * Function to display combo
      * 
      */
-    public static void DisplayCombo(Config.Content currentConfig)
+    public static void DisplayMainMenuCombo(Config.Content currentConfig)
     {
       Display(currentConfig);
       DisplayChoiceRequest(currentConfig);
     }
 
-    
+
     /** Added by: Manuel
      * 
      * fuction used to get and return userinput but catch empty or null
@@ -182,6 +182,52 @@ namespace Team
           Console.WriteLine($"{"(" + i + "):",3}{(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
         }
       }
+    }
+
+
+    /** Added by: Jugi
+      * 
+      * Function to ask for item name
+      * 
+      */
+    private static void DisplayItemNameQuestion(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Artiekl ein:" : "Please enter a shopping item:");
+    }
+
+
+    /** Added by: Jugi
+      * 
+      * Function to ask for items' quantity
+      * 
+     */
+    private static void DisplayItemQuantityQuestion(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die Anzahl des Artiekls ein:" : "Please enter a quantity of your shopping item:");
+    }
+    
+
+    /** Added by: Jugi
+     * 
+     * Function to get item name from user input
+     * 
+     */
+    public static string GetItemtName(Config.Content currentConfig)
+    {
+      DisplayItemNameQuestion(currentConfig);
+      return GetRealUserInput(currentConfig, DisplayItemNameQuestion);
+    }
+    
+
+     /** Added by: Jugi
+     * 
+     * Function to get items' quantity from user input
+     * 
+     */
+    public static string GetItemtQuantity(Config.Content currentConfig)
+    {
+      DisplayItemQuantityQuestion(currentConfig);
+      return GetRealUserInput(currentConfig, DisplayItemQuantityQuestion);
     }
   }
 }
