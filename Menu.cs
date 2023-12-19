@@ -41,6 +41,17 @@ namespace Team
     }
 
 
+    /** Added by: Manuel
+     * 
+     * function to display option error
+     * 
+     */
+    public static void DisplayOptionError(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte benutzen Sie eine der angezeigten Optionen!" : "Please use one of the displayed options!");
+    }
+
+
     /** Added by: Jugi
      * 
      * Function DisplayListCreation
@@ -81,14 +92,7 @@ namespace Team
     public static string GetListName(Config.Content currentConfig)
     {
       DisplayListNameQuestion(currentConfig);
-      string? name = GetUserInput();
-      while (name == null || name == "")
-      {
-        DisplayNullError(currentConfig);
-        DisplayListNameQuestion(currentConfig);
-        name = GetUserInput();
-      }
-      return name;
+      return GetRealUserInput(currentConfig, DisplayListNameQuestion);
     }
 
 
@@ -128,7 +132,7 @@ namespace Team
       {
         nullOrEmptyFailCount += 1;
         DisplayNullError(currentConfig);
-        if (nullOrEmptyFailCount % 10 == 0) { DisplayFunction(currentConfig); }
+        if (nullOrEmptyFailCount % 5 == 0) { DisplayFunction(currentConfig); }
         userInput = GetUserInput();
       }
       return userInput;
