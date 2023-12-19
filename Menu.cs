@@ -205,5 +205,17 @@ namespace Team
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die Anzahl des Artiekls ein:" : "Please enter a quantity of your shopping item:");
     }
+    
+
+    /** Added by: Jugi
+     * 
+     * Function to get item name from user input
+     * 
+     */
+    public static string GetItemtName(Config.Content currentConfig)
+    {
+      DisplayItemNameQuestion(currentConfig);
+      return GetRealUserInput(currentConfig, DisplayItemNameQuestion);
+    }
   }
 }
