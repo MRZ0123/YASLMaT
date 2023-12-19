@@ -118,6 +118,29 @@ namespace Manuel
 
         /** Added by: Manuel
          * 
+         * function from reading and returning the entire content of a shopping list from file
+         * 
+         */
+        public static Content Read(Config.Content currentConfig, string id)
+        {
+            string dataDirLocation = currentConfig.ShoppingListDirectory;
+            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "__*.json");
+            string shoppingListString = "";
+            using (StreamReader streamReader = new StreamReader(files[0]))
+            {
+                string? currentLine;
+                while ((currentLine = streamReader.ReadLine()) != null)
+                {
+                    shoppingListString += (currentLine + "\n");
+                }
+            }
+            Content shoppingList = JsonSerializer.Deserialize<Content>(shoppingListString);
+            return shoppingList;
+        }
+
+
+        /** Added by: Manuel
+         * 
          * function used to write a shopping list to disk and shlindex based on a ShoppingList.Content object
          * 
          */
@@ -142,7 +165,7 @@ namespace Manuel
          * function to create a new id
          * 
          */
-        public static string GenerateNewId(Config.Content currentConfig)
+        public static string GenerateNewId()
         {
             Random random = new Random();
             const string aplphaNumericCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -157,7 +180,7 @@ namespace Manuel
          */
         public static void Rename(Config.Content currentConfig, string id, string newName)
         {
-            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "_*.json");
+            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "__*.json");
             // TODO: get shopping list starting with {id}
             Shlindex.Content index = Shlindex.Read(currentConfig);
             bool check = false;
@@ -190,7 +213,7 @@ namespace Manuel
          */
         public static void Remove(Config.Content currentConfig, string id)
         {
-            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "_*.json");
+            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "__*.json");
             Console.WriteLine(files.Length);
             Console.WriteLine("[ " + string.Join(',', files) + " ]");
         }
