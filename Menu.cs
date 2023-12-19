@@ -10,12 +10,23 @@ namespace Team
      * function used to display the commandline menu
      * 
      */
-    public static void Display(Config.Content currentConfig)
+    private static void Display(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Hauptmenü" : "Main menu");
       Console.WriteLine(currentConfig.Language == "DE" ? "1. Liste erstellen" : "1. Create list");
-      Console.WriteLine(currentConfig.Language == "DE" ? "2. Alle vorhandenen Listen anzeigen" : "2. Show existing lists");
+      Console.WriteLine(currentConfig.Language == "DE" ? "2. Eine vorhandene Liste auswählen" : "2. Select an existing list");
       Console.WriteLine(currentConfig.Language == "DE" ? "3. Beenden" : "3. Quit");
+    }
+
+
+    /** Added by: Sven
+     * 
+     * function used to display select options
+     * 
+     */
+    public static void DisplaySelect(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wähle eine Liste aus (Zahl)" : "Please select a list (number)" );
     }
 
 
@@ -57,7 +68,7 @@ namespace Team
      * Function DisplayListCreation
      * 
      */
-    public static void DisplayListNameQuestion(Config.Content currentConfig)
+    private static void DisplayListNameQuestion(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Namen für die Einkaufsliste ein:" : "Please enter a name for the shopping list:");
     }
