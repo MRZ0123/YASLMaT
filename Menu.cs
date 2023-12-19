@@ -217,5 +217,17 @@ namespace Team
       DisplayItemNameQuestion(currentConfig);
       return GetRealUserInput(currentConfig, DisplayItemNameQuestion);
     }
+    
+
+     /** Added by: Jugi
+     * 
+     * Function to get items' quantity from user input
+     * 
+     */
+    public static string GetItemtQuantity(Config.Content currentConfig)
+    {
+      DisplayItemQuantityQuestion(currentConfig);
+      return GetRealUserInput(currentConfig, DisplayItemQuantityQuestion);
+    }
   }
 }
