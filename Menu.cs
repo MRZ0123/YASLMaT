@@ -14,7 +14,7 @@ namespace Team
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Hauptmenü" : "Main menu");
       Console.WriteLine(currentConfig.Language == "DE" ? "1. Liste erstellen" : "1. Create list");
-      Console.WriteLine(currentConfig.Language == "DE" ? "2. Alle vorhandenen Listen anzeigen" : "2. Show existing lists");
+      Console.WriteLine(currentConfig.Language == "DE" ? "2. Eine vorhandene Liste auswählen" : "2. Select an existing list");
       Console.WriteLine(currentConfig.Language == "DE" ? "3. Beenden" : "3. Quit");
     }
 
