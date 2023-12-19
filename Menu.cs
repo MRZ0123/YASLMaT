@@ -132,7 +132,7 @@ namespace Team
       {
         nullOrEmptyFailCount += 1;
         DisplayNullError(currentConfig);
-        if (nullOrEmptyFailCount % 5 == 0) { DisplayFunction(currentConfig); }
+        DisplayFunction(currentConfig);
         userInput = GetUserInput();
       }
       return userInput;
