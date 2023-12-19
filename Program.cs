@@ -97,8 +97,8 @@ namespace YASLMAT
             string userInput = "";
             while (userInput != "3")
             {
-                Menu.DisplayCombo(currentConfig);
-                userInput = Menu.GetRealUserInput(currentConfig, Menu.DisplayCombo);
+                Menu.DisplayMainMenuCombo(currentConfig);
+                userInput = Menu.GetRealUserInput(currentConfig, Menu.DisplayMainMenuCombo);
                 if (userInput != "1" && userInput != "2" && userInput != "3")
                 {
                     Menu.DisplayOptionError(currentConfig);
@@ -107,9 +107,36 @@ namespace YASLMAT
                 {
                     string listNameFromUserInput = Menu.GetListName(currentConfig);
                     string? shopNameFromUserInput = Menu.GetShopName(currentConfig);
-                    
+                    string generatedId = ShoppingList.GenerateNewId();
+                    ShoppingList.Metadata newListMetadata;
+                    if (shopNameFromUserInput == null || shopNameFromUserInput == "")
+                    {
+                        newListMetadata = new ShoppingList.Metadata(generatedId, listNameFromUserInput);
+                    }
+                    else
+                    {
+                        newListMetadata = new ShoppingList.Metadata(generatedId, listNameFromUserInput, shopNameFromUserInput);
+                    }
+                    ShoppingList.Content newListContent = new ShoppingList.Content(newListMetadata);
+                    string listUserInput = "";
+                    while (listUserInput != "3")
+                    {
+                        // Menu.DisplayListCombo(currentConfig);
+                        // listUserInput = Menu.GetRealUserInput(currentConfig, Menu.DisplayListCombo);
+                        if (listUserInput != "1" && listUserInput != "2" && listUserInput != "3")
+                        {
+                            Menu.DisplayOptionError(currentConfig);
+                        }
+                        else if (listUserInput == "1")
+                        {
+                            string newItemName = Menu.GetItemName(currentConfig);
+                            int newItemQuantity = Convert.ToInt32(Menu.GetItemQuantity(currentConfig));
+                            ShoppingList.Item newItem = new ShoppingList.Item(newItemQuantity, newItemName);
+                            newListContent.AddItem(newItem);
+                        }
+                    }
                 }
-                
+
 
             }
         }
