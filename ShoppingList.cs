@@ -142,7 +142,7 @@ namespace Manuel
          * function to create a new id
          * 
          */
-        public static string GenerateNewId(Config.Content currentConfig)
+        public static string GenerateNewId()
         {
             Random random = new Random();
             const string aplphaNumericCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
