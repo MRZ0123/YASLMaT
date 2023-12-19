@@ -10,7 +10,7 @@ namespace Team
      * function used to display the commandline menu
      * 
      */
-    public static void Display(Config.Content currentConfig)
+    private static void Display(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Hauptmenü" : "Main menu");
       Console.WriteLine(currentConfig.Language == "DE" ? "1. Liste erstellen" : "1. Create list");
@@ -57,7 +57,7 @@ namespace Team
      * Function DisplayListCreation
      * 
      */
-    public static void DisplayListNameQuestion(Config.Content currentConfig)
+    private static void DisplayListNameQuestion(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Namen für die Einkaufsliste ein:" : "Please enter a name for the shopping list:");
     }
