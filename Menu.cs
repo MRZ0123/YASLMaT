@@ -184,7 +184,7 @@ namespace Team
       }
     }
 
-    
+
     /** Added by: Jugi
       * 
       * Function to ask for item name
@@ -193,6 +193,17 @@ namespace Team
     private static void DisplayItemNameQuestion(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Artiekl ein:" : "Please enter a shopping item:");
+    }
+
+
+    /** Added by: Jugi
+      * 
+      * Function to ask for items' quantity
+      * 
+     */
+    private static void DisplayItemQuantityQuestion(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die Anzahl des Artiekls ein:" : "Please enter a quantity of your shopping item:");
     }
   }
 }
