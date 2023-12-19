@@ -26,7 +26,7 @@ namespace Team
      */
     public static void DisplaySelect(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wähle eine Liste aus (Zahl)" : "Please select a list (number)" );
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wähle eine Liste aus (Zahl)" : "Please select a list (number)");
     }
 
 
@@ -135,13 +135,13 @@ namespace Team
      * Function to display combo
      * 
      */
-    public static void DisplayCombo(Config.Content currentConfig)
+    public static void DisplayMainMenuCombo(Config.Content currentConfig)
     {
       Display(currentConfig);
       DisplayChoiceRequest(currentConfig);
     }
 
-    
+
     /** Added by: Manuel
      * 
      * fuction used to get and return userinput but catch empty or null
@@ -183,5 +183,4 @@ namespace Team
         }
       }
     }
-  }
 }
