@@ -94,7 +94,24 @@ namespace YASLMAT
             if (DEBUG) { Console.WriteLine($"DEBUG:\tDisplaying main menu."); }
             // **   -**#####**-   **
 
-            Menu.Display(currentConfig);
+            string userInput = "";
+            while (userInput != "3")
+            {
+                Menu.DisplayCombo(currentConfig);
+                userInput = Menu.GetRealUserInput(currentConfig, Menu.DisplayCombo);
+                if (userInput != "1" && userInput != "2" && userInput != "3")
+                {
+                    Menu.DisplayOptionError(currentConfig);
+                }
+                else if (userInput == "1")
+                {
+                    string listNameFromUserInput = Menu.GetListName(currentConfig);
+                    string? shopNameFromUserInput = Menu.GetShopName(currentConfig);
+                    
+                }
+                
+
+            }
         }
 
     }
