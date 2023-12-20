@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json;
+using Team;
 
 namespace Manuel
 {
@@ -70,9 +71,16 @@ namespace Manuel
         {
             string shlindexFileLocation = currentConfig.ShlindexFileLocation;
             string writableJson = JsonSerializer.Serialize<Content>(newShlindex);
-            using (StreamWriter streamWriter = File.CreateText(shlindexFileLocation))
+            if (File.Exists(shlindexFileLocation))
             {
-                streamWriter.Write(writableJson);
+                using (StreamWriter streamWriter = File.CreateText(shlindexFileLocation))
+                {
+                    streamWriter.Write(writableJson);
+                }
+            }
+            else
+            {
+                Menu.DisplayFileMissingError(currentConfig);
             }
         }
 
@@ -96,6 +104,6 @@ namespace Manuel
             }
             Content shlindex = JsonSerializer.Deserialize<Content>(shlindexString);
             return shlindex;
-        } 
+        }
     }
 }
