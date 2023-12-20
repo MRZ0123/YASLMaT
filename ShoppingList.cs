@@ -13,7 +13,7 @@ namespace Manuel
          * also present at the start of each list
          * 
          */
-        public struct Metadata
+        public class Metadata
         {
             public string Id { get; }
             public string Name { get; set; }
@@ -112,6 +112,11 @@ namespace Manuel
             public void RemoveItemIndex(int index)
             {
                 this.Items.RemoveAt(index);
+            }
+
+            public void UpdateItemCount()
+            {
+                this.Metadata.FullItemCount = this.Items.LongCount();
             }
         }
 
