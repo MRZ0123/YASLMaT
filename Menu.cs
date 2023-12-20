@@ -74,6 +74,17 @@ namespace Team
     }
 
 
+    /** Added by: Manuel
+     * 
+     * function used to ask for deletion in shlindex
+     * 
+     */
+    private static void DisplayShlindexOnlyDeleteQuestion(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Diese Einkaufsliste existiert nicht in dem Einkaufslistenordner. Möchten Sie diese aus der Index Datei löschen? (y/n):" : "This shopping list doesn't exist in the shopping list directory. Do you want to delete it from the index file? (y/n)");
+    }
+
+
     /** Added by: Jugi
      * 
      * Function DisplayListCreation
