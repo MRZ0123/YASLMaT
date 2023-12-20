@@ -134,6 +134,14 @@ namespace YASLMAT
                             ShoppingList.Item newItem = new ShoppingList.Item(newItemQuantity, newItemName);
                             newListContent.AddItem(newItem);
                         }
+                        else if (listUserInput == "2")
+                        {
+                            // TODO: remove item if time available
+                        }
+                        else if (listUserInput == "3")
+                        {
+                            ShoppingList.Write(currentConfig, newListContent);
+                        }
                     }
                 }
             }
