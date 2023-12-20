@@ -71,16 +71,9 @@ namespace Manuel
         {
             string shlindexFileLocation = currentConfig.ShlindexFileLocation;
             string writableJson = JsonSerializer.Serialize<Content>(newShlindex);
-            if (File.Exists(shlindexFileLocation))
+            using (StreamWriter streamWriter = File.CreateText(shlindexFileLocation))
             {
-                using (StreamWriter streamWriter = File.CreateText(shlindexFileLocation))
-                {
-                    streamWriter.Write(writableJson);
-                }
-            }
-            else
-            {
-                Menu.DisplayFileMissingError(currentConfig);
+                streamWriter.Write(writableJson);
             }
         }
 
