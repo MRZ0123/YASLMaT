@@ -151,6 +151,7 @@ namespace Manuel
          */
         public static void Write(Config.Content currentConfig, Content content)
         {
+            content.UpdateItemCount();
             Shlindex.Content shlindex = Shlindex.Read(currentConfig);
             shlindex.AddMetadata(content.Metadata);
             Shlindex.Write(currentConfig, shlindex);
