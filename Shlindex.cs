@@ -26,6 +26,7 @@ namespace Manuel
                 this.MetadataShlindex.Add(metadata);
             }
 
+            //TODO: change it to remove metadata by id
             public void RemoveMetadata(ShoppingList.Metadata metadata)
             {
                 this.MetadataShlindex.Remove(metadata);
