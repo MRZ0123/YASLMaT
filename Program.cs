@@ -49,6 +49,10 @@ namespace YASLMAT
             if (DEBUG) { Console.WriteLine($"DEBUG:\tCurrent config content is:\n{currentConfig}"); }
             // **   -**#####**-   **
 
+            if(!Directory.Exists(currentConfig.ShoppingListDirectory))
+            {
+                Directory.CreateDirectory(currentConfig.ShoppingListDirectory);
+            }
 
             // ***** DEBUG MSG *****
             if (DEBUG) { Console.WriteLine($"DEBUG:\tChecking if there's a Shlindex file."); }
