@@ -63,6 +63,17 @@ namespace Team
     }
 
 
+    /** Added by: Manuel
+     * 
+     * function to display file missing error
+     * 
+     */
+    private static void DisplayFileMissingError(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "## ERROR: Eine Datei, welche eigentlich existieren sollte ist nicht da." : "## ERROR: Some file that should exists doesn't actually exist.");
+    }
+
+
     /** Added by: Jugi
      * 
      * Function DisplayListCreation
