@@ -121,8 +121,8 @@ namespace YASLMAT
                     string listUserInput = "";
                     while (listUserInput != "3")
                     {
-                        // Menu.DisplayListCombo(currentConfig);
-                        // listUserInput = Menu.GetRealUserInput(currentConfig, Menu.DisplayListCombo);
+                        Menu.DisplayItemCombo(currentConfig);
+                        listUserInput = Menu.GetRealUserInput(currentConfig, Menu.DisplayItemCombo);
                         if (listUserInput != "1" && listUserInput != "2" && listUserInput != "3")
                         {
                             Menu.DisplayOptionError(currentConfig);
@@ -136,8 +136,6 @@ namespace YASLMAT
                         }
                     }
                 }
-
-
             }
         }
 
