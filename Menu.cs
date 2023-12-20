@@ -239,7 +239,7 @@ namespace Team
     private static void DisplayItemOptionQuestion(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "1. Neuer Artikel hinzufügen" : "1. Add new item");
-      //Console.WriteLine(currentConfig.Language == "DE" ? "2. Artikel entfernen" : "2. Delete Item");
+      // Console.WriteLine(currentConfig.Language == "DE" ? "2. Artikel entfernen" : "2. Delete Item");
       Console.WriteLine(currentConfig.Language == "DE" ? "3. Fertigstellen" : "3. Finish");
     }
 
