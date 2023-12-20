@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Text.Json;
+using Team;
 
 namespace Manuel
 {
@@ -225,7 +226,15 @@ namespace Manuel
         public static void Remove(Config.Content currentConfig, string id)
         {
             string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "__*.json");
-            // TODO: get shopping list starting with {id}
+            Shlindex.Content shlindex = Shlindex.Read(currentConfig);
+            if (files.Length == 0)
+            {
+                Menu.DisplayShlindexOnlyDeleteQuestion(currentConfig);
+                if (Menu.GetYesNoUserInput(currentConfig, Menu.DisplayShlindexOnlyDeleteQuestion))
+                {
+                    // shlindex.RemoveMetadataById(id);
+                }
+            }
         }
     }
 }
