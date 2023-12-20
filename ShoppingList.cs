@@ -153,10 +153,6 @@ namespace Manuel
             string strippedShlDirectory = shlDirectory.EndsWith('/') ? shlDirectory.Remove(shlDirectory.Length - 1, 1) : shlDirectory;
             string fullShlFilePath = strippedShlDirectory + "/" + content.Metadata.Id + "__" + content.Metadata.Name + ".json";
             string writableJson = JsonSerializer.Serialize<Content>(content);
-            if (!File.Exists(fullShlFilePath))
-            {
-                File.Create(fullShlFilePath);
-            }
             using (StreamWriter streamWriter = File.CreateText(fullShlFilePath))
             {
                 streamWriter.Write(writableJson);
