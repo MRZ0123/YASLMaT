@@ -134,8 +134,8 @@ namespace Manuel
         public static Content Read(Config.Content currentConfig, string id)
         {
             string dataDirLocation = currentConfig.ShoppingListDirectory;
-            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "__*.json");
-            string shoppingListString = "";
+            string[] files = Directory.GetFiles(dataDirLocation, id + "__*.json");
+            string shoppingListString = ""; // TODO: check if file exists before reading it
             using (StreamReader streamReader = new StreamReader(files[0]))
             {
                 string? currentLine;
