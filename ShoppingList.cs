@@ -13,7 +13,7 @@ namespace Manuel
          * also present at the start of each list
          * 
          */
-        public class Metadata
+        public struct Metadata
         {
             public string Id { get; }
             public string Name { get; set; }
@@ -34,6 +34,11 @@ namespace Manuel
                 this.Id = id;
                 this.Name = name;
                 this.Shop = "";
+            }
+
+            public void UpdateItemCount(long count)
+            {
+                this.FullItemCount = count;
             }
 
         }
@@ -116,7 +121,7 @@ namespace Manuel
 
             public void UpdateItemCount()
             {
-                this.Metadata.FullItemCount = this.Items.LongCount();
+                this.Metadata.UpdateItemCount(this.Items.LongCount());
             }
         }
 
