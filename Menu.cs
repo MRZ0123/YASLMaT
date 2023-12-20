@@ -26,7 +26,7 @@ namespace Team
      */
     public static void DisplaySelect(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wähle eine Liste aus (Zahl)" : "Please select a list (number)" );
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wähle eine Liste aus (Zahl)" : "Please select a list (number)");
     }
 
 
@@ -163,7 +163,34 @@ namespace Team
       DisplayChoiceRequest(currentConfig);
     }
 
-    
+
+    /** Added by: Manuel
+     * 
+     * function to get a yes or no from user
+     * 
+     */
+    public static bool GetYesNoUserInput(Config.Content currentConfig, Action<Config.Content> DisplayFunction)
+    {
+      int failureCount = 0;
+      string? userInput = GetUserInput();
+      while (userInput.ToLower() != "y" && userInput.ToLower() != "n")
+      {
+        failureCount += 1;
+        DisplayOptionError(currentConfig);
+        DisplayFunction(currentConfig);
+        userInput = GetUserInput();
+      }
+      if (userInput.ToLower() == "y")
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+
+
     /** Added by: Manuel
      * 
      * fuction used to get and return userinput but catch empty or null
