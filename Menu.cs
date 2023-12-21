@@ -134,7 +134,7 @@ namespace Team
      * function to ask for shopping list selection
      * 
      */
-    public static void DisplaySelectRequest(Config.Content currentConfig)
+    public static void DisplaySelectListRequest(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Liste aus oder schreiben Sie b um zurück zu kommen" : "Please select a list or type b to go back");
     }
@@ -201,7 +201,7 @@ namespace Team
      * function to display option when a list is selected
      * 
      */
-    private static void DisplaySelectedOptions(Config.Content currentConfig)
+    private static void DisplayListOptions(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "1. Listeninhalt anzeigen" : "1. Show list content");
       // Console.WriteLine(currentConfig.Language == "DE" ? "2. Liste umbenennen" : "2. Rename list");
@@ -216,9 +216,9 @@ namespace Team
      * function to combo selected options and request
      * 
      */
-    public static void DisplaySelectedCombo(Config.Content currentConfig)
+    public static void DisplayListCombo(Config.Content currentConfig)
     {
-      DisplaySelectedOptions(currentConfig);
+      DisplayListOptions(currentConfig);
       DisplayChoiceRequestFive(currentConfig);
     }
 
