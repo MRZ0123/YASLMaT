@@ -341,7 +341,7 @@ namespace Team
      */
     private static void DisplayItemQuantityQuestion(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die Anzahl des Artikels ein:" : "Please enter a number of shopping item:");
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die Anzahl des Artikels ein:" : "Please enter the quantity of your shopping item:");
     }
     
 
