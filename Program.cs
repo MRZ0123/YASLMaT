@@ -252,8 +252,38 @@ namespace YASLMAT
                             newListContent.AddItem(newItem);
                         }
                         else if (listUserInput == "2")  // remove item
-                        {   // cut due to time constraints
+                        {
+                            string? userInputSelectedItem = "";
+                            while (userInputSelectedItem.ToLower() != "b")
+                            {
+                                Menu.DisplayShoppingListContent(currentConfig, newListContent);
+                                Menu.DisplaySelectItemRequest(currentConfig);
+                                userInputSelectedItem = Menu.GetUserInput();
+                                userInputSelectedItem ??= "";
+                                int userInputSelectedItem_converted = -1;
+                                if (int.TryParse(userInputSelectedItem, out userInputSelectedItem_converted))
+                                {
+                                    if (!(userInputSelectedItem_converted < 0 && userInputSelectedItem_converted >= newListContent.Items.Count))
+                                    {
+                                        Menu.DisplayWhichItemSelected(currentConfig, userInputSelectedItem_converted);
+                                        Menu.DisplayDeleteWarning(currentConfig);
+                                        if (Menu.GetYesNoUserInput(currentConfig, Menu.DisplayDeleteWarning))
+                                        {
+                                            newListContent.RemoveItemIndex(userInputSelectedItem_converted);
+                                            break;
+                                        }
 
+                                    }
+                                    else
+                                    {
+                                        Menu.DisplayOptionError(currentConfig);
+                                    }
+                                }
+                                else
+                                {
+                                    Menu.DisplayOptionError(currentConfig);
+                                }
+                            }
                         }
                         else if (listUserInput == "3")  // finish list
                         {
@@ -286,7 +316,7 @@ namespace YASLMAT
                         {
                             if (!(userSelectedList_converted < 0 && userSelectedList_converted >= allShlistMetadata.MetadataShlindex.Count))
                             {
-                                Menu.DisplayWhichSelected(currentConfig, userSelectedList_converted);
+                                Menu.DisplayWhichListSelected(currentConfig, userSelectedList_converted);
                                 string? userInputAfterSelect = "";
                                 while (userInputAfterSelect != "5")
                                 {
