@@ -158,12 +158,12 @@ namespace YASLMAT
                         Menu.DisplaySelectRequest(currentConfig);
                         selectUserInput = Menu.GetUserInput();
                         selectUserInput ??= "";
-                        int convertedInput = -1;
-                        if (int.TryParse(selectUserInput, out convertedInput))
+                        int userSelectedList_converted = -1;
+                        if (int.TryParse(selectUserInput, out userSelectedList_converted))
                         {
-                            if (!(convertedInput < 0 && convertedInput >= allShlistMetadata.MetadataShlindex.Count))
+                            if (!(userSelectedList_converted < 0 && userSelectedList_converted >= allShlistMetadata.MetadataShlindex.Count))
                             {
-                                Menu.DisplayWhichSelected(currentConfig, convertedInput);
+                                Menu.DisplayWhichSelected(currentConfig, userSelectedList_converted);
                                 string? userInputAfterSelect = "";
                                 while (userInputAfterSelect != "5")
                                 {
@@ -182,8 +182,13 @@ namespace YASLMAT
 
                                     }
                                     else if (userInputAfterSelect == "4")   // delete list
-                                    {   // TODO
-                                        
+                                    {
+                                        Menu.DisplayDeleteWarning(currentConfig);
+                                        if (Menu.GetYesNoUserInput(currentConfig, Menu.DisplayDeleteWarning))
+                                        {
+                                            ShoppingList.Remove(currentConfig, allShlistMetadata.MetadataShlindex[userSelectedList_converted].Id);
+                                            break;
+                                        }
                                     }
                                     else
                                     {
