@@ -16,7 +16,7 @@ namespace YASLMAT
          */
         static void Main(string[] args)
         {
-            bool DEBUG = true;
+            bool DEBUG = false;
             string configFileLocation = "./conf.ig";
 
             // ***** DEBUG MSG *****
