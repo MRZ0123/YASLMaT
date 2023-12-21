@@ -16,7 +16,7 @@ namespace YASLMAT
          */
         static void Main(string[] args)
         {
-            bool DEBUG = false;
+            bool DEBUG = true;
             string configFileLocation = "./conf.ig";
 
             // ***** DEBUG MSG *****
@@ -170,8 +170,21 @@ namespace YASLMAT
                                     Menu.DisplaySelectedCombo(currentConfig);
                                     userInputAfterSelect = Menu.GetRealUserInput(currentConfig, Menu.DisplaySelectedCombo);
                                     if (userInputAfterSelect == "1")    // show list content
-                                    {   // TODO
-
+                                    {
+                                        
+                                        // ***** DEBUG MSG *****
+                                        if (DEBUG) { Console.WriteLine($"DEBUG:\tID: {allShlistMetadata.MetadataShlindex[userSelectedList_converted].Id}"); }
+                                        // **   -**#####**-   **
+                                        
+                                        ShoppingList.Content shoppingListToBeDisplayed = ShoppingList.Read(currentConfig, allShlistMetadata.MetadataShlindex[userSelectedList_converted].Id);
+                                        if (shoppingListToBeDisplayed.Equals(new ShoppingList.Content()))
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            Menu.DisplayShoppingListContent(currentConfig, shoppingListToBeDisplayed);
+                                        }
                                     }
                                     else if (userInputAfterSelect == "2")   // rename list
                                     {   // Feature cut due to time
