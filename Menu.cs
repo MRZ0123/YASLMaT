@@ -180,9 +180,9 @@ namespace Team
      * function to display a request for a choice from the user
      * 
      */
-    private static void DisplayChoiceRequestFour(Config.Content currentConfig)
+    private static void DisplayChoiceRequestFive(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Option (1-4):" : "Please choose an option (1-4):");
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Option (1-5):" : "Please choose an option (1-5):");
     }
 
 
