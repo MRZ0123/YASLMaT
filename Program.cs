@@ -16,7 +16,7 @@ namespace YASLMAT
          */
         static void Main(string[] args)
         {
-            bool DEBUG = true;
+            bool DEBUG = false;
             string configFileLocation = "./conf.ig";
 
             // ***** DEBUG MSG *****
@@ -49,7 +49,7 @@ namespace YASLMAT
             if (DEBUG) { Console.WriteLine($"DEBUG:\tCurrent config content is:\n{currentConfig}"); }
             // **   -**#####**-   **
 
-            if(!Directory.Exists(currentConfig.ShoppingListDirectory))
+            if (!Directory.Exists(currentConfig.ShoppingListDirectory))
             {
                 Directory.CreateDirectory(currentConfig.ShoppingListDirectory);
             }
@@ -151,8 +151,34 @@ namespace YASLMAT
                 else if (userInput == "2")  // select list (show all lists)
                 {
                     allShlistMetadata = Shlindex.Read(currentConfig);
-                    Menu.DisplayShoppingLists(currentConfig, allShlistMetadata);
-                    
+                    string? selectUserInput = "";
+                    while (selectUserInput.ToLower() != "b")
+                    {
+                        Menu.DisplayShoppingLists(currentConfig, allShlistMetadata);
+                        Menu.DisplaySelectRequest(currentConfig);
+                        selectUserInput = Menu.GetUserInput();
+                        selectUserInput ??= "";
+                        int convertedInput = -1;
+                        if (int.TryParse(selectUserInput, out convertedInput))
+                        {
+                            if (!(convertedInput < 0 && convertedInput >= allShlistMetadata.MetadataShlindex.Count))
+                            {
+                                Menu.DisplayWhichSelected(currentConfig, convertedInput);
+                                Menu.DisplaySelectedOptions(currentConfig);
+                                // TODO: add delete
+                                // TODO: add show
+                            }
+                            else
+                            {
+                                Menu.DisplayOptionError(currentConfig);
+                            }
+                        }
+                        else
+                        {
+                            Menu.DisplayOptionError(currentConfig);
+                        }
+
+                    }
                 }
             }
         }
