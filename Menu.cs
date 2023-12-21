@@ -197,6 +197,7 @@ namespace Team
       // Console.WriteLine(currentConfig.Language == "DE" ? "2. Liste umbenennen" : "2. Rename list");
       // Console.WriteLine(currentConfig.Language == "DE" ? "3. Liste bearbeiten" : "3. edit list");
       Console.WriteLine(currentConfig.Language == "DE" ? "4. Liste löschen" : "4. delete list");
+      Console.WriteLine(currentConfig.Language == "DE" ? "5. Zurück" : "5. Back");
     }
 
 
