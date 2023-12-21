@@ -16,7 +16,7 @@ namespace Manuel
          */
         public struct Metadata
         {
-            public string Id { get; }
+            public string Id { get; set; }
             public string Name { get; set; }
             public string Shop { get; set; }
             public long FullItemCount { get; set; }
