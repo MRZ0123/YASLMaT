@@ -202,6 +202,18 @@ namespace Team
 
     /** Added by: Manuel
      * 
+     * function to combo selected options and request
+     * 
+     */
+    public static void DisplaySelectedCombo(Config.Content currentConfig)
+    {
+      DisplaySelectedOptions(currentConfig);
+      DisplayChoiceRequestFour(currentConfig);
+    }
+
+    
+    /** Added by: Manuel
+     * 
      * function to display which list is selected
      * 
      */
