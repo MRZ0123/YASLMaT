@@ -26,9 +26,16 @@ namespace Manuel
                 this.MetadataShlindex.Add(metadata);
             }
 
-            public void RemoveMetadata(ShoppingList.Metadata metadata)
+            public void RemoveMetadataById(string id)
             {
-                this.MetadataShlindex.Remove(metadata);
+                for (int i = 0; i < this.MetadataShlindex.Count; i += 1)
+                {
+                    if (this.MetadataShlindex[i].Id == id)
+                    {
+                        this.MetadataShlindex.RemoveAt(i);
+                        break;
+                    }
+                }
             }
         }
 
@@ -71,16 +78,9 @@ namespace Manuel
         {
             string shlindexFileLocation = currentConfig.ShlindexFileLocation;
             string writableJson = JsonSerializer.Serialize<Content>(newShlindex);
-            if (File.Exists(shlindexFileLocation))
+            using (StreamWriter streamWriter = File.CreateText(shlindexFileLocation))
             {
-                using (StreamWriter streamWriter = File.CreateText(shlindexFileLocation))
-                {
-                    streamWriter.Write(writableJson);
-                }
-            }
-            else
-            {
-                Menu.DisplayFileMissingError(currentConfig);
+                streamWriter.Write(writableJson);
             }
         }
 

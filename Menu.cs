@@ -74,6 +74,17 @@ namespace Team
     }
 
 
+    /** Added by: Manuel
+     * 
+     * function used to ask for deletion in shlindex
+     * 
+     */
+    public static void DisplayShlindexOnlyDeleteQuestion(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Diese Einkaufsliste existiert nicht in dem Einkaufslistenordner. Möchten Sie diese aus der Index Datei löschen? (y/n):" : "This shopping list doesn't exist in the shopping list directory. Do you want to delete it from the index file? (y/n)");
+    }
+
+
     /** Added by: Jugi
      * 
      * Function DisplayListCreation
@@ -150,6 +161,33 @@ namespace Team
     {
       Display(currentConfig);
       DisplayChoiceRequest(currentConfig);
+    }
+
+
+    /** Added by: Manuel
+     * 
+     * function to get a yes or no from user
+     * 
+     */
+    public static bool GetYesNoUserInput(Config.Content currentConfig, Action<Config.Content> DisplayFunction)
+    {
+      int failureCount = 0;
+      string? userInput = GetUserInput();
+      while (userInput.ToLower() != "y" && userInput.ToLower() != "n")
+      {
+        failureCount += 1;
+        DisplayOptionError(currentConfig);
+        DisplayFunction(currentConfig);
+        userInput = GetUserInput();
+      }
+      if (userInput.ToLower() == "y")
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
     }
 
 

@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Text.Json;
+using Team;
 
 namespace Manuel
 {
@@ -134,18 +135,32 @@ namespace Manuel
         public static Content Read(Config.Content currentConfig, string id)
         {
             string dataDirLocation = currentConfig.ShoppingListDirectory;
-            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "__*.json");
-            string shoppingListString = "";
-            using (StreamReader streamReader = new StreamReader(files[0]))
+            string[] files = Directory.GetFiles(dataDirLocation, id + "__*.json");
+            if (files.Length == 0)
             {
-                string? currentLine;
-                while ((currentLine = streamReader.ReadLine()) != null)
+                Menu.DisplayShlindexOnlyDeleteQuestion(currentConfig);
+                if (Menu.GetYesNoUserInput(currentConfig, Menu.DisplayShlindexOnlyDeleteQuestion))
                 {
-                    shoppingListString += (currentLine + "\n");
+                    Shlindex.Content shlindex = Shlindex.Read(currentConfig);
+                    shlindex.RemoveMetadataById(id);
+                    Shlindex.Write(currentConfig, shlindex);
                 }
+                return new Content(); //! IMPORTANT: check if this return is only new Content() or actually has data
             }
-            Content shoppingList = JsonSerializer.Deserialize<Content>(shoppingListString);
-            return shoppingList;
+            else
+            {
+                string shoppingListString = "";
+                using (StreamReader streamReader = new StreamReader(files[0]))
+                {
+                    string? currentLine;
+                    while ((currentLine = streamReader.ReadLine()) != null)
+                    {
+                        shoppingListString += (currentLine + "\n");
+                    }
+                }
+                Content shoppingList = JsonSerializer.Deserialize<Content>(shoppingListString);
+                return shoppingList;
+            }
         }
 
 
@@ -216,17 +231,16 @@ namespace Manuel
          * function used to remove a shopping list based on a shopping list object
          * 
          */
-        /** TODO:
-         * TODO: check id
-         * TODO: delete shlindex entry
-         * TODO: delete file
-         * 
-         */
         public static void Remove(Config.Content currentConfig, string id)
         {
             string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "__*.json");
-            Console.WriteLine(files.Length);
-            Console.WriteLine("[ " + string.Join(',', files) + " ]");
+            Shlindex.Content shlindex = Shlindex.Read(currentConfig);
+            shlindex.RemoveMetadataById(id);
+            Shlindex.Write(currentConfig, shlindex);
+            if (files.Length != 0)
+            {
+                File.Delete(files[0]);
+            }
         }
     }
 }
