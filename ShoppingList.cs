@@ -143,6 +143,7 @@ namespace Manuel
                 {
                     Shlindex.Content shlindex = Shlindex.Read(currentConfig);
                     shlindex.RemoveMetadataById(id);
+                    Shlindex.Write(currentConfig, shlindex);
                 }
                 return new Content(); //! IMPORTANT: check if this return is only new Content() or actually has data
             }
