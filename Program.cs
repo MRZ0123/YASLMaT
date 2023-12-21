@@ -263,7 +263,12 @@ namespace YASLMAT
                                 int userInputSelectedItem_converted = -1;
                                 if (int.TryParse(userInputSelectedItem, out userInputSelectedItem_converted))
                                 {
-                                    if (!(userInputSelectedItem_converted < 0 && userInputSelectedItem_converted >= newListContent.Items.Count))
+                                    
+                                    // ***** DEBUG MSG *****
+                                    if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tNumber of Items: {newListContent.Items.Count}"); }
+                                    // **   -**#####**-   **
+                                    
+                                    if (userInputSelectedItem_converted >= 0 && userInputSelectedItem_converted < newListContent.Items.Count)
                                     {
                                         Menu.DisplayWhichItemSelected(currentConfig, userInputSelectedItem_converted);
                                         Menu.DisplayDeleteWarning(currentConfig);
@@ -272,7 +277,6 @@ namespace YASLMAT
                                             newListContent.RemoveItemIndex(userInputSelectedItem_converted);
                                             break;
                                         }
-
                                     }
                                     else
                                     {
@@ -314,7 +318,7 @@ namespace YASLMAT
                         int userSelectedList_converted = -1;
                         if (int.TryParse(selectUserInput, out userSelectedList_converted))
                         {
-                            if (!(userSelectedList_converted < 0 && userSelectedList_converted >= allShlistMetadata.MetadataShlindex.Count))
+                            if (userSelectedList_converted >= 0 && userSelectedList_converted < allShlistMetadata.MetadataShlindex.Count)
                             {
                                 Menu.DisplayWhichListSelected(currentConfig, userSelectedList_converted);
                                 string? userInputAfterSelect = "";
