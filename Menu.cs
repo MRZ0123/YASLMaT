@@ -295,6 +295,23 @@ namespace Team
     }
 
 
+    /** Added by: Manuel
+     * 
+     * function used to display an entire shopping list with item name and quantity
+     * 
+     */
+    static void DisplayShoppingListContent(Config.Content currentConfig, ShoppingList.Content shlistContent)
+    {
+      Console.WriteLine($"{(currentConfig.Language == "DE" ? "Liste: " : "list: ")}{shlistContent.Metadata.Name,30}{"; " + (shlistContent.Metadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : shlistContent.Metadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{shlistContent.Metadata.FullItemCount}");
+      if ( shlistContent.Items.Count > 0) { Console.WriteLine("\n"); }
+      for (int i = 0; i < shlistContent.Items.Count; i++)
+      {
+        ShoppingList.Item currentItem = shlistContent.Items[i];
+        Console.WriteLine($"({i + "):",5}{(currentConfig.Language == "DE" ? "Artikel: " : "Item: ")}{currentItem.ItemName,-30}{(currentConfig.Language == "DE" ? "Menge: " : "amount: ")}{currentItem.ItemCount, -5}");
+      }
+    }
+
+
     /** Added by: Sven
      *
      * Function to display name, shops and number of items from lists
@@ -312,7 +329,7 @@ namespace Team
         {
           // use [i] instead of .elementAt(i) for performance reasons
           ShoppingList.Metadata currentMetadata = index.MetadataShlindex[i];
-          Console.WriteLine($"{"(" + i + "):",6}{(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
+          Console.WriteLine($"({i + "):",5}{(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
         }
       }
     }
