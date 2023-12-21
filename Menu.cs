@@ -256,6 +256,7 @@ namespace Team
     {
       int failureCount = 0;
       string? userInput = GetUserInput();
+      userInput ??= "";
       while (userInput.ToLower() != "y" && userInput.ToLower() != "n")
       {
         failureCount += 1;
