@@ -13,7 +13,7 @@ using Jugi;
  */
 public static class Globals
 {
-    public const bool DEBUG = false;
+    public const bool DEBUG = true;
 }
 
 
