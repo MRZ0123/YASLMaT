@@ -300,7 +300,7 @@ namespace Team
      * function used to display an entire shopping list with item name and quantity
      * 
      */
-    static void DisplayShoppingListContent(Config.Content currentConfig, ShoppingList.Content shlistContent)
+    public static void DisplayShoppingListContent(Config.Content currentConfig, ShoppingList.Content shlistContent)
     {
       Console.WriteLine($"{(currentConfig.Language == "DE" ? "Liste: " : "list: ")}{shlistContent.Metadata.Name,30}{"; " + (shlistContent.Metadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : shlistContent.Metadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{shlistContent.Metadata.FullItemCount}");
       if ( shlistContent.Items.Count > 0) { Console.WriteLine("\n"); }
