@@ -164,9 +164,32 @@ namespace YASLMAT
                             if (!(convertedInput < 0 && convertedInput >= allShlistMetadata.MetadataShlindex.Count))
                             {
                                 Menu.DisplayWhichSelected(currentConfig, convertedInput);
-                                Menu.DisplaySelectedOptions(currentConfig);
-                                // TODO: add delete
-                                // TODO: add show
+                                string? userInputAfterSelect = "";
+                                while (userInputAfterSelect != "5")
+                                {
+                                    Menu.DisplaySelectedCombo(currentConfig);
+                                    userInputAfterSelect = Menu.GetRealUserInput(currentConfig, Menu.DisplaySelectedCombo);
+                                    if (userInputAfterSelect == "1")    // show list content
+                                    {   // TODO
+
+                                    }
+                                    else if (userInputAfterSelect == "2")   // rename list
+                                    {   // Feature cut due to time
+
+                                    }
+                                    else if (userInputAfterSelect == "3")   // edit list
+                                    {   // Feature cut due to time
+
+                                    }
+                                    else if (userInputAfterSelect == "4")   // delete list
+                                    {   // TODO
+                                        
+                                    }
+                                    else
+                                    {
+                                        Menu.DisplayOptionError(currentConfig);
+                                    }
+                                }
                             }
                             else
                             {
@@ -177,11 +200,9 @@ namespace YASLMAT
                         {
                             Menu.DisplayOptionError(currentConfig);
                         }
-
                     }
                 }
             }
         }
-
     }
 }
