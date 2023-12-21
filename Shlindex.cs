@@ -26,10 +26,16 @@ namespace Manuel
                 this.MetadataShlindex.Add(metadata);
             }
 
-            //TODO: change it to remove metadata by id
-            public void RemoveMetadata(ShoppingList.Metadata metadata)
+            public void RemoveMetadataById(string id)
             {
-                this.MetadataShlindex.Remove(metadata);
+                for (int i = 0; i < this.MetadataShlindex.Count; i += 1)
+                {
+                    if (this.MetadataShlindex[i].Id == id)
+                    {
+                        this.MetadataShlindex.RemoveAt(i);
+                        break;
+                    }
+                }
             }
         }
 
