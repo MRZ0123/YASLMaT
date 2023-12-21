@@ -175,6 +175,17 @@ namespace Team
     }
 
 
+    /** Added by: Manuel
+     * 
+     * function to display which list is selected
+     * 
+     */
+    public static void DisplayWhichSelected(Config.Content currentConfig, int listNumber)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? $"Sie haben Liste Nummer {listNumber} ausgewählt" : $"You have selected list number {listNumber}");
+    }
+
+
     /** Added by: Jugi
      * 
      * Function to display combo
