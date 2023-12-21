@@ -107,7 +107,7 @@ namespace YASLMAT
                 {
                     Menu.DisplayOptionError(currentConfig);
                 }
-                else if (userInput == "1")
+                else if (userInput == "1")  // Create new list
                 {
                     string listNameFromUserInput = Menu.GetListName(currentConfig);
                     string? shopNameFromUserInput = Menu.GetShopName(currentConfig);
@@ -131,22 +131,26 @@ namespace YASLMAT
                         {
                             Menu.DisplayOptionError(currentConfig);
                         }
-                        else if (listUserInput == "1")
+                        else if (listUserInput == "1")  // add new Item
                         {
                             string newItemName = Menu.GetItemName(currentConfig);
                             int newItemQuantity = Convert.ToInt32(Menu.GetItemQuantity(currentConfig));
                             ShoppingList.Item newItem = new ShoppingList.Item(newItemQuantity, newItemName);
                             newListContent.AddItem(newItem);
                         }
-                        else if (listUserInput == "2")
+                        else if (listUserInput == "2")  // remove item
                         {
                             // TODO: remove item if time available
                         }
-                        else if (listUserInput == "3")
+                        else if (listUserInput == "3")  // finish list
                         {
                             ShoppingList.Write(currentConfig, newListContent);
                         }
                     }
+                }
+                else if (userInput == "2")  // select list (show all lists)
+                {
+                    
                 }
             }
         }
