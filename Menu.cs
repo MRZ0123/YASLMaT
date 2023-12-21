@@ -129,6 +129,16 @@ namespace Team
     }
 
 
+    /** Added by: Manuel
+     * 
+     * function to ask for shopping list name
+     * 
+     */
+    public static void DisplaySelectRequest(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Liste aus" : "Please select a list");
+    }
+
     /** Added by: Jugi
      * 
      * Function to get shop name from user input
