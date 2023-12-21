@@ -115,15 +115,55 @@ namespace YASLMAT
                 // **   -**#####**-   **
 
                 userInput = Menu.GetRealUserInput(currentConfig, Menu.DisplayMainMenuCombo);
+
+                // ***** DEBUG MSG *****
+                if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tChecking user input validity."); }
+                // **   -**#####**-   **
+
                 if (userInput != "1" && userInput != "2" && userInput != "3")
                 {
+
+                    // ***** DEBUG MSG *****
+                    if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tUser input not valid."); }
+                    // **   -**#####**-   **
+
+
+                    // ***** DEBUG MSG *****
+                    if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tDisplaying error."); }
+                    // **   -**#####**-   **
+
                     Menu.DisplayOptionError(currentConfig);
                 }
                 else if (userInput == "1")  // Create new list
                 {
+
+                    // ***** DEBUG MSG *****
+                    if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tUser wants to create a new list."); }
+                    // **   -**#####**-   **
+
+
+                    // ***** DEBUG MSG *****
+                    if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tGetting name for new list."); }
+                    // **   -**#####**-   **
+
                     string listNameFromUserInput = Menu.GetListName(currentConfig);
+
+                    // ***** DEBUG MSG *****
+                    if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tGetting name for shop of new list"); }
+                    // **   -**#####**-   **
+
                     string? shopNameFromUserInput = Menu.GetShopName(currentConfig);
+
+                    // ***** DEBUG MSG *****
+                    if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tGenerating a new id for list."); }
+                    // **   -**#####**-   **
+
                     string generatedId = ShoppingList.GenerateNewId();
+
+                    // ***** DEBUG MSG *****
+                    if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tGenerating metadata for the list from gathered information."); }
+                    // **   -**#####**-   **
+
                     ShoppingList.Metadata newListMetadata;
                     if (shopNameFromUserInput == null || shopNameFromUserInput == "")
                     {
@@ -133,21 +173,76 @@ namespace YASLMAT
                     {
                         newListMetadata = new ShoppingList.Metadata(generatedId, listNameFromUserInput, shopNameFromUserInput);
                     }
+
+                    // ***** DEBUG MSG *****
+                    if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tGenerating list content with metadata."); }
+                    // **   -**#####**-   **
+
                     ShoppingList.Content newListContent = new ShoppingList.Content(newListMetadata);
                     string listUserInput = "";
                     while (listUserInput != "3")
                     {
+
+                        // ***** DEBUG MSG *****
+                        if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tDisplaying user options for adding items / finishing."); }
+                        // **   -**#####**-   **
+
                         Menu.DisplayItemCombo(currentConfig);
+
+                        // ***** DEBUG MSG *****
+                        if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tGettung user input."); }
+                        // **   -**#####**-   **
+
                         listUserInput = Menu.GetRealUserInput(currentConfig, Menu.DisplayItemCombo);
+
+                        // ***** DEBUG MSG *****
+                        if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tChecking user input validity."); }
+                        // **   -**#####**-   **
+
                         if (listUserInput != "1" && listUserInput != "2" && listUserInput != "3")
                         {
+
+                            // ***** DEBUG MSG *****
+                            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tUser input not valid."); }
+                            // **   -**#####**-   **
+
+
+                            // ***** DEBUG MSG *****
+                            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tDisplaying error."); }
+                            // **   -**#####**-   **
+
                             Menu.DisplayOptionError(currentConfig);
                         }
                         else if (listUserInput == "1")  // add new Item
                         {
+                            
+                            // ***** DEBUG MSG *****
+                            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tUser wants to add a new item to the list."); }
+                            // **   -**#####**-   **
+                            
+                            
+                            // ***** DEBUG MSG *****
+                            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tGetting item name from user."); }
+                            // **   -**#####**-   **
+                            
                             string newItemName = Menu.GetItemName(currentConfig);
+                            
+                            // ***** DEBUG MSG *****
+                            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tGetting quantity for item from user."); }
+                            // **   -**#####**-   **
+                            
                             int newItemQuantity = Convert.ToInt32(Menu.GetItemQuantity(currentConfig));
+                            
+                            // ***** DEBUG MSG *****
+                            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tGenerating new item based on gathered information."); }
+                            // **   -**#####**-   **
+                            
                             ShoppingList.Item newItem = new ShoppingList.Item(newItemQuantity, newItemName);
+                            
+                            // ***** DEBUG MSG *****
+                            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tAdding new item to list."); }
+                            // **   -**#####**-   **
+                            
                             newListContent.AddItem(newItem);
                         }
                         else if (listUserInput == "2")  // remove item
@@ -156,6 +251,16 @@ namespace YASLMAT
                         }
                         else if (listUserInput == "3")  // finish list
                         {
+                            
+                            // ***** DEBUG MSG *****
+                            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tUser wants to finish the list."); }
+                            // **   -**#####**-   **
+                            
+                            
+                            // ***** DEBUG MSG *****
+                            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tWriting list to disk."); }
+                            // **   -**#####**-   **
+                            
                             ShoppingList.Write(currentConfig, newListContent);
                         }
                     }
