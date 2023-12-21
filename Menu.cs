@@ -175,6 +175,17 @@ namespace Team
     }
 
 
+    /** Added by: Jugi
+     * 
+     * function to display a request for a choice from the user
+     * 
+     */
+    public static void DisplayChoiceRequestFour(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Option (1-4):" : "Please choose an option (1-4):");
+    }
+
+
     /** Added by: Manuel
      * 
      * function to display option when a list is selected
