@@ -180,7 +180,7 @@ namespace Team
      * function to display a request for a choice from the user
      * 
      */
-    public static void DisplayChoiceRequestFour(Config.Content currentConfig)
+    private static void DisplayChoiceRequestFour(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Option (1-4):" : "Please choose an option (1-4):");
     }
@@ -191,7 +191,7 @@ namespace Team
      * function to display option when a list is selected
      * 
      */
-    public static void DisplaySelectedOptions(Config.Content currentConfig)
+    private static void DisplaySelectedOptions(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "1. Listeninhalt anzeigen" : "1. Show list content");
       // Console.WriteLine(currentConfig.Language == "DE" ? "2. Liste umbenennen" : "2. Rename list");
@@ -211,7 +211,7 @@ namespace Team
       DisplayChoiceRequestFour(currentConfig);
     }
 
-    
+
     /** Added by: Manuel
      * 
      * function to display which list is selected
