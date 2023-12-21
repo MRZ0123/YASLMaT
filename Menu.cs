@@ -139,6 +139,19 @@ namespace Team
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Liste aus oder schreiben Sie b um zurück zu kommen" : "Please select a list or type b to go back");
     }
 
+
+    /** Added by: Manuel
+     * 
+     * function to combo select request with displaying lists and error
+     * TODO
+     */
+    public static void DisplaySelectCombo(Config.Content currentConfig, Action<Config.Content> DisplayFunction)
+    {
+      DisplayFunction(currentConfig);
+      DisplaySelectRequest(currentConfig);
+    }
+    
+
     /** Added by: Jugi
      * 
      * Function to get shop name from user input
