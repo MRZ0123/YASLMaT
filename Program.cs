@@ -150,6 +150,8 @@ namespace YASLMAT
                 }
                 else if (userInput == "2")  // select list (show all lists)
                 {
+                    allShlistMetadata = Shlindex.Read(currentConfig);
+                    Menu.DisplayShoppingLists(currentConfig, allShlistMetadata);
                     
                 }
             }
