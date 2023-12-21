@@ -136,7 +136,7 @@ namespace Team
      */
     public static void DisplaySelectRequest(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Liste aus" : "Please select a list");
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Liste aus oder schreiben Sie b um zurück zu kommen" : "Please select a list or type b to go back");
     }
 
     /** Added by: Jugi
