@@ -188,6 +188,17 @@ namespace Team
 
     /** Added by: Manuel
      * 
+     * function used to display delete warning
+     * 
+     */
+    public static void DisplayDeleteWarning(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Möchten Sie das wirklich löschen? (y/n)" : "Do you really want to delete this? (y/n)");
+    }
+
+
+    /** Added by: Manuel
+     * 
      * function to display option when a list is selected
      * 
      */
