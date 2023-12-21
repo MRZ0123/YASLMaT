@@ -1,12 +1,12 @@
 using System;
 using System.Text.Json;
-using Team;
+using Manuel;
 
-namespace Manuel
+namespace Sven
 {
     class Shlindex
     {
-        /** Added by: Manuel
+        /** Added by: Sven
          * 
          * struct used to define the content of the shlindex file
          * 
@@ -40,7 +40,7 @@ namespace Manuel
         }
 
 
-        /** Added by: Manuel
+        /** Added by: Sven
          * 
          * function used to check if an shlindex file already exists
          * 
@@ -52,7 +52,7 @@ namespace Manuel
         }
 
 
-        /** Added by: Manuel
+        /** Added by: Sven
          * 
          * function used to create a new shlindex file
          * 
@@ -69,7 +69,7 @@ namespace Manuel
         }
 
 
-        /** Added by: Manuel
+        /** Added by: Sven
          * 
          * function used to write content into shlindex file
          * 
@@ -85,7 +85,7 @@ namespace Manuel
         }
 
 
-        /** Added by: Manuel
+        /** Added by: Sven
          * 
          * function used to read all Shlindex content to Content object
          * 
