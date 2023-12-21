@@ -2,12 +2,12 @@ using System;
 using System.IO;
 using System.Text.Json;
 
-namespace Manuel
+namespace Sven
 {
     class Config
     {
 
-        /** Added by: Manuel
+        /** Added by: Sven
          * 
          * struct used to represent the config content
          * 
@@ -67,14 +67,10 @@ namespace Manuel
         }
 
 
-        /** Added by: Manuel
+        /** Added by: Sven
          * 
          * function used to check if there's a config present
-         * ! Needs to be run every time the program starts
          * 
-         * Call with :
-         * string configFileLocation = @"./config.json";
-         * checkConfig(configFileLocation);
          */
         public static bool Check(string configFileLocation)
         {
@@ -82,7 +78,7 @@ namespace Manuel
         }
 
 
-        /** Added by: Manuel
+        /** Added by: Sven
          * 
          * function used to create the default config and write it to disk
          * ? TODO: rewrite into create default config -> Write function
@@ -100,7 +96,7 @@ namespace Manuel
         }
 
 
-        /** Added by: Manuel
+        /** Added by: Sven
          * 
          * function to get config content into config object
          * 

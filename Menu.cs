@@ -1,7 +1,8 @@
 using System;
 using Manuel;
+using Sven;
 
-namespace Team
+namespace Jugi
 {
   class Menu
   {
@@ -19,7 +20,7 @@ namespace Team
     }
 
 
-    /** Added by: Sven
+    /** Added by: Jugi
      * 
      * function used to display select options
      * 
@@ -52,7 +53,7 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
+    /** Added by: Jugi
      * 
      * function to display option error
      * 
@@ -63,7 +64,7 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
+    /** Added by: Jugi
      * 
      * function to display file missing error
      * 
@@ -74,7 +75,7 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
+    /** Added by: Jugi
      * 
      * function used to ask for deletion in shlindex
      * 
@@ -129,7 +130,7 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
+    /** Added by: Jugi
      * 
      * function to ask for shopping list selection
      * 
@@ -140,7 +141,7 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
+    /** Added by: Jugi
      * 
      * function to ask for item selection
      * 
@@ -185,7 +186,7 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
+    /** Added by: Jugi
      * 
      * function used to display delete warning
      * 
@@ -196,7 +197,7 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
+    /** Added by: Jugi
      * 
      * function to display option when a list is selected
      * 
@@ -211,7 +212,7 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
+    /** Added by: Jugi
      * 
      * function to combo selected options and request
      * 
@@ -223,7 +224,7 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
+    /** Added by: Jugi
      * 
      * function to display which list is selected
      * 
@@ -234,7 +235,7 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
+    /** Added by: Jugi
      * 
      * function to display which Item is selected
      * 
@@ -257,7 +258,7 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
+    /** Added by: Jugi
      * 
      * function to get a yes or no from user
      * 
@@ -285,7 +286,7 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
+    /** Added by: Jugi
      * 
      * fuction used to get and return userinput but catch empty or null
      * 
@@ -305,7 +306,7 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
+    /** Added by: Jugi
      * 
      * function used to display an entire shopping list with item name and quantity
      * 
@@ -323,7 +324,7 @@ namespace Team
     }
 
 
-    /** Added by: Sven
+    /** Added by: Jugi
      *
      * Function to display name, shops and number of items from lists
      * 

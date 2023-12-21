@@ -2,7 +2,8 @@
 using System.IO;
 using System.Text.Json;
 using Manuel;
-using Team;
+using Sven;
+using Jugi;
 
 
 /** Added by: Manuel
@@ -19,6 +20,11 @@ public static class Globals
 namespace YASLMAT
 {
 
+    /** Added by: Manuel
+     * 
+     * main program
+     * 
+     */
     class Program
     {
 
