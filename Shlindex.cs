@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json;
+using Team;
 
 namespace Manuel
 {
@@ -25,9 +26,16 @@ namespace Manuel
                 this.MetadataShlindex.Add(metadata);
             }
 
-            public void RemoveMetadata(ShoppingList.Metadata metadata)
+            public void RemoveMetadataById(string id)
             {
-                this.MetadataShlindex.Remove(metadata);
+                for (int i = 0; i < this.MetadataShlindex.Count; i += 1)
+                {
+                    if (this.MetadataShlindex[i].Id == id)
+                    {
+                        this.MetadataShlindex.RemoveAt(i);
+                        break;
+                    }
+                }
             }
         }
 
@@ -96,6 +104,6 @@ namespace Manuel
             }
             Content shlindex = JsonSerializer.Deserialize<Content>(shlindexString);
             return shlindex;
-        } 
+        }
     }
 }

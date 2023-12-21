@@ -63,6 +63,28 @@ namespace Team
     }
 
 
+    /** Added by: Manuel
+     * 
+     * function to display file missing error
+     * 
+     */
+    public static void DisplayFileMissingError(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "## ERROR: Eine Datei, welche eigentlich existieren sollte ist nicht da." : "## ERROR: Some file that should exists doesn't actually exist.");
+    }
+
+
+    /** Added by: Manuel
+     * 
+     * function used to ask for deletion in shlindex
+     * 
+     */
+    public static void DisplayShlindexOnlyDeleteQuestion(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Diese Einkaufsliste existiert nicht in dem Einkaufslistenordner. Möchten Sie diese aus der Index Datei löschen? (y/n):" : "This shopping list doesn't exist in the shopping list directory. Do you want to delete it from the index file? (y/n)");
+    }
+
+
     /** Added by: Jugi
      * 
      * Function DisplayListCreation
@@ -107,6 +129,17 @@ namespace Team
     }
 
 
+    /** Added by: Manuel
+     * 
+     * function to ask for shopping list name
+     * 
+     */
+    public static void DisplaySelectRequest(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Liste aus oder schreiben Sie b um zurück zu kommen" : "Please select a list or type b to go back");
+    }
+
+
     /** Added by: Jugi
      * 
      * Function to get shop name from user input
@@ -132,6 +165,66 @@ namespace Team
 
     /** Added by: Jugi
      * 
+     * function to display a request for a choice from the user
+     * 
+     */
+    private static void DisplayChoiceRequestFive(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Option (1-5):" : "Please choose an option (1-5):");
+    }
+
+
+    /** Added by: Manuel
+     * 
+     * function used to display delete warning
+     * 
+     */
+    public static void DisplayDeleteWarning(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Möchten Sie das wirklich löschen? (y/n)" : "Do you really want to delete this? (y/n)");
+    }
+
+
+    /** Added by: Manuel
+     * 
+     * function to display option when a list is selected
+     * 
+     */
+    private static void DisplaySelectedOptions(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "1. Listeninhalt anzeigen" : "1. Show list content");
+      // Console.WriteLine(currentConfig.Language == "DE" ? "2. Liste umbenennen" : "2. Rename list");
+      // Console.WriteLine(currentConfig.Language == "DE" ? "3. Liste bearbeiten" : "3. edit list");
+      Console.WriteLine(currentConfig.Language == "DE" ? "4. Liste löschen" : "4. delete list");
+      Console.WriteLine(currentConfig.Language == "DE" ? "5. Zurück" : "5. Back");
+    }
+
+
+    /** Added by: Manuel
+     * 
+     * function to combo selected options and request
+     * 
+     */
+    public static void DisplaySelectedCombo(Config.Content currentConfig)
+    {
+      DisplaySelectedOptions(currentConfig);
+      DisplayChoiceRequestFive(currentConfig);
+    }
+
+
+    /** Added by: Manuel
+     * 
+     * function to display which list is selected
+     * 
+     */
+    public static void DisplayWhichSelected(Config.Content currentConfig, int listNumber)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? $"Sie haben Liste Nummer {listNumber} ausgewählt" : $"You have selected list number {listNumber}");
+    }
+
+
+    /** Added by: Jugi
+     * 
      * Function to display combo
      * 
      */
@@ -139,6 +232,34 @@ namespace Team
     {
       Display(currentConfig);
       DisplayChoiceRequest(currentConfig);
+    }
+
+
+    /** Added by: Manuel
+     * 
+     * function to get a yes or no from user
+     * 
+     */
+    public static bool GetYesNoUserInput(Config.Content currentConfig, Action<Config.Content> DisplayFunction)
+    {
+      int failureCount = 0;
+      string? userInput = GetUserInput();
+      userInput ??= "";
+      while (userInput.ToLower() != "y" && userInput.ToLower() != "n")
+      {
+        failureCount += 1;
+        DisplayOptionError(currentConfig);
+        DisplayFunction(currentConfig);
+        userInput = GetUserInput();
+      }
+      if (userInput.ToLower() == "y")
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
     }
 
 
@@ -162,6 +283,24 @@ namespace Team
     }
 
 
+    /** Added by: Manuel
+     * 
+     * function used to display an entire shopping list with item name and quantity
+     * 
+     */
+    public static void DisplayShoppingListContent(Config.Content currentConfig, ShoppingList.Content shlistContent)
+    {
+      Console.WriteLine($"{(currentConfig.Language == "DE" ? "Liste: " : "list: ")}{shlistContent.Metadata.Name,30}{"; " + (shlistContent.Metadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : shlistContent.Metadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{shlistContent.Metadata.FullItemCount}");
+      if (shlistContent.Items.Count > 0) { Console.WriteLine("\n"); }
+      for (int i = 0; i < shlistContent.Items.Count; i++)
+      {
+        // use [i] instead of .elementAt(i) for performance reasons
+        ShoppingList.Item currentItem = shlistContent.Items[i];
+        Console.WriteLine($"({i + "):",5}{(currentConfig.Language == "DE" ? "Artikel: " : "Item: ")}{currentItem.ItemName,-30}{(currentConfig.Language == "DE" ? "Menge: " : "amount: ")}{currentItem.ItemCount,-5}");
+      }
+    }
+
+
     /** Added by: Sven
      *
      * Function to display name, shops and number of items from lists
@@ -177,9 +316,8 @@ namespace Team
       {
         for (int i = 0; i < index.MetadataShlindex.Count; i++)
         {
-          // use [i] instead of .elementAt(i) for performance reasons
           ShoppingList.Metadata currentMetadata = index.MetadataShlindex[i];
-          Console.WriteLine($"{"(" + i + "):",6}{(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
+          Console.WriteLine($"{$"({i + "):",5} {(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}",-80}{(currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
         }
       }
     }
@@ -192,7 +330,7 @@ namespace Team
       */
     private static void DisplayItemNameQuestion(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Artiekl ein:" : "Please enter a shopping item:");
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Artikel ein:" : "Please enter a shopping item:");
     }
 
 
@@ -203,9 +341,9 @@ namespace Team
      */
     private static void DisplayItemQuantityQuestion(Config.Content currentConfig)
     {
-      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die Anzahl des Artikels ein:" : "Please enter a quantity of your shopping item:");
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die Anzahl des Artikels ein:" : "Please enter a number of shopping items:");
     }
-    
+
 
     /** Added by: Jugi
      * 
@@ -217,13 +355,13 @@ namespace Team
       DisplayItemNameQuestion(currentConfig);
       return GetRealUserInput(currentConfig, DisplayItemNameQuestion);
     }
-    
 
-     /** Added by: Jugi
-     * 
-     * Function to get items' quantity from user input
-     * 
-     */
+
+    /** Added by: Jugi
+    * 
+    * Function to get items' quantity from user input
+    * 
+    */
     public static string GetItemQuantity(Config.Content currentConfig)
     {
       DisplayItemQuantityQuestion(currentConfig);

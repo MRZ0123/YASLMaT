@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Text.Json;
+using Team;
 
 namespace Manuel
 {
@@ -15,7 +16,7 @@ namespace Manuel
          */
         public struct Metadata
         {
-            public string Id { get; }
+            public string Id { get; set; }
             public string Name { get; set; }
             public string Shop { get; set; }
             public long FullItemCount { get; set; }
@@ -34,6 +35,11 @@ namespace Manuel
                 this.Id = id;
                 this.Name = name;
                 this.Shop = "";
+            }
+
+            public void UpdateItemCount(long count)
+            {
+                this.FullItemCount = count;
             }
 
         }
@@ -113,6 +119,48 @@ namespace Manuel
             {
                 this.Items.RemoveAt(index);
             }
+
+            public void UpdateItemCount()
+            {
+                this.Metadata.UpdateItemCount(this.Items.LongCount());
+            }
+        }
+
+
+        /** Added by: Manuel
+         * 
+         * function from reading and returning the entire content of a shopping list from file
+         * 
+         */
+        public static Content Read(Config.Content currentConfig, string id)
+        {
+            string dataDirLocation = currentConfig.ShoppingListDirectory;
+            string[] files = Directory.GetFiles(dataDirLocation, id + "__*.json");
+            if (files.Length == 0)
+            {
+                Menu.DisplayShlindexOnlyDeleteQuestion(currentConfig);
+                if (Menu.GetYesNoUserInput(currentConfig, Menu.DisplayShlindexOnlyDeleteQuestion))
+                {
+                    Shlindex.Content shlindex = Shlindex.Read(currentConfig);
+                    shlindex.RemoveMetadataById(id);
+                    Shlindex.Write(currentConfig, shlindex);
+                }
+                return new Content(); //! IMPORTANT: check if this return is only new Content() or actually has data
+            }
+            else
+            {
+                string shoppingListString = "";
+                using (StreamReader streamReader = new StreamReader(files[0]))
+                {
+                    string? currentLine;
+                    while ((currentLine = streamReader.ReadLine()) != null)
+                    {
+                        shoppingListString += (currentLine + "\n");
+                    }
+                }
+                Content shoppingList = JsonSerializer.Deserialize<Content>(shoppingListString);
+                return shoppingList;
+            }
         }
 
 
@@ -123,6 +171,7 @@ namespace Manuel
          */
         public static void Write(Config.Content currentConfig, Content content)
         {
+            content.UpdateItemCount();
             Shlindex.Content shlindex = Shlindex.Read(currentConfig);
             shlindex.AddMetadata(content.Metadata);
             Shlindex.Write(currentConfig, shlindex);
@@ -142,7 +191,7 @@ namespace Manuel
          * function to create a new id
          * 
          */
-        public static string GenerateNewId(Config.Content currentConfig)
+        public static string GenerateNewId()
         {
             Random random = new Random();
             const string aplphaNumericCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -157,7 +206,7 @@ namespace Manuel
          */
         public static void Rename(Config.Content currentConfig, string id, string newName)
         {
-            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "_*.json");
+            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "__*.json");
             // TODO: get shopping list starting with {id}
             Shlindex.Content index = Shlindex.Read(currentConfig);
             bool check = false;
@@ -182,16 +231,16 @@ namespace Manuel
          * function used to remove a shopping list based on a shopping list object
          * 
          */
-        /** TODO:
-         * TODO: check id
-         * TODO: delete shlindex entry
-         * TODO: delete file
-         * 
-         */
         public static void Remove(Config.Content currentConfig, string id)
         {
-            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "_*.json");
-            // TODO: get shopping list starting with {id}
+            string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "__*.json");
+            Shlindex.Content shlindex = Shlindex.Read(currentConfig);
+            shlindex.RemoveMetadataById(id);
+            Shlindex.Write(currentConfig, shlindex);
+            if (files.Length != 0)
+            {
+                File.Delete(files[0]);
+            }
         }
     }
 }
