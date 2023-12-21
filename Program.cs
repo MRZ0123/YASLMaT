@@ -278,7 +278,7 @@ namespace YASLMAT
                     {
                         allShlistMetadata = Shlindex.Read(currentConfig);
                         Menu.DisplayShoppingLists(currentConfig, allShlistMetadata);
-                        Menu.DisplaySelectRequest(currentConfig);
+                        Menu.DisplaySelectListRequest(currentConfig);
                         selectUserInput = Menu.GetUserInput();
                         selectUserInput ??= "";
                         int userSelectedList_converted = -1;
@@ -290,8 +290,8 @@ namespace YASLMAT
                                 string? userInputAfterSelect = "";
                                 while (userInputAfterSelect != "5")
                                 {
-                                    Menu.DisplaySelectedCombo(currentConfig);
-                                    userInputAfterSelect = Menu.GetRealUserInput(currentConfig, Menu.DisplaySelectedCombo);
+                                    Menu.DisplayListCombo(currentConfig);
+                                    userInputAfterSelect = Menu.GetRealUserInput(currentConfig, Menu.DisplayListCombo);
                                     if (userInputAfterSelect == "1")    // show list content
                                     {
 
