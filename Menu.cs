@@ -228,9 +228,20 @@ namespace Team
      * function to display which list is selected
      * 
      */
-    public static void DisplayWhichSelected(Config.Content currentConfig, int listNumber)
+    public static void DisplayWhichListSelected(Config.Content currentConfig, int listNumber)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? $"Sie haben Liste Nummer {listNumber} ausgewählt" : $"You have selected list number {listNumber}");
+    }
+
+
+    /** Added by: Manuel
+     * 
+     * function to display which Item is selected
+     * 
+     */
+    public static void DisplayWhichItemSelected(Config.Content currentConfig, int itemNumber)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? $"Sie haben Artikel Nummer {itemNumber} ausgewählt" : $"You have selected item number {itemNumber}");
     }
 
 
