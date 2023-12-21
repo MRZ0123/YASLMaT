@@ -291,12 +291,12 @@ namespace Team
     public static void DisplayShoppingListContent(Config.Content currentConfig, ShoppingList.Content shlistContent)
     {
       Console.WriteLine($"{(currentConfig.Language == "DE" ? "Liste: " : "list: ")}{shlistContent.Metadata.Name,30}{"; " + (shlistContent.Metadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : shlistContent.Metadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{shlistContent.Metadata.FullItemCount}");
-      if (shlistContent.Items.Count > 0) { Console.WriteLine("\n"); }
+      if (shlistContent.Items.Count > 0) { Console.WriteLine(); }
       for (int i = 0; i < shlistContent.Items.Count; i++)
       {
         // use [i] instead of .elementAt(i) for performance reasons
         ShoppingList.Item currentItem = shlistContent.Items[i];
-        Console.WriteLine($"({i + "):",5}{(currentConfig.Language == "DE" ? "Artikel: " : "Item: ")}{currentItem.ItemName,-30}{(currentConfig.Language == "DE" ? "Menge: " : "amount: ")}{currentItem.ItemCount,-5}");
+        Console.WriteLine($"({i + "): ",6}{(currentConfig.Language == "DE" ? "Artikel: " : "Item: ")}{currentItem.ItemName,-30}{(currentConfig.Language == "DE" ? "Menge: " : "amount: ")}{currentItem.ItemCount,-5}");
       }
     }
 
@@ -317,7 +317,7 @@ namespace Team
         for (int i = 0; i < index.MetadataShlindex.Count; i++)
         {
           ShoppingList.Metadata currentMetadata = index.MetadataShlindex[i];
-          Console.WriteLine($"{$"({i + "):",5} {(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}",-80}{(currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
+          Console.WriteLine($"{$"({i + "): ",6}{(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}",-80}{(currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
         }
       }
     }
@@ -377,7 +377,7 @@ namespace Team
     private static void DisplayItemOptionQuestion(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "1. Neuer Artikel hinzufügen" : "1. Add new item");
-      // Console.WriteLine(currentConfig.Language == "DE" ? "2. Artikel entfernen" : "2. Delete Item");
+      Console.WriteLine(currentConfig.Language == "DE" ? "2. Artikel entfernen" : "2. Delete Item");
       Console.WriteLine(currentConfig.Language == "DE" ? "3. Fertigstellen" : "3. Finish");
     }
 
