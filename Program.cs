@@ -273,10 +273,10 @@ namespace YASLMAT
                 }
                 else if (userInput == "2")  // select list (show all lists)
                 {
-                    allShlistMetadata = Shlindex.Read(currentConfig);
                     string? selectUserInput = "";
                     while (selectUserInput.ToLower() != "b")
                     {
+                        allShlistMetadata = Shlindex.Read(currentConfig);
                         Menu.DisplayShoppingLists(currentConfig, allShlistMetadata);
                         Menu.DisplaySelectRequest(currentConfig);
                         selectUserInput = Menu.GetUserInput();
