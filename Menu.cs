@@ -150,7 +150,7 @@ namespace Team
       DisplayFunction(currentConfig);
       DisplaySelectRequest(currentConfig);
     }
-    
+
 
     /** Added by: Jugi
      * 
@@ -172,6 +172,54 @@ namespace Team
     public static void DisplayChoiceRequest(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Option (1-3):" : "Please choose an option (1-3):");
+    }
+
+
+    /** Added by: Jugi
+     * 
+     * function to display a request for a choice from the user
+     * 
+     */
+    private static void DisplayChoiceRequestFour(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Option (1-4):" : "Please choose an option (1-4):");
+    }
+
+
+    /** Added by: Manuel
+     * 
+     * function to display option when a list is selected
+     * 
+     */
+    private static void DisplaySelectedOptions(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "1. Listeninhalt anzeigen" : "1. Show list content");
+      // Console.WriteLine(currentConfig.Language == "DE" ? "2. Liste umbenennen" : "2. Rename list");
+      // Console.WriteLine(currentConfig.Language == "DE" ? "3. Liste bearbeiten" : "3. edit list");
+      Console.WriteLine(currentConfig.Language == "DE" ? "4. Liste löschen" : "4. delete list");
+    }
+
+
+    /** Added by: Manuel
+     * 
+     * function to combo selected options and request
+     * 
+     */
+    public static void DisplaySelectedCombo(Config.Content currentConfig)
+    {
+      DisplaySelectedOptions(currentConfig);
+      DisplayChoiceRequestFour(currentConfig);
+    }
+
+
+    /** Added by: Manuel
+     * 
+     * function to display which list is selected
+     * 
+     */
+    public static void DisplayWhichSelected(Config.Content currentConfig, int listNumber)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? $"Sie haben Liste Nummer {listNumber} ausgewählt" : $"You have selected list number {listNumber}");
     }
 
 
