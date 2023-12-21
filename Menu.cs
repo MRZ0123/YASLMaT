@@ -140,18 +140,6 @@ namespace Team
     }
 
 
-    /** Added by: Manuel
-     * 
-     * function to combo select request with displaying lists and error
-     * TODO
-     */
-    public static void DisplaySelectCombo(Config.Content currentConfig, Action<Config.Content> DisplayFunction)
-    {
-      DisplayFunction(currentConfig);
-      DisplaySelectRequest(currentConfig);
-    }
-
-
     /** Added by: Jugi
      * 
      * Function to get shop name from user input
