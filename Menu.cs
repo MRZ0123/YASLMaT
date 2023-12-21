@@ -131,12 +131,23 @@ namespace Team
 
     /** Added by: Manuel
      * 
-     * function to ask for shopping list name
+     * function to ask for shopping list selection
      * 
      */
     public static void DisplaySelectRequest(Config.Content currentConfig)
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie eine Liste aus oder schreiben Sie b um zurück zu kommen" : "Please select a list or type b to go back");
+    }
+
+
+    /** Added by: Manuel
+     * 
+     * function to ask for item selection
+     * 
+     */
+    public static void DisplaySelectItemRequest(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte wählen Sie einen Artikel aus oder schreiben Sie b um zurück zu kommen" : "Please select an item or type b to go back");
     }
 
 
