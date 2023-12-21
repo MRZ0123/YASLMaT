@@ -230,22 +230,15 @@ namespace Manuel
          * function used to remove a shopping list based on a shopping list object
          * 
          */
-        /** TODO:
-         * TODO: delete shlindex entry
-         * TODO: delete file
-         * 
-         */
         public static void Remove(Config.Content currentConfig, string id)
         {
             string[] files = Directory.GetFiles(currentConfig.ShoppingListDirectory, id + "__*.json");
             Shlindex.Content shlindex = Shlindex.Read(currentConfig);
-            if (files.Length == 0)
+            shlindex.RemoveMetadataById(id);
+            Shlindex.Write(currentConfig, shlindex);
+            if (files.Length != 0)
             {
-                Menu.DisplayShlindexOnlyDeleteQuestion(currentConfig);
-                if (Menu.GetYesNoUserInput(currentConfig, Menu.DisplayShlindexOnlyDeleteQuestion))
-                {
-                    // shlindex.RemoveMetadataById(id);
-                }
+                File.Delete(files[0]);
             }
         }
     }
