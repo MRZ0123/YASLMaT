@@ -136,17 +136,30 @@ namespace Manuel
         {
             string dataDirLocation = currentConfig.ShoppingListDirectory;
             string[] files = Directory.GetFiles(dataDirLocation, id + "__*.json");
-            string shoppingListString = ""; // TODO: check if file exists before reading it
-            using (StreamReader streamReader = new StreamReader(files[0]))
+            if (files.Length == 0)
             {
-                string? currentLine;
-                while ((currentLine = streamReader.ReadLine()) != null)
+                Menu.DisplayShlindexOnlyDeleteQuestion(currentConfig);
+                if (Menu.GetYesNoUserInput(currentConfig, Menu.DisplayShlindexOnlyDeleteQuestion))
                 {
-                    shoppingListString += (currentLine + "\n");
+                    Shlindex.Content shlindex = Shlindex.Read(currentConfig);
+                    shlindex.RemoveMetadataById(id);
                 }
+                return new Content(); //! IMPORTANT: check if this return is only new Content() or actually has data
             }
-            Content shoppingList = JsonSerializer.Deserialize<Content>(shoppingListString);
-            return shoppingList;
+            else
+            {
+                string shoppingListString = "";
+                using (StreamReader streamReader = new StreamReader(files[0]))
+                {
+                    string? currentLine;
+                    while ((currentLine = streamReader.ReadLine()) != null)
+                    {
+                        shoppingListString += (currentLine + "\n");
+                    }
+                }
+                Content shoppingList = JsonSerializer.Deserialize<Content>(shoppingListString);
+                return shoppingList;
+            }
         }
 
 
@@ -218,7 +231,6 @@ namespace Manuel
          * 
          */
         /** TODO:
-         * TODO: check id
          * TODO: delete shlindex entry
          * TODO: delete file
          * 
