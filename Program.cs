@@ -4,30 +4,37 @@ using System.Text.Json;
 using Manuel;
 using Team;
 
+
+/** Added by: Manuel
+ * 
+ * Place to store global variables
+ * 
+ */
+public static class Globals
+{
+    public const bool DEBUG = false;
+}
+
+
 namespace YASLMAT
 {
 
     class Program
     {
 
-        /**
-         * TODO: Check -> if not -> Create
-         * TODO: Read -> beide dinger in Config.Content variable rein.
-         */
         static void Main(string[] args)
         {
-            bool DEBUG = false;
             string configFileLocation = "./conf.ig";
 
             // ***** DEBUG MSG *****
-            if (DEBUG) { Console.WriteLine($"DEBUG:\tChecking for config file at \"{configFileLocation}\"."); }
+            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tChecking for config file at \"{configFileLocation}\"."); }
             // **   -**#####**-   **
 
             if (!Config.Check(configFileLocation))
             {
 
                 // ***** DEBUG MSG *****
-                if (DEBUG) { Console.WriteLine($"DEBUG:\tNo config present.\nCreating config at \"{configFileLocation}\"."); }
+                if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tNo config present.\nCreating config at \"{configFileLocation}\"."); }
                 // **   -**#####**-   **
 
                 Config.Create(configFileLocation);
@@ -35,18 +42,18 @@ namespace YASLMAT
             else
             {
                 // ***** DEBUG MSG *****
-                if (DEBUG) { Console.WriteLine($"DEBUG:\tA config has been found."); }
+                if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tA config has been found."); }
                 // **   -**#####**-   **
             }
 
             // ***** DEBUG MSG *****
-            if (DEBUG) { Console.WriteLine($"DEBUG:\tReading from config."); }
+            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tReading from config."); }
             // **   -**#####**-   **
 
             Config.Content currentConfig = Config.Read(configFileLocation);
 
             // ***** DEBUG MSG *****
-            if (DEBUG) { Console.WriteLine($"DEBUG:\tCurrent config content is:\n{currentConfig}"); }
+            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tCurrent config content is:\n{currentConfig}"); }
             // **   -**#####**-   **
 
             if (!Directory.Exists(currentConfig.ShoppingListDirectory))
@@ -55,20 +62,20 @@ namespace YASLMAT
             }
 
             // ***** DEBUG MSG *****
-            if (DEBUG) { Console.WriteLine($"DEBUG:\tChecking if there's a Shlindex file."); }
+            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tChecking if there's a Shlindex file."); }
             // **   -**#####**-   **
 
             if (!Shlindex.Check(currentConfig))
             {
 
                 // ***** DEBUG MSG *****
-                if (DEBUG) { Console.WriteLine($"DEBUG:\tNo Shlindexfile found at\"{currentConfig.ShlindexFileLocation}\""); }
+                if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tNo Shlindexfile found at\"{currentConfig.ShlindexFileLocation}\""); }
                 // **   -**#####**-   **
 
                 Console.WriteLine(currentConfig.Language == "DE" ? "Es scheint, als wäre es das erste Mal, dass Sie dieses Programm gestartet haben.\nViel Spaß beim Benutzen dieses Programmes!" : "This seems to be the first time you have started this application.\nHave fun using this application!");
 
                 // ***** DEBUG MSG *****
-                if (DEBUG) { Console.WriteLine($"DEBUG:\tCreating empty Shlindex file."); }
+                if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tCreating empty Shlindex file."); }
                 // **   -**#####**-   **
 
                 Shlindex.Create(currentConfig);
@@ -77,31 +84,36 @@ namespace YASLMAT
             {
 
                 // ***** DEBUG MSG *****
-                if (DEBUG) { Console.WriteLine($"DEBUG:\tA shlindex has been found."); }
+                if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tA shlindex has been found."); }
                 // **   -**#####**-   **
 
             }
 
             // ***** DEBUG MSG *****
-            if (DEBUG) { Console.WriteLine($"DEBUG:\tReading all Shopping lists from shlindex."); }
+            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tReading all Shopping lists from shlindex."); }
             // **   -**#####**-   **
 
             Shlindex.Content allShlistMetadata = Shlindex.Read(currentConfig);
 
             // ***** DEBUG MSG *****
-            if (DEBUG) { Console.WriteLine($"DEBUG:\tDisplaying all Shopping lists."); }
+            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tDisplaying all Shopping lists."); }
             // **   -**#####**-   **
 
             Menu.DisplayShoppingLists(currentConfig, allShlistMetadata);
 
             // ***** DEBUG MSG *****
-            if (DEBUG) { Console.WriteLine($"DEBUG:\tDisplaying main menu."); }
+            if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tDisplaying main menu."); }
             // **   -**#####**-   **
 
             string userInput = "";
             while (userInput != "3")
             {
                 Menu.DisplayMainMenuCombo(currentConfig);
+
+                // ***** DEBUG MSG *****
+                if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tGetting user input."); }
+                // **   -**#####**-   **
+
                 userInput = Menu.GetRealUserInput(currentConfig, Menu.DisplayMainMenuCombo);
                 if (userInput != "1" && userInput != "2" && userInput != "3")
                 {
@@ -171,11 +183,11 @@ namespace YASLMAT
                                     userInputAfterSelect = Menu.GetRealUserInput(currentConfig, Menu.DisplaySelectedCombo);
                                     if (userInputAfterSelect == "1")    // show list content
                                     {
-                                        
+
                                         // ***** DEBUG MSG *****
-                                        if (DEBUG) { Console.WriteLine($"DEBUG:\tID: {allShlistMetadata.MetadataShlindex[userSelectedList_converted].Id}"); }
+                                        if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tID: {allShlistMetadata.MetadataShlindex[userSelectedList_converted].Id}"); }
                                         // **   -**#####**-   **
-                                        
+
                                         ShoppingList.Content shoppingListToBeDisplayed = ShoppingList.Read(currentConfig, allShlistMetadata.MetadataShlindex[userSelectedList_converted].Id);
                                         if (shoppingListToBeDisplayed.Equals(new ShoppingList.Content()))
                                         {
