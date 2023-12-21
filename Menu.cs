@@ -209,7 +209,7 @@ namespace Team
     public static void DisplaySelectedCombo(Config.Content currentConfig)
     {
       DisplaySelectedOptions(currentConfig);
-      DisplayChoiceRequestFour(currentConfig);
+      DisplayChoiceRequestFive(currentConfig);
     }
 
 
