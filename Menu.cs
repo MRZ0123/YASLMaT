@@ -240,7 +240,7 @@ namespace Team
      * Function to display combo
      * 
      */
-    public static void DisplayCombo(Config.Content currentConfig)
+    public static void DisplayMainMenuCombo(Config.Content currentConfig)
     {
       Display(currentConfig);
       DisplayChoiceRequest(currentConfig);
@@ -312,9 +312,80 @@ namespace Team
         {
           // use [i] instead of .elementAt(i) for performance reasons
           ShoppingList.Metadata currentMetadata = index.MetadataShlindex[i];
-          Console.WriteLine($"{"(" + i + "):",3}{(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
+          Console.WriteLine($"{"(" + i + "):",6}{(currentConfig.Language == "DE" ? "Name: " : "name: ")}{currentMetadata.Name,30}{"; " + (currentMetadata.Shop == "" ? (currentConfig.Language == "DE" ? "Kein Laden spezifiziert." : "no shop specified") : currentMetadata.Shop)}{"; " + (currentConfig.Language == "DE" ? "Artikel: " : "Items: ")}{currentMetadata.FullItemCount}");
         }
       }
+    }
+
+
+    /** Added by: Jugi
+      * 
+      * Function to ask for item name
+      * 
+      */
+    private static void DisplayItemNameQuestion(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie einen Artiekl ein:" : "Please enter a shopping item:");
+    }
+
+
+    /** Added by: Jugi
+      * 
+      * Function to ask for items' quantity
+      * 
+     */
+    private static void DisplayItemQuantityQuestion(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die Anzahl des Artikels ein:" : "Please enter a number of shopping items:");
+    }
+
+
+    /** Added by: Jugi
+     * 
+     * Function to get item name from user input
+     * 
+     */
+    public static string GetItemName(Config.Content currentConfig)
+    {
+      DisplayItemNameQuestion(currentConfig);
+      return GetRealUserInput(currentConfig, DisplayItemNameQuestion);
+    }
+
+
+    /** Added by: Jugi
+    * 
+    * Function to get items' quantity from user input
+    * 
+    */
+    public static string GetItemQuantity(Config.Content currentConfig)
+    {
+      DisplayItemQuantityQuestion(currentConfig);
+      return GetRealUserInput(currentConfig, DisplayItemQuantityQuestion);
+    }
+
+
+    /** Added by: Jugi
+      * 
+      * Function to display item options
+      * 
+     */
+    private static void DisplayItemOptionQuestion(Config.Content currentConfig)
+    {
+      Console.WriteLine(currentConfig.Language == "DE" ? "1. Neuer Artikel hinzufügen" : "1. Add new item");
+      // Console.WriteLine(currentConfig.Language == "DE" ? "2. Artikel entfernen" : "2. Delete Item");
+      Console.WriteLine(currentConfig.Language == "DE" ? "3. Fertigstellen" : "3. Finish");
+    }
+
+
+    /** Added by: Jugi
+     * 
+     * Function to display combo for items
+     * 
+     */
+    public static void DisplayItemCombo(Config.Content currentConfig)
+    {
+      DisplayItemOptionQuestion(currentConfig);
+      DisplayChoiceRequest(currentConfig);
     }
   }
 }
