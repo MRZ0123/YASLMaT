@@ -343,7 +343,7 @@ namespace Team
     {
       Console.WriteLine(currentConfig.Language == "DE" ? "Bitte geben Sie die Anzahl des Artikels ein:" : "Please enter the quantity of your shopping item:");
     }
-    
+
 
     /** Added by: Jugi
      * 
@@ -355,13 +355,13 @@ namespace Team
       DisplayItemNameQuestion(currentConfig);
       return GetRealUserInput(currentConfig, DisplayItemNameQuestion);
     }
-    
 
-     /** Added by: Jugi
-     * 
-     * Function to get items' quantity from user input
-     * 
-     */
+
+    /** Added by: Jugi
+    * 
+    * Function to get items' quantity from user input
+    * 
+    */
     public static string GetItemQuantity(Config.Content currentConfig)
     {
       DisplayItemQuantityQuestion(currentConfig);
