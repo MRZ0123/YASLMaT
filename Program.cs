@@ -242,8 +242,12 @@ namespace YASLMAT
                             // ***** DEBUG MSG *****
                             if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tGetting quantity for item from user."); }
                             // **   -**#####**-   **
-
-                            int newItemQuantity = Convert.ToInt32(Menu.GetItemQuantity(currentConfig));
+                            
+                            int newItemQuantity;
+                            while (!int.TryParse(Menu.GetItemQuantity(currentConfig), out newItemQuantity))
+                            {
+                                Menu.DisplayOptionError(currentConfig);
+                            }
 
                             // ***** DEBUG MSG *****
                             if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tGenerating new item based on gathered information."); }
@@ -269,11 +273,11 @@ namespace YASLMAT
                                 int userInputSelectedItem_converted = -1;
                                 if (int.TryParse(userInputSelectedItem, out userInputSelectedItem_converted))
                                 {
-                                    
+
                                     // ***** DEBUG MSG *****
                                     if (Globals.DEBUG) { Console.WriteLine($"DEBUG:\tNumber of Items: {newListContent.Items.Count}"); }
                                     // **   -**#####**-   **
-                                    
+
                                     if (userInputSelectedItem_converted >= 0 && userInputSelectedItem_converted < newListContent.Items.Count)
                                     {
                                         Menu.DisplayWhichItemSelected(currentConfig, userInputSelectedItem_converted);
